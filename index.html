@@ -82,7 +82,7 @@
 </span><span class="k">echo</span> <span class="nv">$sig</span><span class="p">;</span>
 </code></pre>
 <pre><code class="highlight shell"><span class="nv">expiry</span><span class="o">=</span><span class="k">$((</span><span class="sb">`</span>date +%s<span class="sb">`</span><span class="o">+</span><span class="m">1800</span><span class="k">))</span> <span class="c"># not more than 1800 seconds</span>
-<span class="nb">echo</span> -n <span class="s2">"&lt;INSERT_API_KEY&gt;</span><span class="nv">$expiry</span><span class="s2">"</span> | openssl dgst -sha1 -binary -hmac <span class="s2">"&lt;INSERT_API_KEY&gt;"</span> | base64
+<span class="nv">sig</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="s2">"&lt;INSERT_API_KEY&gt;</span><span class="nv">$expiry</span><span class="s2">"</span> | openssl dgst -sha1 -binary -hmac <span class="s2">"&lt;INSERT_API_KEY&gt;"</span> | base64<span class="k">)</span>
 </code></pre>
 
 <p>All methods require a valid trial or production API key. Methods which manipulate or retrieve data in your account additionally require a signature. You ideally need to generate this signature for each request and set a short expiry time. For testing purposes you can chose to create a signature that will be valid for up to 30 minutes.</p>
