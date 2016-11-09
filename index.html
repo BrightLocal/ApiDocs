@@ -4580,7 +4580,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'v4/lscu'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/lscu'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report-name'</span>               <span class="o">=&gt;</span> <span class="s1">'Sample SEO Check-Up Report'</span><span class="p">,</span> 
     <span class="s1">'business-names'</span>            <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Le Bernardin"</span><span class="p">],</span>
     <span class="s1">'website-addresses'</span>         <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"le-bernardin.com"</span><span class="p">,</span><span class="s2">"le-bernardin2.com"</span><span class="p">],</span>
@@ -4807,7 +4807,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'v4/lscu'</span><span class="p">,</span> <span class="p">[</span>   
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/lscu'</span><span class="p">,</span> <span class="p">[</span>   
     <span class="s1">'postcode'</span>                  <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span> 
     <span class="s1">'telephone'</span>                 <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
     <span class="s1">'country'</span>                   <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
@@ -5017,7 +5017,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/lscu'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/lscu'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report-id'</span> <span class="o">=&gt;</span> <span class="mi">860</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
@@ -5132,7 +5132,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'v4/lscu/run'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/lscu/run'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report-id'</span> <span class="o">=&gt;</span> <span class="mi">860</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
@@ -5217,7 +5217,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'v4/lscu'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'/v4/lscu'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report-id'</span> <span class="o">=&gt;</span> <span class="mi">860</span>
 <span class="p">]);</span>
 <span class="k">if</span><span class="p">(</span><span class="nv">$success</span><span class="p">)</span> <span class="p">{</span>
@@ -5304,7 +5304,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/lscu/search'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/lscu/search'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'q'</span> <span class="o">=&gt;</span> <span class="s1">'Bodega Wine Bar'</span>     
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
@@ -6917,7 +6917,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'v4/rf/add'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/rf/add'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report-name'</span>       <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span> 
     <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'contact-telephone'</span> <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
@@ -7094,7 +7094,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">INSERT_API_KEY</span><span class="o">&gt;</span><span class="s1">', '</span><span class="o">&lt;</span><span class="nx">INSERT_API_SECRET</span><span class="o">&gt;</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'contact-telephone'</span> <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span>
 <span class="p">]);</span>
@@ -7198,7 +7198,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -7382,7 +7382,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="p">);</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="p">);</span>
 <span class="k">if</span><span class="p">(</span><span class="nv">$success</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="s1">'Successfully deleted report.'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 <span class="p">}</span>
@@ -7462,7 +7462,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -7571,7 +7571,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/search'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/search'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'q'</span> <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span>    
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
@@ -7660,7 +7660,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">141</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$reviews</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/reviews'</span><span class="p">);</span>
+<span class="nv">$reviews</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/reviews'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$reviews</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -7828,7 +7828,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">141</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$count</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/reviews/count'</span><span class="p">);</span>
+<span class="nv">$count</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/reviews/count'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$count</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -7896,7 +7896,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">141</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$growth</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/reviews/growth'</span><span class="p">);</span>
+<span class="nv">$growth</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/reviews/growth'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$growth</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -7969,7 +7969,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">141</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$directories</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/directories'</span><span class="p">);</span>
+<span class="nv">$directories</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/directories'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$directories</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -8154,7 +8154,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">141</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$stats</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/directories/stats'</span><span class="p">);</span>
+<span class="nv">$stats</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/directories/stats'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$stats</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -8252,7 +8252,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">141</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$stars</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/stars/count'</span><span class="p">);</span>
+<span class="nv">$stars</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="o">.</span> <span class="s1">'/stars/count'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$stars</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -8330,7 +8330,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'v4/gpw/add'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/gpw/add'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report_name'</span>    <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span> 
     <span class="s1">'business_names'</span> <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>       <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
@@ -8660,7 +8660,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -8762,7 +8762,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">'success'</span><span class="p">]))</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="s1">'Successfully deleted report.'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 <span class="p">}</span>
@@ -8831,7 +8831,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/gpw/'</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -8920,7 +8920,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'v4/gpw/run'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/gpw/run'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report-id'</span> <span class="o">=&gt;</span> <span class="mi">860</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
@@ -9006,7 +9006,7 @@
 
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/results'</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/results'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="se">\</span>
@@ -9868,6 +9868,14 @@
 <td></td>
 </tr>
 <tr>
+<td>demandforce</td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td>dexknows</td>
 <td><span class="yes">Yes</span></td>
 <td><span class="yes">Yes</span></td>
@@ -9998,7 +10006,7 @@
 <tr>
 <td>healthgrades</td>
 <td><span class="yes">Yes</span></td>
-<td></td>
+<td><span class="yes">Yes</span></td>
 <td><span class="yes">Yes</span></td>
 <td></td>
 <td></td>
@@ -10188,6 +10196,14 @@
 <td></td>
 </tr>
 <tr>
+<td>realpatientratings</td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td>salesspider</td>
 <td><span class="yes">Yes</span></td>
 <td></td>
@@ -10201,6 +10217,14 @@
 <td></td>
 <td><span class="yes">Yes</span></td>
 <td><span class="yes">Yes</span></td>
+<td></td>
+</tr>
+<tr>
+<td>smilereminder</td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -10249,6 +10273,30 @@
 <td></td>
 <td><span class="yes">Yes</span></td>
 <td><span class="yes">Yes</span></td>
+<td></td>
+</tr>
+<tr>
+<td>ucomparehealthcare</td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>vitals</td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>wellness</td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td><span class="yes">Yes</span></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -10358,7 +10406,7 @@
 <tr>
 <td>zocdoc</td>
 <td><span class="yes">Yes</span></td>
-<td></td>
+<td><span class="yes">Yes</span></td>
 <td><span class="yes">Yes</span></td>
 <td></td>
 <td></td>
