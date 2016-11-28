@@ -3,6 +3,7 @@ title: API Reference
 
 language_tabs:
   - php
+  - java
   - shell
 
 toc_footers:

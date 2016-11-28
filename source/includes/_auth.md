@@ -14,6 +14,10 @@ echo urlencode($sig); // for get requests
 echo $sig;
 ```
 
+```java
+ApiContext context = new ApiContext(API_KEY, API_SECRET);
+```
+
 ```shell
 expiry=$((`date +%s`+1800)) # not more than 1800 seconds
 sig=$(echo -n "<INSERT_API_KEY>$expiry" | openssl dgst -sha1 -binary -hmac "<INSERT_API_KEY>" | base64)
