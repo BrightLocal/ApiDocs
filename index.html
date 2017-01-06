@@ -1529,34 +1529,88 @@
 <h2 id="fetch-profile-url">Fetch Profile URL</h2>
 
 <p><span class="label label-info">Batch Method</span></p>
-<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+
+<blockquote>
+<p>Fetch profile url for 3 local directories</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Batches\V4</span> <span class="k">as</span> <span class="nx">BatchApi</span><span class="p">;</span>
+
+<span class="nv">$localDirectories</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'google'</span><span class="p">,</span>
+    <span class="s1">'yelp'</span><span class="p">,</span>
+    <span class="s1">'yahoo'</span>
+<span class="p">);</span>
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$batchApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BatchApi</span><span class="p">(</span><span class="nv">$api</span><span class="p">);</span>
+<span class="nv">$batchId</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$batchId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s1">'Created batch ID %d%s'</span><span class="p">,</span> <span class="nv">$batchId</span><span class="p">,</span> <span class="nx">PHP_EOL</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$localDirectories</span> <span class="k">as</span> <span class="nv">$localDirectory</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">'/v4/ld/fetch-profile-url'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'batch-id'</span>        <span class="o">=&gt;</span> <span class="nv">$batchId</span><span class="p">,</span>
+            <span class="s1">'business-names'</span>  <span class="o">=&gt;</span> <span class="s1">'La Bernardin\nBernardin Cafe\nBernardin restaraunt'</span><span class="p">,</span>
+            <span class="s1">'country'</span>         <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
+            <span class="s1">'city'</span>            <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
+            <span class="s1">'postcode'</span>        <span class="o">=&gt;</span> <span class="s1">'10019'</span>
+            <span class="s1">'local-directory'</span> <span class="o">=&gt;</span> <span class="nv">$localDirectory</span>            
+        <span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">'success'</span><span class="p">])</span> <span class="p">{</span>
+            <span class="nb">printf</span><span class="p">(</span><span class="s1">'Added job with ID %d%s'</span><span class="p">,</span> <span class="nv">$result</span><span class="p">[</span><span class="s1">'job-id'</span><span class="p">],</span> <span class="nx">PHP_EOL</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">(</span><span class="nv">$batchId</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Committed batch successfully.'</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="c1">// poll for results, in a real world example you might
+</span>        <span class="c1">// want to do this in a separate process (such as via an
+</span>        <span class="c1">// AJAX poll)
+</span>        <span class="k">do</span> <span class="p">{</span>
+            <span class="nv">$results</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">get_results</span><span class="p">(</span><span class="nv">$batchId</span><span class="p">);</span>
+            <span class="nb">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// limit how often you poll
+</span>        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$results</span><span class="p">[</span><span class="s1">'status'</span><span class="p">],</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Stopped'</span><span class="p">,</span> <span class="s1">'Finished'</span><span class="p">)));</span>
+        <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">localDirectories</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"google"</span><span class="p">);</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"yelp"</span><span class="p">);</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"yahoo"</span><span class="p">);</span>
+
+<span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">batchApi</span> <span class="n">batchRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">batchApi</span><span class="p">(</span><span class="n">Api</span><span class="p">);</span>
 
 <span class="c1">// Create a new batch
 </span><span class="kt">int</span> <span class="n">batchId</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">();</span>
-<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-names"</span><span class="p">,</span> <span class="s">"La Bernardin\nBernardin Cafe\nBernardin restaraunt"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"city"</span><span class="p">,</span> <span class="s">"New York"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"local-directory"</span><span class="p">,</span> <span class="s">"google"</span><span class="p">);</span>
 
-<span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/ld/fetch-profile-url"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
+<span class="c1">// Add jobs to batch
+</span><span class="k">foreach</span> <span class="p">(</span><span class="n">var</span> <span class="n">directory</span> <span class="k">in</span> <span class="n">localDirectories</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+    <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-names"</span><span class="p">,</span> <span class="s">"La Bernardin\nBernardin Cafe\nBernardin restaraunt"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"city"</span><span class="p">,</span> <span class="s">"New York"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"local-directory"</span><span class="p">,</span> <span class="n">directory</span><span class="p">);</span>
+
+    <span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/ld/fetch-profile-url"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
-        <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
-        <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+        <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
+            <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+            <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+        <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Commit the batch, resturns true or false
@@ -1711,32 +1765,84 @@
 <h2 id="fetch-profile-url-(telephone-number-only)">Fetch Profile URL (Telephone Number Only)</h2>
 
 <p><span class="label label-info">Batch Method</span></p>
-<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+
+<blockquote>
+<p>Fetch profile url (telephone number only) for 3 local directories</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Batches\V4</span> <span class="k">as</span> <span class="nx">BatchApi</span><span class="p">;</span>
+
+<span class="nv">$localDirectories</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'google'</span><span class="p">,</span>
+    <span class="s1">'yelp'</span><span class="p">,</span>
+    <span class="s1">'yahoo'</span>
+<span class="p">);</span>
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$batchApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BatchApi</span><span class="p">(</span><span class="nv">$api</span><span class="p">);</span>
+<span class="nv">$batchId</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$batchId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s1">'Created batch ID %d%s'</span><span class="p">,</span> <span class="nv">$batchId</span><span class="p">,</span> <span class="nx">PHP_EOL</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$localDirectories</span> <span class="k">as</span> <span class="nv">$localDirectory</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="o">/</span><span class="nx">v4</span><span class="o">/</span><span class="nx">ld</span><span class="o">/</span><span class="nx">fetch</span><span class="o">-</span><span class="nx">profile</span><span class="o">-</span><span class="nx">url</span><span class="s1">', array(
+            '</span><span class="nx">batch</span><span class="o">-</span><span class="nx">id</span><span class="s1">'        =&gt; $batchId,
+            '</span><span class="nx">telephone</span><span class="s1">'       =&gt; '</span><span class="o">+</span><span class="mi">1</span> <span class="mi">212</span><span class="o">-</span><span class="mi">554</span><span class="o">-</span><span class="mi">1515</span><span class="s1">',
+            '</span><span class="nx">search</span><span class="o">-</span><span class="nx">type</span><span class="s1">'     =&gt; '</span><span class="nx">search</span><span class="o">-</span><span class="nx">by</span><span class="o">-</span><span class="nx">phone</span><span class="s1">',         
+            '</span><span class="nx">local</span><span class="o">-</span><span class="nx">directory</span><span class="s1">' =&gt; $localDirectory            
+        ));
+        if ($result['</span><span class="nx">success</span><span class="s1">']) {
+            printf('</span><span class="nx">Added</span> <span class="nx">job</span> <span class="nx">with</span> <span class="nx">ID</span> <span class="o">%</span><span class="nx">d</span><span class="o">%</span><span class="nx">s</span><span class="s1">', $result['</span><span class="nx">job</span><span class="o">-</span><span class="nx">id</span><span class="s1">'], PHP_EOL);
+        }
+    }
+    if ($batchApi-&gt;commit($batchId)) {
+        echo '</span><span class="nx">Committed</span> <span class="nx">batch</span> <span class="nx">successfully</span><span class="o">.</span><span class="s1">'.PHP_EOL;
+        // poll for results, in a real world example you might
+        // want to do this in a separate process (such as via an
+        // AJAX poll)
+        do {
+            $results = $batchApi-&gt;get_results($batchId);
+            sleep(10); // limit how often you poll
+        } while (!in_array($results['</span><span class="nx">status</span><span class="s1">'], array('</span><span class="nx">Stopped</span><span class="s1">', '</span><span class="nx">Finished</span><span class="err">'</span><span class="p">)));</span>
+        <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">localDirectories</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"google"</span><span class="p">);</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"yelp"</span><span class="p">);</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"yahoo"</span><span class="p">);</span>
+
+<span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">batchApi</span> <span class="n">batchRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">batchApi</span><span class="p">(</span><span class="n">Api</span><span class="p">);</span>
 
 <span class="c1">// Create a new batch
 </span><span class="kt">int</span> <span class="n">batchId</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">();</span>
-<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"local-directory"</span><span class="p">,</span> <span class="s">"google"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-type"</span><span class="p">,</span> <span class="s">"search-by-phone"</span><span class="p">);</span>
 
-<span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/ld/fetch-profile-url"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
+<span class="c1">// Add jobs to batch
+</span><span class="k">foreach</span> <span class="p">(</span><span class="n">var</span> <span class="n">directory</span> <span class="k">in</span> <span class="n">localDirectories</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+    <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"local-directory"</span><span class="p">,</span> <span class="n">directory</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-type"</span><span class="p">,</span> <span class="s">"search-by-phone"</span><span class="p">);</span>
+
+    <span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/ld/fetch-profile-url"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
-        <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
-        <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+        <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
+            <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+            <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+        <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Commit the batch, resturns true or false
@@ -1850,6 +1956,94 @@
 <p><span class="label label-info">Batch Method</span></p>
 
 <blockquote>
+<p>Fetch profile details (by profile URL)</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Batches\V4</span> <span class="k">as</span> <span class="nx">BatchApi</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$batchApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BatchApi</span><span class="p">(</span><span class="nv">$api</span><span class="p">);</span>
+<span class="nv">$batchId</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$batchId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s1">'Created batch ID %d%s'</span><span class="p">,</span> <span class="nv">$batchId</span><span class="p">,</span> <span class="nx">PHP_EOL</span><span class="p">);</span>   
+    <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">'/v4/ld/fetch-profile-details'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'batch-id'</span>        <span class="o">=&gt;</span> <span class="nv">$batchId</span><span class="p">,</span>
+        <span class="s1">'profile-url'</span>  <span class="o">=&gt;</span> <span class="s1">'https://www.google.com/search?q="Le+Bernardin"+"10019"'</span><span class="p">,</span>
+        <span class="s1">'country'</span>         <span class="o">=&gt;</span> <span class="s1">'USA'</span> 
+    <span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">'success'</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nb">printf</span><span class="p">(</span><span class="s1">'Added job with ID %d%s'</span><span class="p">,</span> <span class="nv">$result</span><span class="p">[</span><span class="s1">'job-id'</span><span class="p">],</span> <span class="nx">PHP_EOL</span><span class="p">);</span>
+    <span class="p">}</span>    
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">(</span><span class="nv">$batchId</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Committed batch successfully.'</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="c1">// poll for results, in a real world example you might
+</span>        <span class="c1">// want to do this in a separate process (such as via an
+</span>        <span class="c1">// AJAX poll)
+</span>        <span class="k">do</span> <span class="p">{</span>
+            <span class="nv">$results</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">get_results</span><span class="p">(</span><span class="nv">$batchId</span><span class="p">);</span>
+            <span class="nb">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// limit how often you poll
+</span>        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$results</span><span class="p">[</span><span class="s1">'status'</span><span class="p">],</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Stopped'</span><span class="p">,</span> <span class="s1">'Finished'</span><span class="p">)));</span>
+        <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+<span class="n">batchApi</span> <span class="n">batchRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">batchApi</span><span class="p">(</span><span class="n">Api</span><span class="p">);</span>
+
+<span class="c1">// Create a new batch
+</span><span class="kt">int</span> <span class="n">batchId</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">();</span>
+
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"profile-url"</span><span class="p">,</span> <span class="s">"https://www.google.com/search?q='Le+Bernardin'+'10019'"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>       
+
+<span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/ld/fetch-profile-details"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
+        <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+        <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Commit the batch, resturns true or false
+</span><span class="kt">bool</span> <span class="n">commit</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Commit</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+
+<span class="c1">// Poll for results. In a real world example you should do this in a background process, such as HangFire, or use the Task Parallel Library to create a BackGroundWorker Task.
+// It is bad practice to use Thread.Sleep(). This is only for the example and will actually freeze the UI until the while loop is finished. 
+</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+<span class="n">dynamic</span> <span class="n">directoryResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">directoryResults</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">directoryResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Stopped"</span> <span class="p">||</span> <span class="n">directoryResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Finished"</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">10000</span><span class="p">);</span>
+        <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+        <span class="n">directoryResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error Retrieving batch results "</span><span class="p">;</span>
+    <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">results</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
 <p>Success (201 Created)</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -1916,6 +2110,116 @@
 <h2 id="fetch-profile-details-(by-business-data)">Fetch Profile Details (by business data)</h2>
 
 <p><span class="label label-info">Batch Method</span></p>
+
+<blockquote>
+<p>Fetch profile details (by business data)</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Batches\V4</span> <span class="k">as</span> <span class="nx">BatchApi</span><span class="p">;</span>
+
+<span class="nv">$localDirectories</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'google'</span><span class="p">,</span>
+    <span class="s1">'yelp'</span><span class="p">,</span>
+    <span class="s1">'yahoo'</span>
+<span class="p">);</span>
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$batchApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BatchApi</span><span class="p">(</span><span class="nv">$api</span><span class="p">);</span>
+<span class="nv">$batchId</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$batchId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s1">'Created batch ID %d%s'</span><span class="p">,</span> <span class="nv">$batchId</span><span class="p">,</span> <span class="nx">PHP_EOL</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$localDirectories</span> <span class="k">as</span> <span class="nv">$localDirectory</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="o">/</span><span class="nx">v4</span><span class="o">/</span><span class="nx">ld</span><span class="o">/</span><span class="nx">fetch</span><span class="o">-</span><span class="nx">profile</span><span class="o">-</span><span class="nx">details</span><span class="o">-</span><span class="nx">by</span><span class="o">-</span><span class="nx">business</span><span class="o">-</span><span class="nx">data</span><span class="s1">', array(
+            '</span><span class="nx">batch</span><span class="o">-</span><span class="nx">id</span><span class="s1">'        =&gt; $batchId,
+            '</span><span class="nx">business</span><span class="o">-</span><span class="nx">names</span><span class="s1">'  =&gt; '</span><span class="nx">La</span> <span class="nx">Bernardin\nBernardin</span> <span class="nx">Cafe\nBernardin</span> <span class="nx">restaraunt</span><span class="s1">',
+            '</span><span class="nx">country</span><span class="s1">'         =&gt; '</span><span class="nx">USA</span><span class="s1">',
+            '</span><span class="nx">city</span><span class="s1">'            =&gt; '</span><span class="nx">New</span> <span class="nx">York</span><span class="s1">',
+            '</span><span class="nx">postcode</span><span class="s1">'        =&gt; '</span><span class="mi">10019</span><span class="s1">'
+            '</span><span class="nx">local</span><span class="o">-</span><span class="nx">directory</span><span class="s1">' =&gt; $localDirectory            
+        ));
+        if ($result['</span><span class="nx">success</span><span class="s1">']) {
+            printf('</span><span class="nx">Added</span> <span class="nx">job</span> <span class="nx">with</span> <span class="nx">ID</span> <span class="o">%</span><span class="nx">d</span><span class="o">%</span><span class="nx">s</span><span class="s1">', $result['</span><span class="nx">job</span><span class="o">-</span><span class="nx">id</span><span class="s1">'], PHP_EOL);
+        }
+    }
+    if ($batchApi-&gt;commit($batchId)) {
+        echo '</span><span class="nx">Committed</span> <span class="nx">batch</span> <span class="nx">successfully</span><span class="o">.</span><span class="s1">'.PHP_EOL;
+        // poll for results, in a real world example you might
+        // want to do this in a separate process (such as via an
+        // AJAX poll)
+        do {
+            $results = $batchApi-&gt;get_results($batchId);
+            sleep(10); // limit how often you poll
+        } while (!in_array($results['</span><span class="nx">status</span><span class="s1">'], array('</span><span class="nx">Stopped</span><span class="s1">', '</span><span class="nx">Finished</span><span class="err">'</span><span class="p">)));</span>
+        <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">localDirectories</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"google"</span><span class="p">);</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"yelp"</span><span class="p">);</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"yahoo"</span><span class="p">);</span>
+
+<span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+<span class="n">batchApi</span> <span class="n">batchRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">batchApi</span><span class="p">(</span><span class="n">Api</span><span class="p">);</span>
+
+<span class="c1">// Create a new batch
+</span><span class="kt">int</span> <span class="n">batchId</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">();</span>
+
+<span class="c1">// Add jobs to batch
+</span><span class="k">foreach</span> <span class="p">(</span><span class="n">var</span> <span class="n">directory</span> <span class="k">in</span> <span class="n">localDirectories</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-names"</span><span class="p">,</span> <span class="s">"La Bernardin\nBernardin Cafe\nBernardin restaraunt"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"city"</span><span class="p">,</span> <span class="s">"New York"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span><span class="p">);</span>
+    <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"local-directory"</span><span class="p">,</span> <span class="n">directory</span><span class="p">);</span>
+
+    <span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/ld/fetch-profile-details-by-business-data"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
+            <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+            <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Commit the batch, resturns true or false
+</span><span class="kt">bool</span> <span class="n">commit</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Commit</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+
+<span class="c1">// Poll for results. In a real world example you should do this in a background process, such as HangFire, or use the Task Parallel Library to create a BackGroundWorker Task.
+// It is bad practice to use Thread.Sleep(). This is only for the example and will actually freeze the UI until the while loop is finished. 
+</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+<span class="n">dynamic</span> <span class="n">directoryResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">directoryResults</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">directoryResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Stopped"</span> <span class="p">||</span> <span class="n">directoryResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Finished"</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">10000</span><span class="p">);</span>
+        <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+        <span class="n">directoryResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error Retrieving batch results "</span><span class="p">;</span>
+    <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">results</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
 
 <blockquote>
 <p>Success (201 Created)</p>
@@ -2242,8 +2546,6 @@
 <span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"google"</span><span class="p">);</span>
 <span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"facebook"</span><span class="p">);</span>
 <span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"yahoo"</span><span class="p">);</span>
-
-
 
 <span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">batchApi</span> <span class="n">batchRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">batchApi</span><span class="p">(</span><span class="n">Api</span><span class="p">);</span>
@@ -2618,6 +2920,59 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+<span class="n">batchApi</span> <span class="n">batchRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">batchApi</span><span class="p">(</span><span class="n">Api</span><span class="p">);</span>
+
+<span class="c1">// Create a new batch
+</span><span class="kt">int</span> <span class="n">batchId</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">();</span>
+
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-url"</span><span class="p">,</span> <span class="s">"http://le-bernardin.com"</span><span class="p">);</span>   
+
+<span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/seo/offsite"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
+        <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+        <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Commit the batch, resturns true or false
+</span><span class="kt">bool</span> <span class="n">commit</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Commit</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+
+<span class="c1">// Poll for results. In a real world example you should do this in a background process, such as HangFire, or use the Task Parallel Library to create a BackGroundWorker Task.
+// It is bad practice to use Thread.Sleep(). This is only for the example and will actually freeze the UI until the while loop is finished. 
+</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+<span class="n">dynamic</span> <span class="n">offsiteResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">offsiteResults</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">offsiteResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Stopped"</span> <span class="p">||</span> <span class="n">offsiteResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Finished"</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">10000</span><span class="p">);</span>
+        <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+        <span class="n">offsiteResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error Retrieving batch results "</span><span class="p">;</span>
+    <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">results</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
 
 <blockquote>
 <p>Success (201 Created)</p>
@@ -2725,6 +3080,69 @@
 </span>        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$results</span><span class="p">[</span><span class="s1">'status'</span><span class="p">],</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Stopped'</span><span class="p">,</span> <span class="s1">'Finished'</span><span class="p">)));</span>
         <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+<span class="n">batchApi</span> <span class="n">batchRequest</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">batchApi</span><span class="p">(</span><span class="n">Api</span><span class="p">);</span>
+
+<span class="c1">// Create a new batch
+</span><span class="kt">int</span> <span class="n">batchId</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">();</span>
+
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"batch-id"</span><span class="p">,</span> <span class="n">batchId</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-url"</span><span class="p">,</span> <span class="s">"http://le-bernardin.com"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"fetch-twitter"</span><span class="p">,</span> <span class="s">"yes"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"fetch-facebook"</span><span class="p">,</span> <span class="s">"yes"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"fetch-foursqaure"</span><span class="p">,</span> <span class="s">"yes"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-names"</span><span class="p">,</span> <span class="s">"['Le Bernardin', 'Bernardin Cafe']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"street-addess"</span><span class="p">,</span> <span class="s">"155 West 51st Street"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"city"</span><span class="p">,</span> <span class="s">"New York"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"state-code"</span><span class="p">,</span> <span class="s">"NY"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">jobId</span> <span class="p">=</span> <span class="n">Api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/social/profiles"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ResponseStatus</span> <span class="p">==</span> <span class="n">ResponseStatus</span><span class="p">.</span><span class="n">Completed</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dynamic</span> <span class="n">job</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(!</span><span class="n">job</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error adding job"</span><span class="p">;</span>
+        <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span> <span class="p">+</span> <span class="n">job</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">job</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+        <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">jobId</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Commit the batch, resturns true or false
+</span><span class="kt">bool</span> <span class="n">commit</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">Commit</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+
+<span class="c1">// Poll for results. In a real world example you should do this in a background process, such as HangFire, or use the Task Parallel Library to create a BackGroundWorker Task.
+// It is bad practice to use Thread.Sleep(). This is only for the example and will actually freeze the UI until the while loop is finished. 
+</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+<span class="n">dynamic</span> <span class="n">socialResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">socialResults</span><span class="p">.</span><span class="n">success</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">socialResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Stopped"</span> <span class="p">||</span> <span class="n">socialResults</span><span class="p">.</span><span class="n">status</span> <span class="p">!=</span> <span class="s">"Finished"</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">10000</span><span class="p">);</span>
+        <span class="n">results</span> <span class="p">=</span> <span class="n">batchRequest</span><span class="p">.</span><span class="nf">GetResults</span><span class="p">(</span><span class="n">batchId</span><span class="p">);</span>
+        <span class="n">socialResults</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">"Error Retrieving batch results "</span><span class="p">;</span>
+    <span class="n">var</span> <span class="n">batchException</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">results</span><span class="p">.</span><span class="n">ErrorException</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="n">batchException</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
 
@@ -2942,6 +3360,7 @@
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/clients/'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'client-id'</span>            <span class="o">=&gt;</span> <span class="mi">36447</span><span class="p">,</span>
     <span class="s1">'name'</span>                 <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>               
     <span class="s1">'company-url'</span>          <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'business-category-id'</span> <span class="o">=&gt;</span>  <span class="mi">791</span>    
@@ -2952,6 +3371,7 @@
  -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
+ -d <span class="s1">'client-id=36447'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'company-url=le-bernardin.com'</span> <span class="se">\</span>
  -d <span class="s1">'business-category-id=&lt;INSERT_BUSINESS_CATEGORY_ID&gt;'</span> <span class="se">\</span>
@@ -3043,7 +3463,7 @@
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-       <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"client-id"</span><span class="p">,</span> <span class="s">"36447"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"client-id"</span><span class="p">,</span> <span class="s">"36447"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/clients/"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -3182,7 +3602,7 @@
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-        <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"q"</span><span class="p">,</span> <span class="s">"BrightLocal"</span><span class="p">);</span>      
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"q"</span><span class="p">,</span> <span class="s">"BrightLocal"</span><span class="p">);</span>      
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/clients/search"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -3931,11 +4351,11 @@
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-        <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
-        <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
-        <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
-        <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">);</span>
-        <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/lsrc/add"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -3946,7 +4366,7 @@
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
     </span><span class="s2">"response"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Report Added"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"location-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9907"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"campaign-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9907"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">298</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5290,6 +5710,26 @@
    <span class="p">)</span>
 <span class="p">));</span>
 </code></pre>
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">localDirectories</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">dynamic</span><span class="p">&gt;();</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span>
+<span class="p">{</span>
+    <span class="n">yellowbot</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowbot.com/le-bernardin-new-york-ny.html"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="n">yes</span>
+    <span class="p">},</span>
+    <span class="n">yellowpages</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowpages.com/new-york-ny/mip/le-bernardin-9909153"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="n">yes</span>
+    <span class="p">},</span>
+    <span class="n">yelp</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="n">yes</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
 
 <blockquote>
 <p>Success (201 Created)</p>
@@ -5516,6 +5956,26 @@
        <span class="s1">'include'</span> <span class="o">=&gt;</span> <span class="s1">'yes'</span>
    <span class="p">)</span>
 <span class="p">));</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">localDirectories</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">dynamic</span><span class="p">&gt;();</span>
+<span class="n">localDirectories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span>
+<span class="p">{</span>
+    <span class="n">yellowbot</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowbot.com/le-bernardin-new-york-ny.html"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="n">yes</span>
+    <span class="p">},</span>
+    <span class="n">yellowpages</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowpages.com/new-york-ny/mip/le-bernardin-9909153"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="n">yes</span>
+    <span class="p">},</span>
+    <span class="n">yelp</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="n">yes</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -7012,6 +7472,103 @@
 <p><span class="label label-info">Account Method</span></p>
 
 <blockquote>
+<p>Create Campaign</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+
+<span class="nv">$briefDescription</span> <span class="o">=</span> <span class="s1">'Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Coze’s set to open Le Bernardin in New York in 1986.'</span><span class="p">;</span>
+<span class="nv">$fullDescription</span> <span class="o">=</span> <span class="s1">'The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York City’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including “Outstanding Restaurant of the Year,” “Top Chef in New York City,” “Outstanding Service,” “Outstanding Chef in the United States,” “Outstanding Pastry Chef,” “Outstanding Wine Service,” and “Best Restaurant Design” in 2012. 
+Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/cb/create'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'campaign_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin CItation Burst'</span><span class="p">,</span>
+    <span class="s1">'business_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
+    <span class="s1">'website_address'</span>            <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
+    <span class="s1">'campaign_country'</span>           <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
+    <span class="s1">'campaign_city'</span>              <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
+    <span class="s1">'business_category_id'</span>       <span class="o">=&gt;</span> <span class="mi">605</span><span class="p">,</span>
+    <span class="s1">'business_categories'</span>        <span class="o">=&gt;</span> <span class="s1">'["restaurant", "cafe"]'</span><span class="p">,</span>
+    <span class="s1">'address1'</span>                   <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
+    <span class="s1">'address2'</span>                   <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'city'</span>                       <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
+    <span class="s1">'region'</span>                     <span class="o">=&gt;</span> <span class="s1">'New York, USA'</span><span class="p">,</span>
+    <span class="s1">'postcode'</span>                   <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
+    <span class="s1">'contact_name'</span>               <span class="o">=&gt;</span> <span class="s1">'Hanane Moshe'</span><span class="p">,</span>
+    <span class="s1">'contact_firstname'</span>          <span class="o">=&gt;</span> <span class="s1">'Hanane'</span><span class="p">,</span>
+    <span class="s1">'contact_telephone'</span>          <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
+    <span class="s1">'contact_email'</span>              <span class="o">=&gt;</span> <span class="s1">'hananemo@gmail'</span><span class="p">,</span>
+    <span class="s1">'brief_description'</span>          <span class="o">=&gt;</span> <span class="nv">$briefDescription</span><span class="p">,</span>
+    <span class="s1">'full_description'</span>           <span class="o">=&gt;</span> <span class="nv">$fullDescription</span><span class="p">,</span>
+    <span class="s1">'employees_number'</span>           <span class="o">=&gt;</span> <span class="mi">35</span><span class="p">,</span>
+    <span class="s1">'start_year'</span>                 <span class="o">=&gt;</span> <span class="mi">1976</span><span class="p">,</span>
+    <span class="s1">'working_hours_apply_to_all'</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">'working_hours_mon_start'</span>    <span class="o">=&gt;</span> <span class="mi">0800</span><span class="p">,</span>
+    <span class="s1">'working_hours_mon_end'</span>      <span class="o">=&gt;</span> <span class="mi">2200</span><span class="p">,</span>
+    <span class="s1">'working_hours_tue_start'</span>    <span class="o">=&gt;</span> <span class="mi">0800</span><span class="p">,</span>
+    <span class="s1">'working_hours_tue_end'</span>      <span class="o">=&gt;</span> <span class="mi">2200</span><span class="p">,</span>
+    <span class="s1">'working_hours_wed_start'</span>    <span class="o">=&gt;</span> <span class="mi">0800</span><span class="p">,</span>
+    <span class="s1">'working_hours_wed_end'</span>      <span class="o">=&gt;</span> <span class="mi">2200</span><span class="p">,</span>
+    <span class="s1">'working_hours_thu_start'</span>    <span class="o">=&gt;</span> <span class="mi">0800</span><span class="p">,</span>
+    <span class="s1">'working_hours_thu_end'</span>      <span class="o">=&gt;</span> <span class="mi">2200</span><span class="p">,</span>
+    <span class="s1">'working_hours_fri_start'</span>    <span class="o">=&gt;</span> <span class="mi">0800</span><span class="p">,</span>
+    <span class="s1">'working_hours_fri_end'</span>      <span class="o">=&gt;</span> <span class="mi">2200</span><span class="p">,</span>
+    <span class="s1">'working_hours_sat_start'</span>    <span class="o">=&gt;</span> <span class="mi">0800</span><span class="p">,</span>
+    <span class="s1">'working_hours_sat_end'</span>      <span class="o">=&gt;</span> <span class="mi">2200</span><span class="p">,</span>
+    <span class="s1">'working_hours_sun_start'</span>    <span class="o">=&gt;</span> <span class="mi">0800</span><span class="p">,</span>
+    <span class="s1">'working_hours_sun_end'</span>      <span class="o">=&gt;</span> <span class="mi">2200</span>   
+<span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+
+<span class="kt">string</span> <span class="n">brief_description</span> <span class="p">=</span> <span class="s">"Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: Fresh, simple and prepared with respect. After receiving its first Michelin star in 1976, and two more in 1980, the Le Coze’s set to open Le Bernardin in New York in 1986."</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">full_description</span> <span class="p">=</span> <span class="s">"The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York City’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 including “Outstanding Restaurant of the Year,” “Top Chef in New York City,” “Outstanding Service,” “Outstanding Chef in the United States,” “Outstanding Pastry Chef,” “Outstanding Wine Service,” and “Best Restaurant Design” in 2012. 
+</span><span class="n">Most</span> <span class="n">recently</span><span class="p">,</span> <span class="n">the</span> <span class="n">Foundation</span> <span class="n">named</span> <span class="n">Maguy</span> <span class="n">Le</span> <span class="n">Coze</span> <span class="k">as</span> <span class="n">Outstanding</span><span class="p">.</span><span class="s">";
+</span>
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_name"</span><span class="p">,</span> <span class="s">"Sample Citation Burst Campaign"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business_name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website_address"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_city"</span><span class="p">,</span> <span class="s">"New York"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_state"</span><span class="p">,</span> <span class="s">"NY"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business_category_id"</span><span class="p">,</span> <span class="m">605</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business_categories"</span><span class="p">,</span> <span class="s">"['restaurant', 'cafe']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address1"</span><span class="p">,</span> <span class="s">"155 West 51st Street"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address2"</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"city"</span><span class="p">,</span> <span class="s">"New York"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"region"</span><span class="p">,</span> <span class="s">"New York, USA"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact_name"</span><span class="p">,</span> <span class="s">"Hanane Moshe"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact_firstname"</span><span class="p">,</span> <span class="s">"Hanane"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact_telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">;</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact_email"</span><span class="p">,</span> <span class="s">"hananemo@gmail.com"</span><span class="p">);</span>      
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"brief_description"</span><span class="p">,</span> <span class="n">brief_description</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"full_description"</span><span class="p">,</span> <span class="n">full_description</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"employees_number"</span><span class="p">,</span> <span class="m">35</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"start_year"</span><span class="p">,</span> <span class="m">1976</span><span class="p">);</span>            
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_apply_to_all"</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_mon_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_mon_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_tue_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_tue_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_wed_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_wed_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_thu_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_thu_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_fri_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_fri_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sat_start"</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sat_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sun_start"</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sun_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>          
+
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/cb/create"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
 <p>Validation Failure</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -7040,7 +7597,12 @@
     </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location with ID 0 not found or doesn't belong to this customer"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="p">{</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Success (200 OK)</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"campaign-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">280</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -7561,6 +8123,27 @@
 <p><span class="label label-info">Account Method</span></p>
 
 <blockquote>
+<p>Get Citations</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v2/cb/citations'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'campaign_id'</span> <span class="o">=&gt;</span> <span class="mi">1</span> 
+<span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">campaignId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign-id"</span><span class="p">,</span> <span class="n">campaignId</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">citations</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v2/cb/citations"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
 <p>Success (200 OK)</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -7638,7 +8221,30 @@
 <p><span class="label label-info">Account Method</span></p>
 
 <blockquote>
-<p>Success (200 OK)</p>
+<p>Confirm &amp; Pay</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/cb/confirm-and-pay'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'campaign_id'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'package_id'</span>  <span class="o">=&gt;</span> <span class="s1">'cb15'</span>
+<span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">campaignId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_id"</span><span class="p">,</span> <span class="n">campaignId</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"package_id"</span><span class="p">,</span> <span class="s">"cb15"</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/cb/confirm-and-pay"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Validation Failure</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -7648,6 +8254,13 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<blockquote>
+<p>Success (200 OK)
+<code class="prettyprint">json
+//needs to be added
+</code></p>
+</blockquote>
 
 <p>Confirm and pay (using credits) for a CB campaign.</p>
 
@@ -7708,6 +8321,23 @@
 <h2 id="get-campaigns">Get Campaigns</h2>
 
 <p><span class="label label-info">Account Method</span></p>
+
+<blockquote>
+<p>Get Campaigns</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/cb/get-all'</span><span class="p">);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+
+<span class="n">var</span> <span class="n">campaigns</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v2/cb/get-all"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+</code></pre>
 
 <blockquote>
 <p>Success (200 OK)</p>
@@ -7799,6 +8429,27 @@
 <h2 id="get-campaign">Get Campaign</h2>
 
 <p><span class="label label-info">Account Method</span></p>
+
+<blockquote>
+<p>Get Campaign</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$campaign</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v2/cb/get'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'campaign_id'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$campaign</span><span class="p">);</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">campaignId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign-id"</span><span class="p">,</span> <span class="n">campaignId</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">campaign</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v2/cb/get"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+</code></pre>
 
 <blockquote>
 <p>Success (200 OK)</p>
@@ -7971,6 +8622,26 @@
         <span class="s1">'include'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
     <span class="p">)</span>
 <span class="p">));</span>
+</code></pre>
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">directories</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">dynamic</span><span class="p">&gt;();</span>
+<span class="n">directories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span>
+<span class="p">{</span>
+    <span class="n">yellowbot</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowbot.com/le-bernardin-new-york-ny.html"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">},</span>
+    <span class="n">yellowpages</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowpages.com/new-york-ny/mip/le-bernardin-9909153"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">},</span>
+    <span class="n">yelp</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -8149,14 +8820,34 @@
     <span class="p">)</span>
 <span class="p">));</span>
 </code></pre>
+<pre><code class="highlight csharp"><span class="n">var</span> <span class="n">directories</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">dynamic</span><span class="p">&gt;();</span>
+<span class="n">directories</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span>
+<span class="p">{</span>
+    <span class="n">yellowbot</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowbot.com/le-bernardin-new-york-ny.html"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">},</span>
+    <span class="n">yellowpages</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">"http://www.yellowpages.com/new-york-ny/mip/le-bernardin-9909153"</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">},</span>
+    <span class="n">yelp</span> <span class="p">=</span> <span class="k">new</span>
+    <span class="p">{</span>
+        <span class="n">url</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+        <span class="n">include</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 
-<blockquote>
-<p>Success (200 Created)</p>
-</blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
+<span class="p">&gt;</span> <span class="nf">Success</span> <span class="p">(</span><span class="m">200</span> <span class="n">Created</span><span class="p">)</span>
+
+<span class="err">```</span><span class="n">json</span>
+<span class="p">{</span>
+    <span class="s">"success"</span><span class="p">:</span> <span class="k">true</span>
+<span class="p">}</span>
+</code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
