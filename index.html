@@ -8078,11 +8078,25 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <p><span class="label label-info">Account Method</span></p>
 
 <blockquote>
+<p>Upload Campaign</p>
+</blockquote>
+<pre><code class="highlight php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/cb/upload/&lt;campaignId&gt;/&lt;imageType&gt;'</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">'file'</span> <span class="o">=&gt;</span> <span class="nb">fopen</span><span class="p">(</span><span class="s1">'/path/to/image.jpg'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="p">]);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
 <p>Success (200 OK)</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File companyLogo.jpg uploaded"</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w">   </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w">  </span><span class="s2">"File companyLogo.jpg uploaded"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
