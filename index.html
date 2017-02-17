@@ -3683,10 +3683,10 @@
     <span class="s1">'country'</span>              <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span> <span class="c1">// 3 letter iso code
 </span>    <span class="s1">'address1'</span>             <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
     <span class="s1">'address2'</span>             <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
-    <span class="s1">'region'</span>               <span class="o">=&gt;</span> <span class="s1">'NY'</span> <span class="c1">// State or Region
+    <span class="s1">'region'</span>               <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span> <span class="c1">// State or Region
 </span>    <span class="s1">'city'</span>                 <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
     <span class="s1">'postcode'</span>             <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
-    <span class="s1">'telephone'</span>            <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span>
+    <span class="s1">'telephone'</span>            <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -3768,7 +3768,7 @@
 </tr>
 <tr>
 <td>url</td>
-<td><span class="label label-required">Required</span> 150 characters max</td>
+<td>256 characters max</td>
 </tr>
 <tr>
 <td>business-category-id</td>
@@ -3780,11 +3780,11 @@
 </tr>
 <tr>
 <td>address1</td>
-<td><span class="label label-required">Required</span> 50 characters max</td>
+<td><span class="label label-required">Required</span> 80 characters max</td>
 </tr>
 <tr>
 <td>address2</td>
-<td>50 characters max</td>
+<td>80 characters max</td>
 </tr>
 <tr>
 <td>region</td>
@@ -3796,7 +3796,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td><span class="label label-required">Required</span> 20 characters max</td>
+<td><span class="label label-required">Required</span> 80 characters max</td>
 </tr>
 <tr>
 <td>telephone</td>
@@ -3879,16 +3879,16 @@
 <span class="nv">$locationId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/'</span> <span class="o">.</span><span class="nv">$locationId</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">'name'</span>                 <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'url'</span>                  <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
-    <span class="s1">'business-category-id'</span> <span class="o">=&gt;</span>  <span class="mi">605</span><span class="p">,</span>
-    <span class="s1">'country'</span>              <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span> <span class="c1">// 3 letter iso code
-</span>    <span class="s1">'address1'</span>             <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
-    <span class="s1">'address2'</span>             <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
-    <span class="s1">'region'</span>               <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span> <span class="c1">// State or Region
-</span>    <span class="s1">'city'</span>                 <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
-    <span class="s1">'postcode'</span>             <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
-    <span class="s1">'telephone'</span>            <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span>
+    <span class="s1">'name'</span>                          <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
+    <span class="s1">'url'</span>                           <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
+    <span class="s1">'business-category-id'</span>          <span class="o">=&gt;</span>  <span class="mi">605</span><span class="p">,</span>
+    <span class="s1">'country'</span>                       <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span> <span class="c1">// 3 letter iso code
+</span>    <span class="s1">'address1'</span>                      <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
+    <span class="s1">'address2'</span>                      <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'region'</span>                        <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span> <span class="c1">// State or Region
+</span>    <span class="s1">'city'</span>                          <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
+    <span class="s1">'postcode'</span>                      <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
+    <span class="s1">'telephone'</span>                     <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -3969,7 +3969,7 @@
 </tr>
 <tr>
 <td>url</td>
-<td>150 characters max</td>
+<td>256 characters max</td>
 </tr>
 <tr>
 <td>business-category-id</td>
@@ -3981,11 +3981,11 @@
 </tr>
 <tr>
 <td>address1</td>
-<td>50 characters max</td>
+<td>80 characters max</td>
 </tr>
 <tr>
 <td>address2</td>
-<td>50 characters max</td>
+<td>80 characters max</td>
 </tr>
 <tr>
 <td>region</td>
@@ -3997,7 +3997,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td>20 characters max</td>
+<td>80 characters max</td>
 </tr>
 <tr>
 <td>telephone</td>
@@ -4009,7 +4009,7 @@
 </tr>
 <tr>
 <td>contact-first-name</td>
-<td>50 characters max</td>
+<td>50 cha8acters max</td>
 </tr>
 <tr>
 <td>contact-last-name</td>
@@ -4250,10 +4250,8 @@
   https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/search/
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
-
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-       <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"q"</span><span class="p">,</span> <span class="s">"BrightLocal"</span><span class="p">);</span>
-
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"q"</span><span class="p">,</span> <span class="s">"BrightLocal"</span><span class="p">);</span>
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/locations/search"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
@@ -4264,17 +4262,17 @@
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"locations"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"location-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"location-name"</span><span class="p">:</span><span class="s2">"BrightLocal HQ"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"client-id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"location-reference"</span><span class="p">:</span><span class="s2">"BL1"</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"location-reference"</span><span class="p">:</span><span class="s2">"BL1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
             </span><span class="s2">"location-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"location-name"</span><span class="p">:</span><span class="s2">"Talking Elephant"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"client-id"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
             </span><span class="s2">"location-reference"</span><span class="p">:</span><span class="s2">"TE12"</span><span class="w">
-       </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4354,7 +4352,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">));</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/lsrc/add"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
@@ -4462,7 +4460,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>telephone</td>
@@ -4530,7 +4528,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">));</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/lsrc/update"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
@@ -4643,7 +4641,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>telephone</td>
@@ -5252,6 +5250,9 @@
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"starred_keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"Alaska Bar Association"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">  
+        </span><span class="s2">"extra_results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Alaska Bar Association"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"local"</span><span class="p">,</span><span class="w"> </span><span class="s2">"video"</span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"search_engines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
@@ -5503,9 +5504,6 @@
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"starred_keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"Alaska+Bar+Association"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"summary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"all_search_engines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5681,7 +5679,7 @@
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample SEO Check-Up Report"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-names"</span><span class="p">,</span> <span class="s">"['Le Bernardin']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-names"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['Le Bernardin']"</span><span class="p">));</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-address"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address1"</span><span class="p">,</span> <span class="s">"155 Weest 51st Street"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address2"</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
@@ -5692,7 +5690,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-category"</span><span class="p">,</span> <span class="s">"Restaurant"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"primary-business-location"</span><span class="p">,</span> <span class="s">"NY, New York"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"['restaurant manhattan', 'cafe new york']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['restaurant manhattan', 'cafe new york']"</span><span class="p">));</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/lscu"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -5813,15 +5811,15 @@
 </tr>
 <tr>
 <td>website-address</td>
-<td><span class="label label-required">Required</span> The address for your business website.</td>
+<td><span class="label label-required">Required</span> The address for your business website. 256 characters max.</td>
 </tr>
 <tr>
 <td>address1</td>
-<td><span class="label label-required">Required</span></td>
+<td><span class="label label-required">Required</span> 80 characters max.</td>
 </tr>
 <tr>
 <td>address2</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>area</td>
@@ -5837,7 +5835,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td><span class="label label-required">Required</span> A valid postcode or ZIP.</td>
+<td><span class="label label-required">Required</span> A valid postcode or ZIP. 80 characters max.</td>
 </tr>
 <tr>
 <td>telephone</td>
@@ -5939,7 +5937,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-category"</span><span class="p">,</span> <span class="s">"Restaurant"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"primary-business-location"</span><span class="p">,</span> <span class="s">"NY, New York"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"['restaurant manhattan', 'cafe new york']"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['restaurant manhattan', 'cafe new york']"</span><span class="p">));</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="s">"/v4/lscu"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -6060,15 +6058,15 @@
 </tr>
 <tr>
 <td>website-address</td>
-<td>The address for your business website.</td>
+<td>The address for your business website. 256 characters max.</td>
 </tr>
 <tr>
 <td>address1</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>address2</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>area</td>
@@ -6084,7 +6082,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td>A valid postcode or ZIP.</td>
+<td>A valid postcode or ZIP. 80 characters max.</td>
 </tr>
 <tr>
 <td>telephone</td>
@@ -6662,7 +6660,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>old-postcode-1</td>
@@ -6682,7 +6680,7 @@
 </tr>
 <tr>
 <td>website</td>
-<td><span class="label label-required">Required</span> Link to the website of your business.</td>
+<td><span class="label label-required">Required</span> Link to the website of your business. 256 characters max.</td>
 </tr>
 <tr>
 <td>business-type</td>
@@ -6838,7 +6836,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>old-postcode-1</td>
@@ -6858,7 +6856,7 @@
 </tr>
 <tr>
 <td>website</td>
-<td>Link to the website of your business.</td>
+<td>Link to the website of your business. 256 characters max.</td>
 </tr>
 <tr>
 <td>business-type</td>
@@ -7736,6 +7734,34 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td><span class="label label-required">Required</span> If this field has a value of Y you only need to specify working hours for Monday and these values are then also used for the other days of the week.</td>
 </tr>
 <tr>
+<td>working_hours_mon_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_mon_start and working_hours_mon_end.</td>
+</tr>
+<tr>
+<td>working_hours_tue_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_tue_start and working_hours_tue_end.</td>
+</tr>
+<tr>
+<td>working_hours_wed_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_wed_start and working_hours_wed_end.</td>
+</tr>
+<tr>
+<td>working_hours_thu_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_thu_start and working_hours_thu_end.</td>
+</tr>
+<tr>
+<td>working_hours_fri_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_fri_start and working_hours_fri_end.</td>
+</tr>
+<tr>
+<td>working_hours_sat_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_sat_start and working_hours_sat_end.</td>
+</tr>
+<tr>
+<td>working_hours_sun_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_sun_start and working_hours_sun_end.</td>
+</tr>
+<tr>
 <td>working_hours_mon_start</td>
 <td><span class="label label-required">Required</span></td>
 </tr>
@@ -8027,6 +8053,34 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <tr>
 <td>working_hours_apply_to_all</td>
 <td>If this field has a value of Y you only need to specify working hours for Monday and these values are then also used for the other days of the week.</td>
+</tr>
+<tr>
+<td>working_hours_mon_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_mon_start and working_hours_mon_end.</td>
+</tr>
+<tr>
+<td>working_hours_tue_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_tue_start and working_hours_tue_end.</td>
+</tr>
+<tr>
+<td>working_hours_wed_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_wed_start and working_hours_wed_end.</td>
+</tr>
+<tr>
+<td>working_hours_thu_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_thu_start and working_hours_thu_end.</td>
+</tr>
+<tr>
+<td>working_hours_fri_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_fri_start and working_hours_fri_end.</td>
+</tr>
+<tr>
+<td>working_hours_sat_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_sat_start and working_hours_sat_end.</td>
+</tr>
+<tr>
+<td>working_hours_sun_24hrs</td>
+<td>Y or N. Defaults to N. This can be used in place of working_hours_sun_start and working_hours_sun_end.</td>
 </tr>
 <tr>
 <td>working_hours_mon_start</td>
@@ -10652,15 +10706,15 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>address1</td>
-<td><span class="label label-required">Required</span> Optional for report_type=without</td>
+<td><span class="label label-required">Required</span> 80 characters max.  Optional for report_type=without</td>
 </tr>
 <tr>
 <td>address2</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>profile_url</td>
-<td></td>
+<td>256 characters max.</td>
 </tr>
 <tr>
 <td>city</td>
@@ -10672,7 +10726,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>postcode</td>
-<td><span class="label label-required">Required</span> A valid postcode or ZIP. Optional for report_type=without</td>
+<td><span class="label label-required">Required</span> A valid postcode or ZIP. 80 characters max. Optional for report_type=without</td>
 </tr>
 <tr>
 <td>phone_number</td>
@@ -10834,15 +10888,15 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>address1</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>address2</td>
-<td></td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>profile_url</td>
-<td></td>
+<td>256 characters max.</td>
 </tr>
 <tr>
 <td>city</td>
@@ -10854,7 +10908,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>postcode</td>
-<td>A valid postcode or ZIP.</td>
+<td>A valid postcode or ZIP. 80 characters max.</td>
 </tr>
 <tr>
 <td>phone_number</td>
