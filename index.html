@@ -3269,8 +3269,7 @@
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/clients/'</span><span class="p">,</span> <span class="p">[</span>      
     <span class="s1">'name'</span>                 <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>               
-    <span class="s1">'company-url'</span>          <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
-    <span class="s1">'business-category-id'</span> <span class="o">=&gt;</span>  <span class="mi">791</span>    
+    <span class="s1">'company-url'</span>          <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -3280,7 +3279,6 @@
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'company-url=le-bernardin.com'</span> <span class="se">\</span>
- -d <span class="s1">'business-category-id=791'</span> <span class="se">\ </span>
  https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -3288,7 +3286,6 @@
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"company-url"</span><span class="p">,</span> <span class="s">"http://www.le-bernardin.com"</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-category-id"</span><span class="p">,</span> <span class="s">"791"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/clients/"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -3337,10 +3334,6 @@
 <td><span class="label label-required">Required</span> 150 characters max</td>
 </tr>
 <tr>
-<td>business-category-id</td>
-<td><span class="label label-required">Required</span> See here for a full list of valid business codes.</td>
-</tr>
-<tr>
 <td>reference-number</td>
 <td>An arbitrary unique reference you can use to identify a client. This may correspond to a unique value used within your system and can be useful when importing or exporting data. 50 characters max.</td>
 </tr>
@@ -3363,7 +3356,6 @@
     <span class="s1">'client-id'</span>            <span class="o">=&gt;</span> <span class="mi">36447</span><span class="p">,</span>
     <span class="s1">'name'</span>                 <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>               
     <span class="s1">'company-url'</span>          <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
-    <span class="s1">'business-category-id'</span> <span class="o">=&gt;</span>  <span class="mi">791</span>    
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -3374,7 +3366,6 @@
  -d <span class="s1">'client-id=36447'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'company-url=le-bernardin.com'</span> <span class="se">\</span>
- -d <span class="s1">'business-category-id=&lt;INSERT_BUSINESS_CATEGORY_ID&gt;'</span> <span class="se">\</span>
    https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/
 </code></pre>
 
@@ -3432,10 +3423,6 @@
 <tr>
 <td>company-url</td>
 <td>150 characters max</td>
-</tr>
-<tr>
-<td>business-category-id</td>
-<td>See here for a full list of valid business codes</td>
 </tr>
 <tr>
 <td>reference-number</td>
@@ -3538,8 +3525,7 @@
         </span><span class="s2">"client-id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"company-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"client-reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal-1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"business-category-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">650</span><span class="w">
+        </span><span class="s2">"client-reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal-1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3617,15 +3603,13 @@
             </span><span class="s2">"client-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"company-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"client-reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal-1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"business-category-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">650</span><span class="w">
+            </span><span class="s2">"client-reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal-1"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"client-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"company-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal 2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"client-reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal-2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"business-category-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">650</span><span class="w">
+            </span><span class="s2">"client-reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal-2"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
