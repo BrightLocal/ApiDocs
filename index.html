@@ -10697,16 +10697,20 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td>80 characters max.</td>
 </tr>
 <tr>
-<td>profile_url</td>
-<td>256 characters max.</td>
-</tr>
-<tr>
 <td>city</td>
 <td><span class="label label-required">Required</span> Optional for report_type=without</td>
 </tr>
 <tr>
 <td>state_code</td>
 <td><span class="label label-required">Required</span> (USA, CAN:EN and AUS)</td>
+</tr>
+<tr>
+<td>google_location</td>
+<td><span class="label label-required">Required</span> A valid google search location. Please refer to our location check method.</td>
+</tr>
+<tr>
+<td>is_public</td>
+<td>Determines whether or not to make the report available on a public URL you can give to your customers. One of Yes or No. Defaults to No.</td>
 </tr>
 <tr>
 <td>postcode</td>
@@ -10731,14 +10735,6 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <tr>
 <td>email_addresses</td>
 <td>Supply one or more (max 5) email addresses for us to send report alerts to. This only takes effect if notify is set to Yes. JSON string. For example, [&ldquo;email1@test.com&rdquo;,&ldquo;email2@test.com&rdquo;].</td>
-</tr>
-<tr>
-<td>google_location</td>
-<td>A valid google search location. Please refer to our location check method.</td>
-</tr>
-<tr>
-<td>is_public</td>
-<td>Determines whether or not to make the report available on a public URL you can give to your customers. One of Yes or No. Defaults to No.</td>
 </tr>
 <tr>
 <td>run</td>
@@ -10877,10 +10873,6 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <tr>
 <td>address2</td>
 <td>80 characters max.</td>
-</tr>
-<tr>
-<td>profile_url</td>
-<td>256 characters max.</td>
 </tr>
 <tr>
 <td>city</td>
