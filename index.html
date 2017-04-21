@@ -6541,10 +6541,12 @@
     <span class="s1">'report-name'</span>       <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'business-location'</span> <span class="o">=&gt;</span> <span class="s1">'New York, NY'</span><span class="p">,</span>
+    <span class="s1">'postcode'</span>          <span class="o">=&gt;</span> <span class="s1">'10020'</span><span class="p">,</span>
     <span class="s1">'phone'</span>             <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
     <span class="s1">'website'</span>           <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'business-type'</span>     <span class="o">=&gt;</span> <span class="s1">'Restaurant'</span><span class="p">,</span>
-    <span class="s1">'state-code'</span>        <span class="o">=&gt;</span> <span class="s1">'NY'</span> 
+    <span class="s1">'state-code'</span>        <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
+    <span class="s1">'primary_location'</span> <span class="o">=&gt;</span> <span class="s1">'10020'</span><span class="p">,</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -6556,9 +6558,11 @@
  -d <span class="s1">'business-name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'business-location=New York, NY'</span> <span class="se">\ </span>
  -d <span class="s1">'phone=+1 212-554-1515'</span> <span class="se">\</span>
+ -d <span class="s1">'postcode=10020'</span> <span class="se">\</span>
  -d <span class="s1">'website=le-bernardin.com'</span> <span class="se">\ </span>
  -d <span class="s1">'business-type=Restaurant'</span> <span class="se">\</span>
  -d <span class="s1">'state-code=NY'</span> <span class="se">\</span>
+ -d <span class="s1">'primary_location=10020'</span> <span class="se">\</span>
  https://tools.brightlocal.com/seo-tools/api/v2/ct/add
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -6568,9 +6572,11 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-location"</span><span class="p">,</span> <span class="s">"NY, New York"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"phone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10020"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-type"</span><span class="p">,</span> <span class="s">"Restaurant"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"state-code"</span><span class="p">,</span> <span class="s">"NY"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"primary_location"</span><span class="p">,</span> <span class="s">"10020"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/ct/add"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -6636,7 +6642,7 @@
 </tr>
 <tr>
 <td>postcode</td>
-<td>80 characters max.</td>
+<td><span class="label label-required">Required</span> 80 characters max.</td>
 </tr>
 <tr>
 <td>old-postcode-1</td>
@@ -6693,6 +6699,10 @@
 <tr>
 <td>is-public</td>
 <td>Publish reports on a white label URL. Yes or No.</td>
+</tr>
+<tr>
+<td>primary-location</td>
+<td><span class="label label-required">Required</span> We use ‘Location’ to identify your top 10 ‘Google+ Local’ competitors. Please enter your city/town name or zip/postcode. Note: for US businesses we strongly recommend that you use only 5 digit zips (99750, NOT 99750-0077) as using the longer format can make it harder for us to find competitors.</td>
 </tr>
 </tbody></table>
 
