@@ -4305,9 +4305,9 @@
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/lsrc/add'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
-    <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s1">'Restaurant\nfood+nyc\ndelivery+midtown+manhattan'</span><span class="p">,</span>
+    <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s2">"Restaurant</span><span class="se">\n</span><span class="s2">food+nyc</span><span class="se">\n</span><span class="s2">delivery+midtown+manhattan"</span><span class="p">,</span>
     <span class="s1">'website-addresses'</span> <span class="o">=&gt;</span> <span class="s1">'["le-bernardin.com","le-bernardin2.com"]'</span><span class="p">,</span>
-    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local'</span>
+    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -4317,11 +4317,11 @@
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
- -d <span class="s1">'search-terms=Restaurant\nfood+nyc\ndelivery+midtown+manhattan'</span> <span class="se">\ </span>
- -d <span class="s1">'website-addresses=["le-bernardin.com","le-bernardin2.com"]'</span> <span class="se">\</span>
- -d <span class="s1">'search-engines=google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local'</span> <span class="se">\ </span>
+ -d <span class="nv">$'</span>search-terms<span class="o">=</span>Restaurant<span class="se">\n</span>food+nyc<span class="se">\n</span>delivery+midtown+manhattan<span class="s1">' \ 
+ -d '</span>website-addresses<span class="o">=[</span><span class="s2">"le-bernardin.com"</span>,<span class="s2">"le-bernardin2.com"</span><span class="o">]</span><span class="s1">' \
+ -d '</span>search-engines<span class="o">=</span>google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local<span class="s1">' \ 
  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/add
-</code></pre>
+</span></code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
@@ -4329,7 +4329,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">));</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/lsrc/add"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -4479,9 +4479,9 @@
     <span class="s1">'campaign-id'</span>       <span class="o">=&gt;</span> <span class="mi">9907</span><span class="p">,</span>
     <span class="s1">'name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
-    <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s1">'Restaurant\nfood+nyc\ndelivery+midtown+manhattan'</span><span class="p">,</span>
+    <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s2">"Restaurant</span><span class="se">\n</span><span class="s2">food+nyc</span><span class="se">\n</span><span class="s2">delivery+midtown+manhattan"</span><span class="p">,</span>
     <span class="s1">'website-addresses'</span> <span class="o">=&gt;</span> <span class="s1">'["le-bernardin.com","le-bernardin2.com"]'</span><span class="p">,</span>
-    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local'</span>
+    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -4492,11 +4492,11 @@
  -d <span class="s1">'campaign-id=9907'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
- -d <span class="s1">'search-terms=Restaurant\nfood+nyc\ndelivery+midtown+manhattan'</span> <span class="se">\ </span>
- -d <span class="s1">'website-addresses=["le-bernardin.com","le-bernardin2.com"]'</span> <span class="se">\</span>
- -d <span class="s1">'search-engines=google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local'</span> <span class="se">\ </span>
+ -d <span class="nv">$'</span>search-terms<span class="o">=</span>Restaurant<span class="se">\n</span>food+nyc<span class="se">\n</span>delivery+midtown+manhattan<span class="s1">' \ 
+ -d '</span>website-addresses<span class="o">=[</span><span class="s2">"le-bernardin.com"</span>,<span class="s2">"le-bernardin2.com"</span><span class="o">]</span><span class="s1">' \
+ -d '</span>search-engines<span class="o">=</span>google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local<span class="s1">' \ 
  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/update
-</code></pre>
+</span></code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
@@ -4505,7 +4505,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">));</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google,google-mobile,google-local,yahoo,yahoo-local,bing, bing-local"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/lsrc/update"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
