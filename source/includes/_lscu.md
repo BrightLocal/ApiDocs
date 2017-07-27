@@ -13,7 +13,7 @@ use BrightLocal\Api;
 $api = new Api('<INSERT_API_KEY>', '<INSERT_API_SECRET>');
 $success = $api->post('/v4/lscu', [
     'report-name'               => 'Sample SEO Check-Up Report',
-    'business-names'            => ["Le Bernardin"],
+    'business-name'             => "Le Bernardin",
     'website-address'           => "le-bernardin.com",
     'address1'                  => '155 West 51st Street',
     'address2'                  => '',
@@ -35,7 +35,7 @@ curl -X POST \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \ 
  -d 'report-name=Sample SEO Check-Up Report' \
- -d 'business-names=["Le Bernardin"]' \
+ -d 'business-name=Le+Bernardin' \
  -d 'address1=155 West 51st Street' \ 
  -d 'address2=' \
  -d 'city=New York' \
