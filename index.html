@@ -84,7 +84,7 @@
 </span><span class="k">echo</span> <span class="nv">$sig</span><span class="p">;</span>
 </code></pre>
 <pre><code class="highlight shell"><span class="nv">expiry</span><span class="o">=</span><span class="k">$((</span><span class="sb">`</span>date +%s<span class="sb">`</span><span class="o">+</span><span class="m">1800</span><span class="k">))</span> <span class="c"># not more than 1800 seconds</span>
-<span class="nv">sig</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="s2">"&lt;INSERT_API_KEY&gt;</span><span class="nv">$expiry</span><span class="s2">"</span> | openssl dgst -sha1 -binary -hmac <span class="s2">"&lt;INSERT_API_KEY&gt;"</span> | base64<span class="k">)</span>
+<span class="nv">sig</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="s2">"&lt;INSERT_API_KEY&gt;</span><span class="nv">$expiry</span><span class="s2">"</span> | openssl dgst -sha1 -binary -hmac <span class="s2">"&lt;INSERT_API_SECRET&gt;"</span> | base64<span class="k">)</span>
 </code></pre>
 <pre><code class="highlight csharp">
 <span class="k">private</span> <span class="kt">string</span> <span class="n">api_key</span> <span class="p">=</span> <span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">;</span>
