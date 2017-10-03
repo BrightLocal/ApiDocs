@@ -3815,8 +3815,8 @@
 <td>20 characters max</td>
 </tr>
 <tr>
-<td>extra-business-categories</td>
-<td>Json encoded array.</td>
+<td>extra-business-categories-ids</td>
+<td>Json encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
 <td>working-hours</td>
@@ -4016,8 +4016,8 @@
 <td>20 characters max</td>
 </tr>
 <tr>
-<td>extra-business-categories</td>
-<td>Json encoded array.</td>
+<td>extra-business-categories-ids</td>
+<td>Json encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
 <td>working-hours</td>
@@ -4155,7 +4155,11 @@
         </span><span class="s2">"num-of-employees"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"year-of-formation"</span><span class="p">:</span><span class="s2">"2009"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"extra-business_categories"</span><span class="p">:[</span><span class="w">
-            </span><span class="s2">"marketing"</span><span class="w">
+          </span><span class="s2">"marketing"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"extra-business-categories-ids"</span><span class="p">:[</span><span class="w">
+            </span><span class="mi">503</span><span class="p">,</span><span class="w">
+            </span><span class="mi">2824</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"working-hours"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"mon_start"</span><span class="p">:</span><span class="s2">"9 a.m."</span><span class="p">,</span><span class="w">
@@ -7646,8 +7650,8 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
-<td>business_categories</td>
-<td><span class="label label-required">Required</span></td>
+<td>extra_business_categories_ids</td>
+<td><span class="label label-required">Required</span> JSON encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
 <td>address1</td>
@@ -7975,8 +7979,8 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td></td>
 </tr>
 <tr>
-<td>business_categories</td>
-<td></td>
+<td>extra_business_categories_ids</td>
+<td>JSON encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
 <td>address1</td>
@@ -8620,6 +8624,11 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
             </span><span class="s2">"campaign_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Diego"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"business_category_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2291"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"business_category_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar, liquor store, restaurant, food, store"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"extra_business_categories_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"1058"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"1160"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"5376"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
             </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"street_address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"505 Laurel Street"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"street_address_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
