@@ -5873,6 +5873,10 @@
 <td>run-report</td>
 <td>One of yes or no. Runs the report after adding. Defaults to no.</td>
 </tr>
+<tr>
+<td>exclude-sections</td>
+<td><p>Supply values as a JSON string belonging to the section(s) that you would like to exclude from your report.</p><p>You can pass these values &ldquo;links-and-authority&rdquo;, &ldquo;search-rankings&rdquo;, &ldquo;local-listings-and-reviews&rdquo;, &ldquo;google-my-business&rdquo;, &ldquo;on-site-seo&rdquo;, &ldquo;social-channels&rdquo; and &ldquo;appendix&rdquo;.</p><p>You don&rsquo;t have to pass this parameter if you don&rsquo;t want to exclude any sections from your report.</p></td>
+</tr>
 </tbody></table>
 
 <h2 id="update-report">Update Report</h2>
@@ -6118,6 +6122,10 @@
 <td>local-directory-urls</td>
 <td><p>This parameter allows you update the profile URLs we have stored for your business on each local directory, to exclude a directory from subsequent report runs or include one that isn&rsquo;t currently present. You can also manually supply profile URLs to correct ones that are incorrect or where we haven&rsquo;t been able to automatically find the relevant profile URL. All changes require the report to be re-run before they take effect.</p><p>The data for this parameter needs to be supplied as a JSON string. Local directory identifiers (the keys in the example below) are documented here. Here’s an example of how to generate suitable values in PHP:</p><p>Get the <a href="#local-directories-supported-by-local-seo-check-up-tool">list of directories supported by Local SEO Check-up tool from here.</a></p></td>
 </tr>
+<tr>
+<td>exclude-sections</td>
+<td><p>Supply values as a JSON string belonging to the section(s) that you would like to exclude from your report.</p><p>You can pass these values &ldquo;links-and-authority&rdquo;, &ldquo;search-rankings&rdquo;, &ldquo;local-listings-and-reviews&rdquo;, &ldquo;google-my-business&rdquo;, &ldquo;on-site-seo&rdquo;, &ldquo;social-channels&rdquo; and &ldquo;appendix&rdquo;.</p><p>You don&rsquo;t have to pass this parameter if you don&rsquo;t want to exclude any sections from your report.</p></td>
+</tr>
 </tbody></table>
 
 <h2 id="get-report">Get Report</h2>
@@ -6196,7 +6204,12 @@
       </span><span class="s2">"pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://tools.brightlocal.com/seo-tools/admin/lscu/reports/pdf/858"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"public_interactive_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.local-marketing-reports.com/seo-reports/&lt;hidden&gt;/858"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"public_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.local-marketing-reports.com/seo-reports/&lt;hidden&gt;/858.pdf"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"exclude_sections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"google-my-business"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"on-site-seo"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"appendix"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
