@@ -61,6 +61,7 @@ var success = request.Post("/v4/rf/add", parameters);
 ```php
 <?php
 echo json_encode(array(
+    'yellowbot' => array(
         'url'     => 'http://www.yellowbot.com/le-bernardin-new-york-ny.html',
         'include' => true
     ),
