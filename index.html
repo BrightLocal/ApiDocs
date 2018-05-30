@@ -5843,7 +5843,7 @@
 </tr>
 <tr>
 <td>bing-location</td>
-<td><span class="label label-required">Required</span> A valid bing search location. Please refer to our location check method.</td>
+<td>A valid bing search location. Please refer to our location check method.</td>
 </tr>
 <tr>
 <td>notify</td>
@@ -7516,6 +7516,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     <span class="s1">'working_hours_apply_to_all'</span> <span class="o">=&gt;</span> <span class="s1">'Y'</span><span class="p">,</span>
     <span class="s1">'working_hours_mon_start'</span>    <span class="o">=&gt;</span> <span class="s1">'8:00 am'</span><span class="p">,</span>
     <span class="s1">'working_hours_mon_end'</span>      <span class="o">=&gt;</span> <span class="s1">'10:00 pm'</span><span class="p">,</span> 
+    <span class="s1">'social_profile_links'</span>       <span class="o">=&gt;</span> <span class="s1">'{"facebook":"https:\/\/en-gb.facebook.com\/brightlocal\/","twitter":"https:\/\/twitter.com\/bright_local","linkedin":"https:\/\/uk.linkedin.com\/company\/bright-local-seo","instagram":"","pinterest":"https:\/\/www.pinterest.co.uk\/brightlocal\/"}'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -7561,7 +7562,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sat_start"</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sat_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sun_start"</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sun_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>          
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sun_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/cb/create"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -7591,6 +7592,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     </span><span class="s2">"employees_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter number of employees"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter starting year"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"working_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your must provide Working Hours for at least one day in the week"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"social_profile_links"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The supplied URL for facebook is too long (max 256 characters)"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"campaign_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid campaign status"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location with ID 0 not found or doesn't belong to this customer"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -7839,6 +7841,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td><p>String with &rsquo;&#124;&rsquo; delimiter. E.g. cash&#124;visa&#124;mastercard&#124;amex&#124;cheque&#124;atm&#124;discover. Possible values - cash&#124;visa&#124;mastercard&#124;amex&#124;cheque&#124;invoice&#124;insurance&#124;atm&#124;travellers&#124;financing&#124;paypal&#124;discover</p></td>
 </tr>
 <tr>
+<td>social_profile_links</td>
+<td>JSON encoded object. See example on the right for reference. Social channels supported are facebook, twitter, linkedin, pinterest and instagram.</td>
+</tr>
+<tr>
 <td>receive-email-alerts</td>
 <td></td>
 </tr>
@@ -7888,7 +7894,8 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     <span class="s1">'contact_name'</span>               <span class="o">=&gt;</span> <span class="s1">'Bloggs'</span><span class="p">,</span>
     <span class="s1">'contact_firstname'</span>          <span class="o">=&gt;</span> <span class="s1">'Joe'</span><span class="p">,</span>
     <span class="s1">'contact_telephone'</span>          <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
-    <span class="s1">'contact_email'</span>              <span class="o">=&gt;</span> <span class="s1">'joe.bloggs@test.com'</span>   
+    <span class="s1">'contact_email'</span>              <span class="o">=&gt;</span> <span class="s1">'joe.bloggs@test.com'</span><span class="p">,</span>  
+    <span class="s1">'social_profile_links'</span>       <span class="o">=&gt;</span> <span class="s1">'{"facebook":"https:\/\/en-gb.facebook.com\/brightlocal\/","twitter":"https:\/\/twitter.com\/bright_local","linkedin":"https:\/\/uk.linkedin.com\/company\/bright-local-seo","instagram":"","pinterest":"https:\/\/www.pinterest.co.uk\/brightlocal\/"}'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -7932,7 +7939,9 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     </span><span class="s2">"business_categories"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter at least one business category or tag"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"campaign_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please select state"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"campaign_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please select location"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter street address"</span><span class="w">  
+    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter street address"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"working_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your must provide Working Hours for at least one day in the week"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"social_profile_links"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please use valid social channels. Channels supported are facebook, twitter, linkedin, pinterest and instagram."</span><span class="w">  
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -8166,6 +8175,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <tr>
 <td>payment_methods</td>
 <td><p>String with &rsquo;&#124;&rsquo; delimiter. E.g. cash&#124;visa&#124;mastercard&#124;amex&#124;cheque&#124;atm&#124;discover. Possible values - cash, visa, mastercard, amex, cheque, invoice, insurance, atm, travellers, financing, paypal, discover</p></td>
+</tr>
+<tr>
+<td>social_profile_links</td>
+<td>Json encoded object. Social channels supported are facebook, twitter, linkedin, pinterest and instagram.</td>
 </tr>
 <tr>
 <td>receive-email-alerts</td>
@@ -8719,6 +8732,13 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
                 </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"social_profile_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/en-gb.facebook.com\/brightlocal\/"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/twitter.com\/bright_local"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"linkedin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/uk.linkedin.com\/company\/bright-local-seo"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"pinterest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/www.pinterest.co.uk\/brightlocal\/"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"instagram"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">            
             </span><span class="s2">"email_alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
