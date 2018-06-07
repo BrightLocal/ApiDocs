@@ -2627,6 +2627,10 @@
 <td>date-from</td>
 <td>Date Format: Y-m-d or Y-m-d H:i:s. By default not specified.</td>
 </tr>
+<tr>
+<td>start-page</td>
+<td>See <a href="#paging">paging</a> table below for details.</td>
+</tr>
 </tbody></table>
 
 <h2 id="fetch-reviews-(by-business-data)">Fetch Reviews (by business data)</h2>
@@ -3008,6 +3012,33 @@
 <tr>
 <td>date-from</td>
 <td>Date Format: Y-m-d or Y-m-d H:i:s. By default not specified.</td>
+</tr>
+<tr>
+<td>start-page</td>
+<td>See <a href="#paging">paging</a> table below for details.</td>
+</tr>
+</tbody></table>
+
+<h2 id="paging">Paging</h2>
+
+<p>We support up to 500 reviews per request to a given directory. If you need to retrieve more than 500 reviews you can use the start-page parameter and submit multiple requests to pick up older reviews. For example with Google to fetch 1000 reviews you&rsquo;d need to make two requests:</p>
+
+<ol>
+<li>Without start-page (or with start-page=1) to fetch reviews 1 - 500.</li>
+<li>With start-page=51 (Google returns 10 reviews per page) to fetch reviews 501 - 1000.</li>
+</ol>
+
+<h3 id="supported-directories">Supported Directories</h3>
+
+<table><thead>
+<tr>
+<th>Directory</th>
+<th>Number Reviews Per Page</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Google</td>
+<td>10</td>
 </tr>
 </tbody></table>
 
