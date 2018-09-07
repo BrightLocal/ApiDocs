@@ -162,6 +162,7 @@ profile-url | <span class="label label-required">Required</span> For requests to
 country | <span class="label label-required">Required</span>
 sort | 'rating' or 'date'. By default 'date'.
 reviews-limit | Positive number or 'all'. By default 100.
+next-page | Number for Google and a string value for the rest of directories.
 date-from | Date Format: Y-m-d or Y-m-d H:i:s. By default not specified.
 start-page | See [paging](#paging) table below for details.
 
@@ -315,6 +316,7 @@ else
               "country": "USA",
               "date-from": null,
               "reviews-limit": 250,
+              "start-page": 51,
               "sort-type": "date",
                "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             }
@@ -345,6 +347,7 @@ else
               "country": "USA",
               "date-from": null,
               "reviews-limit": 250,
+              "next-page": "100001023529042%3A292061516392",
               "sort-type": "date",
               "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             }
@@ -400,6 +403,7 @@ else
           "country": "USA",
           "date-from": null,
           "reviews-limit": 250,
+          "next-page": 51,
           "sort-type": "date",
           "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
           "parent-id": 549612293
@@ -437,6 +441,7 @@ else
           "country": "USA",
           "date-from": null,
           "reviews-limit": 250,
+          "start-page": "100001023529042%3A292061516392",
           "sort-type": "date",
           "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
           "parent-id": 549612304
@@ -506,6 +511,7 @@ country | <span class="label label-required">Required</span> Only USA.
 telephone | A valid telephone number. Providing this will improve the quality of results returned.
 sort | 'rating' or 'date'. By default 'date'.
 reviews-limit | Positive number or 'all'. By default 100.
+next-page | Number for Google and a string value for the rest of directories.
 date-from | Date Format: Y-m-d or Y-m-d H:i:s. By default not specified.
 start-page | See [paging](#paging) table below for details.
 
@@ -526,5 +532,5 @@ For directories such as DemandForce and Facebook, you will be returned next-star
 Directory   | Number Reviews Per Page
 ----------- | -----------------------
 Google      | 10
-DemandForce | -
-Facebook    | -
+DemandForce | 
+Facebook    | 
