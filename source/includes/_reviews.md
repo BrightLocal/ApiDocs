@@ -511,13 +511,20 @@ start-page | See [paging](#paging) table below for details.
 
 ## Paging
 
-We support up to 500 reviews per request to a given directory. If you need to retrieve more than 500 reviews you can use the start-page parameter and submit multiple requests to pick up older reviews. For example with Google to fetch 1000 reviews you'd need to make two requests:
+We support up to 500 reviews per request to a given directory. If you need to retrieve more than 500 reviews you can use the start-page parameter and submit multiple requests to pick up older reviews. For example with Google to fetch 1000 reviews you’d need to make two requests:
 
 1. Without start-page (or with start-page=1) to fetch reviews 1 - 500.
 2. With start-page=51 (Google returns 10 reviews per page) to fetch reviews 501 - 1000.
 
+For directories such as DemandForce and Facebook, you will be returned next-start-page parameter with a string value in your payload. Pass that value in the start-page parameter of next request to pick up older reviews. For example with Facebook to fetch 1000 reviews you’d need to make two requests:
+
+1. Without start-page to fetch reviews 1 - 500. Then take the string value returned in the next-start-page parameter, and 
+2. Pass next-start-page parameter's string value (from the previous request) in start-page parameter of your next request to fetch reviews 501 - 1000.
+
 ### Supported Directories
 
-Directory | Number Reviews Per Page
---------- | -----------------------
-Google    | 10
+Directory   | Number Reviews Per Page
+----------- | -----------------------
+Google      | 10
+DemandForce | -
+Facebook    | -
