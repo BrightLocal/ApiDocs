@@ -208,3 +208,67 @@ United Kingdom|GBR
 United States|USA
 Singapore|SGP
 South Africa|ZAF
+
+## Retrieve Google IDs given place ID
+
+
+<span class="label label-info">Account Method</span>
+
+> Retrieve Google IDs given place ID
+
+```php
+<?php
+use BrightLocal\Api;
+
+$api = new Api('<INSERT_API_KEY>', '<INSERT_API_SECRET>');
+$success = $api->get('v1/google-places/ids', [
+ 	'place-id' => 'ChIJIXceQBxRO4gRvbBpEaJDq_Y'    
+ ]);
+print_r($success);
+```
+
+```shell
+curl -X GET \
+ -d 'api-key=<INSERT_API_KEY>' \
+ -d 'place-id=ChIJIXceQBxRO4gRvbBpEaJDq_Y' \ 
+ https://tools.brightlocal.com/seo-tools/api/v1/google-places/ids
+```
+
+```csharp
+api request = new api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+
+var parameters = new api.Parameters();
+parameters.Add("place-id", "ChIJIXceQBxRO4gRvbBpEaJDq_Y");
+
+var success = request.Get("/v1/google-places/ids", parameters);
+```
+
+> Success (200 OK)
+
+```json
+{
+    "place-id": "ChIJIXceQBxRO4gRvbBpEaJDq_Y",
+    "ludocid": "17774374717703696573",
+    "lrd": "0x883b511c401e7721:0xf6ab43a21169b0bd"
+}
+```
+
+> Failure (400 Bad Request)
+
+```json
+{
+    "error": "Invalid place ID was supplied"
+}
+```
+
+### HTTP Request
+
+`GET https://tools.brightlocal.com/seo-tools/api/v1/google-places/ids`
+
+### Query Parameters
+
+Parameter | Notes
+--------- | -----
+api-key | <span class="label label-required">Required</span>
+place-id | <span class="label label-required">Required</span>
+
