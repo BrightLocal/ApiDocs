@@ -4467,7 +4467,7 @@
 </tr>
 </tbody></table>
 
-          <h1 id="local-search-rank-checker">Local Search Rank Checker</h1>
+          <h1 id="rank-checker">Rank Checker</h1>
 
 <h2 id="add-report">Add Report</h2>
 
@@ -5781,7 +5781,7 @@
 </tr>
 </tbody></table>
 
-          <h1 id="local-seo-check-up">Local SEO Check-up</h1>
+          <h1 id="local-search-audit">Local Search Audit</h1>
 
 <h2 id="add-report">Add Report</h2>
 
@@ -5795,7 +5795,7 @@
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/lscu'</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">'report-name'</span>               <span class="o">=&gt;</span> <span class="s1">'Sample SEO Check-Up Report'</span><span class="p">,</span>
+    <span class="s1">'report-name'</span>               <span class="o">=&gt;</span> <span class="s1">'Sample Local Search Audit Report'</span><span class="p">,</span>
     <span class="s1">'business-names'</span>            <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Le Bernardin"</span><span class="p">],</span>
     <span class="s1">'website-address'</span>           <span class="o">=&gt;</span> <span class="s2">"le-bernardin.com"</span><span class="p">,</span>
     <span class="s1">'address1'</span>                  <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
@@ -5815,7 +5815,7 @@
  -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\ </span>
- -d <span class="s1">'report-name=Sample SEO Check-Up Report'</span> <span class="se">\</span>
+ -d <span class="s1">'report-name=Sample Local Search Audit Report'</span> <span class="se">\</span>
  -d <span class="s1">'business-names=["Le Bernardin"]'</span> <span class="se">\</span>
  -d <span class="s1">'address1=155 West 51st Street'</span> <span class="se">\ </span>
  -d <span class="s1">'address2='</span> <span class="se">\</span>
@@ -5832,7 +5832,7 @@
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample SEO Check-Up Report"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Local Search Audit Report"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-names"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['Le Bernardin']"</span><span class="p">));</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-address"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address1"</span><span class="p">,</span> <span class="s">"155 Weest 51st Street"</span><span class="p">);</span>
@@ -5921,7 +5921,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Adds a new Local SEO Check-up report to your account.</p>
+<p>Adds a new Local Search Audit report to your account.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -6041,7 +6041,7 @@
 </tr>
 <tr>
 <td>local-directory-urls</td>
-<td><p>By default we try and find local directory profile URLs and information for your business in all directories we support. If you&rsquo;d like your report to only contain specific directories or already know the profile URLs for some directories you can supply them here. Please note that if you supply information for this parameter you need to give us all details of the directories you want included. If you have profile URLs for some but not others you can leave those URL fields empty and we&rsquo;ll do our best to find them. Generally we recommend you run your report for the first time without this setting and then use our update method to add/change URLs or remove directories if needed.</p><p>The data for this parameter needs to be supplied as a JSON string. Local directory identifiers (the keys in the example below) are documented here.</p><p>Get the <a href="#local-directories-supported-by-local-seo-check-up-tool">list of directories supported by Local SEO Check-up tool from here.</a></p></td>
+<td><p>By default we try and find local directory profile URLs and information for your business in all directories we support. If you&rsquo;d like your report to only contain specific directories or already know the profile URLs for some directories you can supply them here. Please note that if you supply information for this parameter you need to give us all details of the directories you want included. If you have profile URLs for some but not others you can leave those URL fields empty and we&rsquo;ll do our best to find them. Generally we recommend you run your report for the first time without this setting and then use our update method to add/change URLs or remove directories if needed.</p><p>The data for this parameter needs to be supplied as a JSON string. Local directory identifiers (the keys in the example below) are documented here.</p><p>Get the <a href="#local-directories-supported-by-local-seo-check-up-tool">list of directories supported by Local Search Audit tool from here.</a></p></td>
 </tr>
 <tr>
 <td>run-report</td>
@@ -6294,7 +6294,7 @@
 </tr>
 <tr>
 <td>local-directory-urls</td>
-<td><p>This parameter allows you update the profile URLs we have stored for your business on each local directory, to exclude a directory from subsequent report runs or include one that isn&rsquo;t currently present. You can also manually supply profile URLs to correct ones that are incorrect or where we haven&rsquo;t been able to automatically find the relevant profile URL. All changes require the report to be re-run before they take effect.</p><p>The data for this parameter needs to be supplied as a JSON string. Local directory identifiers (the keys in the example below) are documented here. Here’s an example of how to generate suitable values in PHP:</p><p>Get the <a href="#local-directories-supported-by-local-seo-check-up-tool">list of directories supported by Local SEO Check-up tool from here.</a></p></td>
+<td><p>This parameter allows you update the profile URLs we have stored for your business on each local directory, to exclude a directory from subsequent report runs or include one that isn&rsquo;t currently present. You can also manually supply profile URLs to correct ones that are incorrect or where we haven&rsquo;t been able to automatically find the relevant profile URL. All changes require the report to be re-run before they take effect.</p><p>The data for this parameter needs to be supplied as a JSON string. Local directory identifiers (the keys in the example below) are documented here. Here’s an example of how to generate suitable values in PHP:</p><p>Get the <a href="#local-directories-supported-by-local-seo-check-up-tool">list of directories supported by Local Search Audit tool from here.</a></p></td>
 </tr>
 <tr>
 <td>exclude-sections</td>
@@ -6761,7 +6761,7 @@
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracking Report"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracker Report"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-location"</span><span class="p">,</span> <span class="s">"NY, New York"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"phone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
@@ -6940,7 +6940,7 @@
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-id"</span><span class="p">,</span> <span class="m">682</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracking Report"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracker Report"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-location"</span><span class="p">,</span> <span class="s">"NY, New York"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"phone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
@@ -7649,7 +7649,7 @@
 </tr>
 </tbody></table>
 
-          <h1 id="citation-burst">Citation Burst</h1>
+          <h1 id="citation-builder">Citation Builder</h1>
 
 <h2 id="create-campaign">Create Campaign</h2>
 
@@ -7667,7 +7667,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/cb/create'</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">'campaign_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin CItation Burst'</span><span class="p">,</span>
+    <span class="s1">'campaign_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin Citation Builder'</span><span class="p">,</span>
     <span class="s1">'business_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'website_address'</span>            <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'campaign_country'</span>           <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
@@ -7701,7 +7701,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </span><span class="n">Most</span> <span class="n">recently</span><span class="p">,</span> <span class="n">the</span> <span class="n">Foundation</span> <span class="n">named</span> <span class="n">Maguy</span> <span class="n">Le</span> <span class="n">Coze</span> <span class="k">as</span> <span class="n">Outstanding</span><span class="p">.</span><span class="s">";
 </span>
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_name"</span><span class="p">,</span> <span class="s">"Sample Citation Burst Campaign"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_name"</span><span class="p">,</span> <span class="s">"Sample Citation Builder Campaign"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business_name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website_address"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
@@ -8053,7 +8053,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <span class="nv">$campaignId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v2/cb/'</span> <span class="o">.</span><span class="nv">$campaignId</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">'campaign_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin CItation Burst'</span><span class="p">,</span>
+    <span class="s1">'campaign_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin Citation Builder'</span><span class="p">,</span>
     <span class="s1">'business_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'website_address'</span>            <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'campaign_country'</span>           <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
@@ -8078,7 +8078,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <span class="n">var</span> <span class="n">campaignId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_name"</span><span class="p">,</span> <span class="s">"Sample Citation Burst Campaign"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_name"</span><span class="p">,</span> <span class="s">"Sample Citation Builder Campaign"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business_name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website_address"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign_country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span>
@@ -9233,7 +9233,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 </tbody></table>
 
-          <h1 id="reviewflow-reports">ReviewFlow Reports</h1>
+          <h1 id="reputation-manager">Reputation Manager</h1>
 
 <h2 id="add-report">Add Report</h2>
 
@@ -9275,7 +9275,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracking Report"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracker Report"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>            
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact-telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address1"</span><span class="p">,</span> <span class="s">"155 Weest 51st Street"</span><span class="p">);</span>
@@ -9982,7 +9982,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <p><span class="label label-info">Account Method</span></p>
 
 <blockquote>
-<p>Search for a ReviewFlow Report</p>
+<p>Search for a Reputation Manager Report</p>
 </blockquote>
 <pre><code class="highlight php"><span class="cp">&lt;?php</span>
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
@@ -10770,7 +10770,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 </tbody></table>
 
-          <h1 id="google+-local-wizard-reports">Google+ Local Wizard Reports</h1>
+          <h1 id="google-my-business">Google My Business</h1>
 
 <h2 id="add-report">Add Report</h2>
 
@@ -10872,7 +10872,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Adds a new Google+ Local Wizard report to your account.</p>
+<p>Adds a new Google My Business report to your account.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -11840,7 +11840,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
             </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4234324234"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"taken_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google+ Listing"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"taken_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google Listing"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -12085,7 +12085,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
             </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4234324234"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"taken_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google+ Listing"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"taken_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google Listing"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -12204,7 +12204,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
           <h1 id="appendix">Appendix</h1>
 
-<h2 id="constructing-google+-urls">Constructing Google+ URLs</h2>
+<h2 id="constructing-google-local-listing-url">Constructing Google Local listing URL</h2>
 <pre><code class="highlight php"><span class="cp">&lt;?php</span>
 <span class="nv">$url</span> <span class="o">=</span> <span class="s1">'https://www.google.com/search?'</span> <span class="o">.</span> <span class="nb">http_build_query</span><span class="p">([</span>
     <span class="s1">'q'</span>    <span class="o">=&gt;</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'"%s" "%s" %s'</span><span class="p">,</span> <span class="s1">'Hub Plumbing &amp; Mechanical Inc'</span><span class="p">,</span> <span class="s1">'New York'</span><span class="p">,</span> <span class="s1">'212-482-8500'</span><span class="p">),</span>
@@ -12310,7 +12310,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 </tbody></table>
 
-<h2 id="local-directories-supported-by-local-seo-check-up-tool">Local directories supported by Local SEO Check-up tool</h2>
+<h2 id="local-directories-supported-by-local-search-audit-tool">Local directories supported by Local Search Audit tool</h2>
 
 <h3 id="usa">USA</h3>
 
