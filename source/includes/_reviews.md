@@ -181,7 +181,6 @@ $batchApi = new BatchApi($api);
 $batchId = $batchApi->create();
 if ($batchId) {
     printf('Created batch ID %d%s', $batchId, PHP_EOL);
-    foreach ($profileUrls as $profileUrl) {
         $result = $api->call('/v4/ld/fetch-reviews-by-business-data', array(
             'batch-id'        => $batchId,
             'business-names'  => 'Le Bernardin',
@@ -194,8 +193,7 @@ if ($batchId) {
         ));
         if ($result['success']) {
             printf('Added job with ID %d%s', $result['job-id'], PHP_EOL);
-        }
-    }
+        }    
     if ($batchApi->commit($batchId)) {
         echo 'Committed batch successfully.'.PHP_EOL;
         // poll for results, in a real world example you might
@@ -223,8 +221,7 @@ batchApi batchRequest = new batchApi(Api);
 int batchId = batchRequest.Create();
 
 // Add jobs to batch
-foreach (var item in localDirectories)
-{    
+   
     var parameters = new api.Parameters();
     parameters.Add("batch-id", batchId);
     parameters.Add("business-names", "Le Bernardin\nLe Bernardin Cafe");
@@ -249,7 +246,7 @@ foreach (var item in localDirectories)
     {
         throw new ApplicationException(jobId.ErrorMessage);
     }
-}
+
 // Commit the batch, resturns true or false
 bool commit = batchRequest.Commit(batchId);
 
