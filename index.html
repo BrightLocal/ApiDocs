@@ -2234,7 +2234,7 @@
 </tr>
 <tr>
 <td>profile-url</td>
-<td><span class="label label-required">Required</span> For requests to fetch Google profile data please see <a href="#constructing-google+-urls">constructing Google URLs</a>.</td>
+<td><span class="label label-required">Required</span> For requests to fetch Google profile data please use our <a href="https://www.brightlocal.com/free-local-seo-tools/google-id-and-review-link-generator/">Google Link &amp; ID Generator tool</a> to generate your Google My Business Knowledge Panel URL.</td>
 </tr>
 <tr>
 <td>country</td>
@@ -2613,7 +2613,7 @@
 </tr>
 <tr>
 <td>profile-url</td>
-<td><span class="label label-required">Required</span> For requests to fetch Google reviews please see <a href="#constructing-google+-urls">constructing Google URLs</a>.</td>
+<td><span class="label label-required">Required</span> For requests to fetch Google profile data please use our <a href="https://www.brightlocal.com/free-local-seo-tools/google-id-and-review-link-generator/">Google Link &amp; ID Generator tool</a> to generate your Google My Business Knowledge Panel URL.</td>
 </tr>
 <tr>
 <td>country</td>
@@ -12203,30 +12203,6 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <p>Apigee produces a <a href="https://apigee.com/console/others">free API testing tool</a> which may help you to interactively query our API.</p>
 
           <h1 id="appendix">Appendix</h1>
-
-<h2 id="constructing-google-local-listing-url">Constructing Google Local listing URL</h2>
-<pre><code class="highlight php"><span class="cp">&lt;?php</span>
-<span class="nv">$url</span> <span class="o">=</span> <span class="s1">'https://www.google.com/search?'</span> <span class="o">.</span> <span class="nb">http_build_query</span><span class="p">([</span>
-    <span class="s1">'q'</span>    <span class="o">=&gt;</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'"%s" "%s" %s'</span><span class="p">,</span> <span class="s1">'Hub Plumbing &amp; Mechanical Inc'</span><span class="p">,</span> <span class="s1">'New York'</span><span class="p">,</span> <span class="s1">'212-482-8500'</span><span class="p">),</span>
-<span class="p">]);</span>
-</code></pre>
-<pre><code class="highlight php"><span class="cp">&lt;?php</span>
-<span class="nv">$url</span> <span class="o">=</span> <span class="s1">'https://www.google.com/search?'</span> <span class="o">.</span> <span class="nb">http_build_query</span><span class="p">([</span>
-    <span class="s1">'q'</span>   <span class="o">=&gt;</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'"%s" "%s"'</span><span class="p">,</span> <span class="s1">'Pizza Hut'</span><span class="p">,</span> <span class="s1">'67337'</span><span class="p">),</span>
-<span class="p">]);</span>    
-</code></pre>
-
-<p>Google recently simplified their Google+ profile pages and removed much of the useful profile information that we normally gather through APIs documented here, such as NAP and reviews. Consequently we have stopped using Google+ Local listings and have instead started tracking business profile information via Google SERP pages. This means that when requesting Google profile data or reviews via our API you need to supply us with a pre-formatted search URL rather than the plus URL that corresponds to that business. Your search URL should be constructed with one of the following formats:</p>
-
-<h3 id="business-names-(in-quotes)-+-zip-code-(in-quotes)-and-phone-number-(without-quotes)">Business names (in quotes) + zip code (in quotes) and phone number (without quotes)</h3>
-
-<p><code class="prettyprint">https://www.google.com/search?q=&quot;Hub+Plumbing+%26+Mechanical+Inc&quot;+&quot;New+York&quot;+212-482-8500</code></p>
-
-<h3 id="business-name-(in-quotes)-+-zipcode-(in-quotes)">Business name (in quotes) + zipcode (in quotes)</h3>
-
-<p><code class="prettyprint">https://www.google.com/search?q=&quot;Pizza+Hut&quot;+&quot;67337&quot;</code></p>
-
-<p>One format may work better than another for a specific business so we recommend testing both approaches to find the optimal profile URL. The code snippets on the right give examples of how to generate each type of URL.</p>
 
 <h2 id="supported-local-directories">Supported Local Directories</h2>
 
