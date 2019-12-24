@@ -6787,6 +6787,8 @@
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/ct/add'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'report-name'</span>       <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
+    <span class="s1">'address1'</span>          <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
+    <span class="s1">'address2'</span>          <span class="o">=&gt;</span> <span class="s1">'The Equitable Bldg'</span><span class="p">,</span>
     <span class="s1">'business-location'</span> <span class="o">=&gt;</span> <span class="s1">'New York, NY'</span><span class="p">,</span>
     <span class="s1">'postcode'</span>          <span class="o">=&gt;</span> <span class="s1">'10020'</span><span class="p">,</span>
     <span class="s1">'phone'</span>             <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
@@ -6803,6 +6805,8 @@
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'report-name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'business-name=Le Bernardin'</span> <span class="se">\</span>
+ -d <span class="s1">'address-1=155 West 51st Street'</span> <span class="se">\</span>
+ -d <span class="s1">'address-2=The Equitable Bldg'</span> <span class="se">\</span>
  -d <span class="s1">'business-location=New York, NY'</span> <span class="se">\ </span>
  -d <span class="s1">'phone=+1 212-554-1515'</span> <span class="se">\</span>
  -d <span class="s1">'postcode=10020'</span> <span class="se">\</span>
@@ -6817,6 +6821,8 @@
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracker Report"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address-1"</span><span class="p">,</span> <span class="s">"155 West 51st Street"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address-2"</span><span class="p">,</span> <span class="s">"The Equitable Bldg"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-location"</span><span class="p">,</span> <span class="s">"NY, New York"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"phone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10020"</span><span class="p">);</span>
@@ -6874,6 +6880,14 @@
 <tr>
 <td>business-name</td>
 <td><span class="label label-required">Required</span></td>
+</tr>
+<tr>
+<td>address-1</td>
+<td><span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.</td>
+</tr>
+<tr>
+<td>address-2</td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>business-location</td>
@@ -6968,6 +6982,8 @@
     <span class="s1">'report-id'</span>         <span class="o">=&gt;</span> <span class="mi">682</span><span class="p">,</span>
     <span class="s1">'report-name'</span>       <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
+    <span class="s1">'address1'</span>          <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
+    <span class="s1">'address2'</span>          <span class="o">=&gt;</span> <span class="s1">'The Equitable Bldg'</span><span class="p">,</span>
     <span class="s1">'business-location'</span> <span class="o">=&gt;</span> <span class="s1">'New York, NY'</span><span class="p">,</span>
     <span class="s1">'phone'</span>             <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
     <span class="s1">'website'</span>           <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
@@ -6983,6 +6999,8 @@
  -d <span class="s1">'report-id'</span><span class="o">=</span>682,
  -d <span class="s1">'report-name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'business-name=Le Bernardin'</span> <span class="se">\</span>
+ -d <span class="s1">'address-1=155 West 51st Street'</span> <span class="se">\</span>
+ -d <span class="s1">'address-2=The Equitable Bldg'</span> <span class="se">\</span>
  -d <span class="s1">'business-location=New York, NY'</span> <span class="se">\ </span>
  -d <span class="s1">'phone=+1 212-554-1515'</span> <span class="se">\</span>
  -d <span class="s1">'website=le-bernardin.com'</span> <span class="se">\ </span>
@@ -6996,6 +7014,8 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-id"</span><span class="p">,</span> <span class="m">682</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracker Report"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address-1"</span><span class="p">,</span> <span class="s">"155 West 51st Street"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"address-2"</span><span class="p">,</span> <span class="s">"The Equitable Bldg"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-location"</span><span class="p">,</span> <span class="s">"NY, New York"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"phone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">);</span>
@@ -7054,6 +7074,14 @@
 <tr>
 <td>business-name</td>
 <td></td>
+</tr>
+<tr>
+<td>address-1</td>
+<td><span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.</td>
+</tr>
+<tr>
+<td>address-2</td>
+<td>80 characters max.</td>
 </tr>
 <tr>
 <td>business-location</td>
