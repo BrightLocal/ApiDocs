@@ -723,15 +723,6 @@
     <span class="n">urls</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="s">"le-bernardin.com"</span> <span class="p">},</span>
     <span class="n">business_names</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="s">"Le Bernardin"</span> <span class="p">}</span>
 <span class="p">});</span>
-<span class="n">searches</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">RankingsSearch</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">search_engine</span> <span class="p">=</span> <span class="s">"yahoo"</span><span class="p">,</span>
-    <span class="n">country</span> <span class="p">=</span> <span class="s">"USA"</span><span class="p">,</span>
-    <span class="n">google_location</span> <span class="p">=</span> <span class="s">"New York, NY"</span><span class="p">,</span>
-    <span class="n">search_term</span> <span class="p">=</span> <span class="s">"restaurant new york"</span><span class="p">,</span>
-    <span class="n">urls</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="s">"le-bernardin.com"</span> <span class="p">},</span>
-    <span class="n">business_names</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="s">"Le Bernardin"</span> <span class="p">}</span>
-<span class="p">});</span>
 
 
 <span class="n">api</span> <span class="n">Api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -998,159 +989,7 @@
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"job-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">564270999</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"site"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo! Search"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"site-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.yahoo.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"search-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://search.yahoo.com/search?p=apos+therapy+new+york"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"search-term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apos therapy new york"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"result-types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"Organic"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Local"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Directory"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"http-error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"error-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"serp-screenshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/60f6391ac2751102165e4f6b7b360c97e8a63bc1.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/712b2c7d35f59309e36f8bdc79dab76b04695388.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/dace1c14755c4b1467e36cfce7a96af86604a785.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/2c381e008d53e0d02ec4d11cc03e29e5b618a236.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/f754b72bd373673cd6e4010519413d28ec22a1ab.png"</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"queue-attempts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"http-codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="mi">0</span><span class="w">
-          </span><span class="p">],</span><span class="w">
-          </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"search-engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"www.thecenternyc.com"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"business-names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"The center for chiropractic &amp; pt"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"the center for chiropractic decomperssion"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"search-term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apos therapy new york"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"646-606-2580"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"google-location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"bing-location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"include-name-only-matches"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"num-search-pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debug"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"listings"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"screenshots-enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"include-intermediate-html"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"append-location"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"job-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">564271014</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"site"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo! Search"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"site-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.yahoo.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"search-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://search.yahoo.com/search?p=redcord+therapy+manhattan"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"search-term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redcord therapy manhattan"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://thecenternyc.com/redcord-physical-therapy-manhattan/"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"orig_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.thecenternyc.com/redcord-physical-therapy-manhattan/"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redcord Physical Therapy Manhattan | Chiropractor..."</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ludocid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_rank"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                  </span><span class="s2">"website address"</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-                </span><span class="s2">"matched_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.thecenternyc.com"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"serp-screenshot-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/7609663e9087a81b92015e1c9af025257ae4be62.png"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://thecenternyc.com/redcord-manhattan/"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"orig_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.thecenternyc.com/redcord-manhattan/"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redcord Manhattan Archives &gt;&gt; The Center..."</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ludocid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_rank"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                  </span><span class="s2">"website address"</span><span class="w">
-                </span><span class="p">],</span><span class="w">
-                </span><span class="s2">"matched_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.thecenternyc.com"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"serp-screenshot-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/7609663e9087a81b92015e1c9af025257ae4be62.png"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"result-types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"Organic"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Local"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Directory"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"http-error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"error-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"serp-screenshots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/7609663e9087a81b92015e1c9af025257ae4be62.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/09424d6d44a145c86aa72c2948414d6bc220969b.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/54938f2561fea42cb97af038e85d3b8ec41d8a4c.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/2256d2c5362c6a7745f82f76bd28801322f902fa.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"https://seo-serp-screenshots.s3.amazonaws.com/2016/10/14/14/11ae9ee7f549d89e2248d97bf6cf3764d997e047.png"</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"queue-attempts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"http-codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="mi">0</span><span class="w">
-          </span><span class="p">],</span><span class="w">
-          </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"search-engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"www.thecenternyc.com"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"business-names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"The center for chiropractic &amp; pt"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"the center for chiropractic decomperssion"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"search-term"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redcord therapy manhattan"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"646-606-2580"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"google-location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"bing-location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"include-name-only-matches"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"num-search-pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"debug"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"listings"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"screenshots-enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"include-intermediate-html"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"append-location"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"job-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">564271015</span><span class="w">
       </span><span class="p">}</span><span class="w">
-
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1160,7 +999,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This API method allows you to retrieve search ranking (and listing data) from the major search engines and their local variants, namely Google, Google Maps, Yahoo!, Yahoo! Local, Bing and Bing Maps. It works for the USA, United Kingdom, Canada and Australia. The only exception is in Australia where Yahoo! Local is not supported.</p>
+<p>This API method allows you to retrieve search ranking (and listing data) from the major search engines and their local variants, namely Google, Google Maps, Bing and Bing Maps. It works for the USA, United Kingdom, Canada and Australia.</p>
 
 <p>This method needs to be used in conjunction with the <a href="#batches">batch methods</a> described above.</p>
 
@@ -1186,7 +1025,7 @@
 </tr>
 <tr>
 <td>search-engine</td>
-<td><span class="label label-required">Required</span> One of google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local.</td>
+<td><span class="label label-required">Required</span> One of google, google-mobile, google-local, bing, bing-local.</td>
 </tr>
 <tr>
 <td>country</td>
@@ -1416,7 +1255,7 @@
 </tr>
 <tr>
 <td>search-engine</td>
-<td><span class="label label-required">Required</span> One of google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local.</td>
+<td><span class="label label-required">Required</span> One of google, google-mobile, google-local, bing, bing-local.</td>
 </tr>
 <tr>
 <td>country</td>
@@ -4490,7 +4329,7 @@
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
     <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s2">"Restaurant</span><span class="se">\n</span><span class="s2">food+nyc</span><span class="se">\n</span><span class="s2">delivery+midtown+manhattan"</span><span class="p">,</span>
     <span class="s1">'website-addresses'</span> <span class="o">=&gt;</span> <span class="s1">'["le-bernardin.com","le-bernardin2.com"]'</span><span class="p">,</span>
-    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local'</span>
+    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google,google-mobile,google-local,bing,bing-local'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -4502,7 +4341,7 @@
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
  -d <span class="nv">$'</span>search-terms<span class="o">=</span>Restaurant<span class="se">\n</span>food+nyc<span class="se">\n</span>delivery+midtown+manhattan<span class="s1">' \ 
  -d '</span>website-addresses<span class="o">=[</span><span class="s2">"le-bernardin.com"</span>,<span class="s2">"le-bernardin2.com"</span><span class="o">]</span><span class="s1">' \
- -d '</span>search-engines<span class="o">=</span>google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local<span class="s1">' \ 
+ -d '</span>search-engines<span class="o">=</span>google,google-mobile,google-local,bing,bing-local<span class="s1">' \ 
  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/add
 </span></code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -4512,7 +4351,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">));</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google,google-mobile,google-local,bing,bing-local"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/lsrc/add"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -4627,7 +4466,7 @@
 </tr>
 <tr>
 <td>search-engines</td>
-<td>Comma separated list of search engines. Options are google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local. Defaults to all search engines.</td>
+<td>Comma separated list of search engines. Options are google, google-mobile, google-local, bing, bing-local. Defaults to all search engines.</td>
 </tr>
 <tr>
 <td>include-local-directory-results</td>
@@ -4664,7 +4503,7 @@
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
     <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s2">"Restaurant</span><span class="se">\n</span><span class="s2">food+nyc</span><span class="se">\n</span><span class="s2">delivery+midtown+manhattan"</span><span class="p">,</span>
     <span class="s1">'website-addresses'</span> <span class="o">=&gt;</span> <span class="s1">'["le-bernardin.com","le-bernardin2.com"]'</span><span class="p">,</span>
-    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local'</span>
+    <span class="s1">'search-engines'</span>    <span class="o">=&gt;</span> <span class="s1">'google,google-mobile,google-local,bing,bing-local'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -4677,7 +4516,7 @@
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
  -d <span class="nv">$'</span>search-terms<span class="o">=</span>Restaurant<span class="se">\n</span>food+nyc<span class="se">\n</span>delivery+midtown+manhattan<span class="s1">' \ 
  -d '</span>website-addresses<span class="o">=[</span><span class="s2">"le-bernardin.com"</span>,<span class="s2">"le-bernardin2.com"</span><span class="o">]</span><span class="s1">' \
- -d '</span>search-engines<span class="o">=</span>google,google-mobile,google-local,yahoo,yahoo-local,bing,bing-local<span class="s1">' \ 
+ -d '</span>search-engines<span class="o">=</span>google,google-mobile,google-local,bing,bing-local<span class="s1">' \ 
  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/update
 </span></code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -4688,7 +4527,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"website-addresses"</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="s">"['le-bernardin.com', 'le-bernardin2.com']"</span><span class="p">));</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google,google-mobile,google-local,yahoo,yahoo-local,bing, bing-local"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-engines"</span><span class="p">,</span> <span class="s">"google,google-mobile,google-local,bing, bing-local"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/lsrc/update"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
@@ -4808,7 +4647,7 @@
 </tr>
 <tr>
 <td>search-engines</td>
-<td>Comma separated list of search engines. Options are google, google-mobile, google-local, yahoo, yahoo-local, bing, bing-local.</td>
+<td>Comma separated list of search engines. Options are google, google-mobile, google-local, bing, bing-local.</td>
 </tr>
 <tr>
 <td>include-local-directory-results</td>
@@ -5076,8 +4915,6 @@
             </span><span class="s2">"search_engines"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="w">
                 </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"google-local"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"yahoo-local"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"bing"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"bing-local"</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -5372,8 +5209,6 @@
         </span><span class="s2">"search_engines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"google-local"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"yahoo-local"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"bing"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"bing-local"</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -5416,8 +5251,6 @@
         </span><span class="s2">"search_engines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="s2">"google"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"google-places"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"yahoo-local"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"bing"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"bing-local"</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -5465,67 +5298,6 @@
                 </span><span class="s2">"sub_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"sub_rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"yahoo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11767"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://alaskabar.org/"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"orig_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.alaskabar.org/"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaska Bar Association"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ludocid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unblended_rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website address"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"directory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 19:00:24"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9ea2849328aa0794c79a60beb6cee38c2a51a67"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"search_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://search.yahoo.com/search?p=Alaska+Bar+Association"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"search_engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11768"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://alaskabar.org/servlet/content/46.html"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"orig_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.alaskabar.org/servlet/content/46.html"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaska Bar Association"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ludocid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unblended_rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website address"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"directory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 19:00:24"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e0610efd9a75c627c2f9a8bc1b86680d5064b71d"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"search_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://search.yahoo.com/search?p=Alaska+Bar+Association"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"search_engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"yahoo-local"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11769"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"orig_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"unblended_rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"directory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 19:00:24"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"search_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://search.yahoo.com/local/?p=Alaska+Bar+Association"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"search_engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo-local"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sub_rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
               </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"bing"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5582,15 +5354,6 @@
               </span><span class="s2">"e008f8d346b2b8f124702d64be0ec1131adba959"</span><span class="w">
             </span><span class="p">]</span><span class="w">
           </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"yahoo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Alaska Bar Association"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="s2">"b9ea2849328aa0794c79a60beb6cee38c2a51a67"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"e0610efd9a75c627c2f9a8bc1b86680d5064b71d"</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"yahoo-local"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Alaska Bar Association"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
           </span><span class="s2">"bing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Alaska Bar Association"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="s2">"bbd31c444764b5dd44685b5eae35578bbef68166"</span><span class="w">
@@ -5630,20 +5393,6 @@
               </span><span class="s2">"search_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.google.com/search?tbm=lcl&amp;q=Alaska+Bar+Association&amp;gl=us&amp;gws_rd=cr&amp;uule=w+CAIQICIGQWxhc2th"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"search_engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google-places"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"Alaska Bar Association||yahoo||Organic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11767"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://alaskabar.org/"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"orig_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.alaskabar.org/"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website address"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"directory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 19:00:24"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9ea2849328aa0794c79a60beb6cee38c2a51a67"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"search_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://search.yahoo.com/search?p=Alaska+Bar+Association"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"search_engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
             </span><span class="s2">"Alaska Bar Association||bing||Organic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11770"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://alaskabar.org/"</span><span class="p">,</span><span class="w">
@@ -5664,20 +5413,6 @@
           </span><span class="s2">"Positions 11-20"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
           </span><span class="s2">"Positions 21-50"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
           </span><span class="s2">"Positions 51+"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Alaska Bar Association||yahoo-local||"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11769"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"orig_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"directory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 19:00:24"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"search_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://search.yahoo.com/local/?p=Alaska+Bar+Association"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"search_engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yahoo-local"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
             </span><span class="s2">"Alaska Bar Association||bing-local||"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11771"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -5713,20 +5448,6 @@
             </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"no_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"gained_hashes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"lost_hashes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"yahoo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"no_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"gained_hashes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"lost_hashes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"yahoo-local"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"no_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"gained_hashes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"lost_hashes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
           </span><span class="p">},</span><span class="w">
