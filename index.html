@@ -3672,6 +3672,7 @@
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'name'</span>                 <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
+    <span class="s1">'location-reference'</span>   <span class="o">=&gt;</span> <span class="s1">'LE-BERNARDIN-10019'</span><span class="p">,</span>
     <span class="s1">'url'</span>                  <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'business-category-id'</span> <span class="o">=&gt;</span>  <span class="mi">605</span><span class="p">,</span>
     <span class="s1">'country'</span>              <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span> <span class="c1">// 3 letter iso code
@@ -3689,6 +3690,7 @@
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
+ -d <span class="s1">'location-reference=LE-BERNARDIN-10019'</span> <span class="se">\</span>
  -d <span class="s1">'url=le-bernardin.com'</span> <span class="se">\</span>
  -d <span class="s1">'business-category-id=605'</span> <span class="se">\ </span>
  -d <span class="s1">'country=USA'</span> <span class="se">\</span>
@@ -3704,6 +3706,7 @@
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location-reference"</span><span class="p">,</span> <span class="s">"LE-BERNARDIN-10019"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"url"</span><span class="p">,</span> <span class="s">"http://le-bernardin.com"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-category-id"</span><span class="p">,</span> <span class="s">"605"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span> <span class="c1">// 3 Letter iso code
@@ -3875,6 +3878,7 @@
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/'</span> <span class="o">.</span><span class="nv">$locationId</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'name'</span>                          <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'url'</span>                           <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
+    <span class="s1">'location-reference'</span>            <span class="o">=&gt;</span> <span class="s1">'LE-BERNADIN-10019'</span><span class="p">,</span>
     <span class="s1">'business-category-id'</span>          <span class="o">=&gt;</span>  <span class="mi">605</span><span class="p">,</span>
     <span class="s1">'country'</span>                       <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span> <span class="c1">// 3 letter iso code
 </span>    <span class="s1">'address1'</span>                      <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
@@ -3891,6 +3895,7 @@
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
+ -d <span class="s1">'location-reference=LE-BERNADIN-10019'</span> <span class="se">\</span>
  -d <span class="s1">'url=le-bernardin.com'</span> <span class="se">\</span>
  -d <span class="s1">'business-category-id=605'</span> <span class="se">\ </span>
  -d <span class="s1">'country=USA'</span> <span class="se">\</span>
@@ -3907,6 +3912,7 @@
 <span class="n">var</span> <span class="n">locationId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location-reference"</span><span class="p">,</span> <span class="s">"LE-BERNADIN-10019"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"url"</span><span class="p">,</span> <span class="s">"http://le-bernardin.com"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-category-id"</span><span class="p">,</span> <span class="s">"605"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span><span class="p">);</span> <span class="c1">// 3 Letter iso code
