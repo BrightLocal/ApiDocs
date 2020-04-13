@@ -4331,7 +4331,7 @@
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/lsrc/add'</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">'location_id'</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'location-id'</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
     <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s2">"Restaurant</span><span class="se">\n</span><span class="s2">food+nyc</span><span class="se">\n</span><span class="s2">delivery+midtown+manhattan"</span><span class="p">,</span>
@@ -4344,7 +4344,7 @@
  -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'location_id=1'</span> <span class="se">\</span>
+ -d <span class="s1">'location-id=1'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
  -d <span class="nv">$'</span>search-terms<span class="o">=</span>Restaurant<span class="se">\n</span>food+nyc<span class="se">\n</span>delivery+midtown+manhattan<span class="s1">' \ 
@@ -4355,7 +4355,7 @@
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location_id"</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span><span class="p">);</span>
@@ -4418,7 +4418,7 @@
 <td>One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, -1 (last day of month). Defaults to 1</td>
 </tr>
 <tr>
-<td>location_id</td>
+<td>location-id</td>
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
@@ -4507,7 +4507,7 @@
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/lsrc/update'</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">'location_id'</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'location-id'</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'campaign-id'</span>       <span class="o">=&gt;</span> <span class="mi">9907</span><span class="p">,</span>
     <span class="s1">'name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
@@ -4521,7 +4521,7 @@
  -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'location_id=1'</span> <span class="se">\</span>
+ -d <span class="s1">'location-id=1'</span> <span class="se">\</span>
  -d <span class="s1">'campaign-id=9907'</span> <span class="se">\</span>
  -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
@@ -4533,7 +4533,7 @@
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location_id"</span><span class="p">,</span> <span class="s">"1"</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location-id"</span><span class="p">,</span> <span class="s">"1"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"campaign-id"</span><span class="p">,</span> <span class="s">"9907"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span><span class="p">);</span>
@@ -4602,7 +4602,7 @@
 <td>One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, -1 (last day of month).</td>
 </tr>
 <tr>
-<td>location_id</td>
+<td>location-id</td>
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
