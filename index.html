@@ -233,9 +233,9 @@
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$batchApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BatchApi</span><span class="p">(</span><span class="nv">$api</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">'success'</span><span class="p">])</span> <span class="p">{</span>
-    <span class="nv">$batchId</span> <span class="o">=</span> <span class="nv">$result</span><span class="p">[</span><span class="s1">'batch-id'</span><span class="p">];</span>
+<span class="nv">$batchId</span> <span class="o">=</span> <span class="nv">$batchApi</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$batchId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s1">'Created batch ID %d%s'</span><span class="p">,</span> <span class="nv">$batchId</span><span class="p">,</span> <span class="nx">PHP_EOL</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <pre><code class="highlight shell">curl -X POST <span class="se">\</span>
@@ -9124,7 +9124,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/rf/add'</span><span class="p">,</span> <span class="p">[</span>
-    <span class="s1">'location_id'</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'location-id'</span>   <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'report-name'</span>       <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span> 
     <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'contact-telephone'</span> <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
@@ -9140,7 +9140,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
  -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\ </span>
- -d <span class="s1">'location_id=1'</span> <span class="se">\</span>
+ -d <span class="s1">'location-id=1'</span> <span class="se">\</span>
  -d <span class="s1">'report-name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'business-name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'contact-telephone=+1 212-554-1515'</span> <span class="se">\</span>
@@ -9154,7 +9154,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location_id"</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Sample Citation Tracker Report"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>            
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact-telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
@@ -9172,6 +9172,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </blockquote>
 <pre><code class="highlight php"><span class="cp">&lt;?php</span>
 <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'yellowbot'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">'url'</span>     <span class="o">=&gt;</span> <span class="s1">'http://www.yellowbot.com/le-bernardin-new-york-ny.html'</span><span class="p">,</span>
         <span class="s1">'include'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
     <span class="p">),</span>
@@ -9261,7 +9262,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
-<td>location_id</td>
+<td>location-id</td>
 <td><span class="label label-required">Required</span> Associate this report with a location in your account. This ID needs to correspond to a valid location in your account.</td>
 </tr>
 <tr>
@@ -9338,7 +9339,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <span class="nv">$reportId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">INSERT_API_KEY</span><span class="o">&gt;</span><span class="s1">', '</span><span class="o">&lt;</span><span class="nx">INSERT_API_SECRET</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span><span class="nv">$reportId</span><span class="p">,</span> <span class="p">[</span>
-     <span class="o">-</span><span class="nx">d</span> <span class="s1">'location_id=1'</span> <span class="nx">\</span>
+     <span class="o">-</span><span class="nx">d</span> <span class="s1">'location-id=1'</span> <span class="nx">\</span>
      <span class="o">-</span><span class="nx">d</span> <span class="s1">'report-name=Le Bernardin'</span> <span class="nx">\</span>
      <span class="o">-</span><span class="nx">d</span> <span class="s1">'business-name=Le Bernardin'</span> <span class="nx">\</span>
      <span class="o">-</span><span class="nx">d</span> <span class="s1">'contact-telephone=+1 212-554-1515'</span> <span class="nx">\</span>
@@ -9349,7 +9350,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
  -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'location_id=1'</span> <span class="se">\</span>
+ -d <span class="s1">'location-id=1'</span> <span class="se">\</span>
  -d <span class="s1">'report_name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'business_names=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
@@ -9360,7 +9361,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <span class="n">var</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location_id"</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact-telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
 
@@ -9372,6 +9373,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </blockquote>
 <pre><code class="highlight php"><span class="cp">&lt;?php</span>
 <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'yellowbot'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
         <span class="s1">'url'</span>     <span class="o">=&gt;</span> <span class="s1">'http://www.yellowbot.com/le-bernardin-new-york-ny.html'</span><span class="p">,</span>
         <span class="s1">'include'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
     <span class="p">),</span>
@@ -9439,7 +9441,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td><span class="label label-required">Required</span> <a href="#authentication">See above for how to generate signature and expires values.</a></td>
 </tr>
 <tr>
-<td>location_id</td>
+<td>location-id</td>
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
