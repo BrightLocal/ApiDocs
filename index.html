@@ -3670,7 +3670,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/clients-and-locations/locations/'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'name'</span>                 <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'location-reference'</span>   <span class="o">=&gt;</span> <span class="s1">'LE-BERNARDIN-10019'</span><span class="p">,</span>
     <span class="s1">'url'</span>                  <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
@@ -3700,7 +3700,7 @@
  -d <span class="s1">'city=New York'</span> <span class="se">\</span>
  -d <span class="s1">'postcode=10019'</span> <span class="se">\</span>
  -d <span class="s1">'telephone=+1 212-554-1515'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/
+ https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
@@ -3717,7 +3717,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
 
-<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/locations/"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/clients-and-locations/locations/"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -3733,7 +3733,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/</code></p>
+<p><code class="prettyprint">POST https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -3832,20 +3832,120 @@
 <td>10 characters max</td>
 </tr>
 <tr>
-<td>year-of-formation</td>
-<td>20 characters max</td>
+<td>formation-date</td>
+<td>Month and date formatted &lsquo;mm-yyyy&rsquo;</td>
 </tr>
 <tr>
 <td>extra-business-categories-ids</td>
-<td>Json encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
+<td>Array. For example, [1234,5678,9012]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
-<td>working-hours</td>
-<td>Json encoded array. Available array keys: mon_start, mon_end, tue_start, tue_end, wed_start, wed_end, thu_start, thu_end, fri_start, fri_end, sat_start, sat_end, sun_start, sun_end. Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>opening-hours[regular][apply_to_all]</td>
+<td><span class="label label-required">Required</span> Boolean field</td>
+</tr>
+<tr>
+<td>opening-hours[regular][mon][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][mon][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][mon][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][tue][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][tue][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][tue][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][wed][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][wed][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][wed][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][thu][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][thu][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][thu][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][fri][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][fri][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][fri][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sat][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sat][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sat][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sun][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sun][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sun][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[special][][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[special][][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+</tr>
+<tr>
+<td>opening-hours[special][][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+</tr>
+<tr>
+<td>opening-hours[special][][date]</td>
+<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&rsquo;</td>
 </tr>
 <tr>
 <td>payment-methods</td>
-<td>Json encoded array. Available values: cash, visa, mastercard, amex, cheque, invoice, insurance, atm, travelers, financing, paypal, discover</td>
+<td>Array. Available values: cash, visa, mastercard, amex, cheque, invoice, insurance, atm, travelers, financing, paypal, discover</td>
 </tr>
 <tr>
 <td>short-description</td>
@@ -3857,7 +3957,7 @@
 </tr>
 <tr>
 <td>services-of-products</td>
-<td>Json encoded array</td>
+<td>Array</td>
 </tr>
 </tbody></table>
 
@@ -3875,7 +3975,7 @@
 
 <span class="nv">$locationId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/'</span> <span class="o">.</span><span class="nv">$locationId</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v2/clients-and-locations/locations/'</span> <span class="o">.</span><span class="nv">$locationId</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'name'</span>                          <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'url'</span>                           <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'location-reference'</span>            <span class="o">=&gt;</span> <span class="s1">'LE-BERNADIN-10019'</span><span class="p">,</span>
@@ -3905,7 +4005,7 @@
  -d <span class="s1">'city=New York'</span> <span class="se">\</span>
  -d <span class="s1">'postcode=10019'</span> <span class="se">\</span>
  -d <span class="s1">'telephone=+1 212-554-1515'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/1
+ https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/1
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
@@ -3923,7 +4023,7 @@
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">);</span>
 
-<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/locations/"</span> <span class="p">+</span> <span class="n">locationId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="s">"/v2/clients-and-locations/locations/"</span> <span class="p">+</span> <span class="n">locationId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -3937,7 +4037,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/&lt;locationId&gt;</code></p>
+<p><code class="prettyprint">PUT https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/&lt;locationId&gt;</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -4036,20 +4136,120 @@
 <td>10 characters max</td>
 </tr>
 <tr>
-<td>year-of-formation</td>
-<td>20 characters max</td>
+<td>formation-date</td>
+<td>Month and date formatted &#39;mm-yyyy&rsquo;</td>
 </tr>
 <tr>
 <td>extra-business-categories-ids</td>
-<td>Json encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
+<td>Array. For example, [1234,5678,9012]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
-<td>working-hours</td>
-<td>Json encoded array. Available array keys: mon_start, mon_end, tue_start, tue_end, wed_start, wed_end, thu_start, thu_end, fri_start, fri_end, sat_start, sat_end, sun_start, sun_end. Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>opening-hours[regular][apply_to_all]</td>
+<td><span class="label label-required">Required</span> Boolean field</td>
+</tr>
+<tr>
+<td>opening-hours[regular][mon][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][mon][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][mon][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][tue][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][tue][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][tue][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][wed][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][wed][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][wed][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][thu][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][thu][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][thu][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][fri][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][fri][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][fri][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sat][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sat][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sat][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sun][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sun][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[regular][sun][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening-hours[special][][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening-hours[special][][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+</tr>
+<tr>
+<td>opening-hours[special][][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+</tr>
+<tr>
+<td>opening-hours[special][][date]</td>
+<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&rsquo;</td>
 </tr>
 <tr>
 <td>payment-methods</td>
-<td>Json encoded array. Available values: cash, visa, mastercard, amex, cheque, invoice, insurance, atm, travelers, financing, paypal, discover</td>
+<td>Array. Available values: cash, visa, mastercard, amex, cheque, invoice, insurance, atm, travelers, financing, paypal, discover</td>
 </tr>
 <tr>
 <td>short-description</td>
@@ -4061,7 +4261,7 @@
 </tr>
 <tr>
 <td>services-of-products</td>
-<td>Json encoded array</td>
+<td>Array</td>
 </tr>
 </tbody></table>
 
@@ -4077,7 +4277,7 @@
 
 <span class="nv">$locationId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/'</span> <span class="o">.</span> <span class="nv">$locationId</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">'/v2/clients-and-locations/locations/'</span> <span class="o">.</span> <span class="nv">$locationId</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">'success'</span><span class="p">]))</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="s1">'Successfully deleted location.'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
 <span class="p">}</span>
@@ -4087,7 +4287,7 @@
 <span class="n">var</span> <span class="n">locationId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 
-<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/locations/"</span> <span class="p">+</span> <span class="n">locationId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="s">"/v2/clients-and-locations/locations/"</span> <span class="p">+</span> <span class="n">locationId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -4102,7 +4302,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/&lt;locationId&gt;</code></p>
+<p><code class="prettyprint">DELETE https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/&lt;locationId&gt;</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -4142,7 +4342,7 @@
 
 <span class="nv">$locationId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">INSERT_API_KEY</span><span class="o">&gt;</span><span class="s1">', '</span><span class="o">&lt;</span><span class="nx">INSERT_API_SECRET</span><span class="o">&gt;</span><span class="p">);</span>
-<span class="nv">$location</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/'</span> <span class="o">.</span> <span class="nv">$locationId</span><span class="p">);</span>
+<span class="nv">$location</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v2/clients-and-locations/locations/'</span> <span class="o">.</span> <span class="nv">$locationId</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$location</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -4150,7 +4350,7 @@
 <span class="n">var</span> <span class="n">locationId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 
-<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/locations/"</span> <span class="p">+</span> <span class="n">locationId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v2/clients-and-locations/locations/"</span> <span class="p">+</span> <span class="n">locationId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -4177,7 +4377,7 @@
         </span><span class="s2">"contact-fax"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"contact-mobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"num-of-employees"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"year-of-formation"</span><span class="p">:</span><span class="s2">"2009"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"formation-date"</span><span class="p">:</span><span class="s2">"11-2009"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"extra-business_categories"</span><span class="p">:[</span><span class="w">
           </span><span class="s2">"marketing"</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -4185,10 +4385,6 @@
             </span><span class="mi">503</span><span class="p">,</span><span class="w">
             </span><span class="mi">2824</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"working-hours"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"mon_start"</span><span class="p">:</span><span class="s2">"9 a.m."</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mon_end"</span><span class="p">:</span><span class="s2">"7 p.m."</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"payment-methods-accepted"</span><span class="p">:[</span><span class="w">
             </span><span class="s2">"visa"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"paypal"</span><span class="w">
@@ -4206,7 +4402,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/&lt;locationId&gt;</code></p>
+<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/&lt;locationId&gt;</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -4241,7 +4437,7 @@
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">'/v1/clients-and-locations/locations/search'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">'/v2/clients-and-locations/locations/search'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'q'</span> <span class="o">=&gt;</span> <span class="s1">'BrightLocal'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
@@ -4251,12 +4447,12 @@
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'q=My+Sample+Query'</span> <span class="se">\ </span>  
-  https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/search/
+  https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search/
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"q"</span><span class="p">,</span> <span class="s">"BrightLocal"</span><span class="p">);</span>
-<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v1/clients-and-locations/locations/search"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v2/clients-and-locations/locations/search"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -4285,7 +4481,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/locations/search</code></p>
+<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -7535,7 +7731,7 @@
 Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/cb/create'</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/cb/create'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location_id'</span>        <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'campaign_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin Citation Builder'</span><span class="p">,</span>
     <span class="s1">'business_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
@@ -7556,10 +7752,73 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     <span class="s1">'brief_description'</span>          <span class="o">=&gt;</span> <span class="nv">$briefDescription</span><span class="p">,</span>
     <span class="s1">'full_description'</span>           <span class="o">=&gt;</span> <span class="nv">$fullDescription</span><span class="p">,</span>
     <span class="s1">'employees_number'</span>           <span class="o">=&gt;</span> <span class="mi">35</span><span class="p">,</span>
-    <span class="s1">'start_year'</span>                 <span class="o">=&gt;</span> <span class="mi">1976</span><span class="p">,</span>
-    <span class="s1">'working_hours_apply_to_all'</span> <span class="o">=&gt;</span> <span class="s1">'Y'</span><span class="p">,</span>
-    <span class="s1">'working_hours_mon_start'</span>    <span class="o">=&gt;</span> <span class="s1">'8:00 am'</span><span class="p">,</span>
-    <span class="s1">'working_hours_mon_end'</span>      <span class="o">=&gt;</span> <span class="s1">'10:00 pm'</span><span class="p">,</span> 
+    <span class="s1">'formation_date'</span>             <span class="o">=&gt;</span> <span class="s1">'11-2008'</span><span class="p">,</span>
+    <span class="s1">'opening_hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'regular'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'apply_to_all'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s1">'mon'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'tue'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'split'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'12:00'</span><span class="p">,</span>
+                    <span class="p">],</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'13:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>                  
+            <span class="p">],</span>
+            <span class="s1">'wed'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'24hrs'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[],</span>           
+            <span class="p">],</span>
+            <span class="s1">'thu'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'fri'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'sat'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'closed'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'sun'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'closed'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[],</span>           
+            <span class="p">],</span>
+        <span class="p">],</span>
+        <span class="s1">'special'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="s1">'date'</span> <span class="o">=&gt;</span> <span class="s1">'01-01-2020'</span><span class="p">,</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'closed'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">],</span> 
     <span class="s1">'social_profile_links'</span>       <span class="o">=&gt;</span> <span class="s1">'{"facebook":"https:\/\/en-gb.facebook.com\/brightlocal\/","twitter":"https:\/\/twitter.com\/bright_local","linkedin":"https:\/\/uk.linkedin.com\/company\/bright-local-seo","instagram":"","pinterest":"https:\/\/www.pinterest.co.uk\/brightlocal\/"}'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
@@ -7592,24 +7851,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"brief_description"</span><span class="p">,</span> <span class="n">brief_description</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"full_description"</span><span class="p">,</span> <span class="n">full_description</span><span class="p">);</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"employees_number"</span><span class="p">,</span> <span class="m">35</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"start_year"</span><span class="p">,</span> <span class="m">1976</span><span class="p">);</span>            
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_apply_to_all"</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_mon_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_mon_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_tue_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_tue_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_wed_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_wed_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_thu_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_thu_end"</span><span class="p">,</span> <span class="m">2200</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_fri_start"</span><span class="p">,</span> <span class="m">0800</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_fri_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sat_start"</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sat_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sun_start"</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
-<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"working_hours_sun_end"</span><span class="p">,</span> <span class="m">2400</span><span class="p">);</span>
+<span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"formation_date"</span><span class="p">,</span> <span class="err">'</span><span class="m">11</span><span class="p">-</span><span class="m">2008</span><span class="err">'</span><span class="p">);</span>            
 
-<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v2/cb/create"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/cb/create"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -7635,8 +7880,8 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     </span><span class="s2">"brief_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter short description"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"full_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter full description"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"employees_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter number of employees"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter starting year"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"working_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your must provide Working Hours for at least one day in the week"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"formation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter formation date"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"working_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your must provide valid Opening Hours"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"social_profile_links"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The supplied URL for facebook is too long (max 256 characters)"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"campaign_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid campaign status"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"location_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location with ID 0 not found or doesn't belong to this customer"</span><span class="w">
@@ -7655,7 +7900,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://tools.brightlocal.com/seo-tools/api/v2/cb/create</code></p>
+<p><code class="prettyprint">POST https://tools.brightlocal.com/seo-tools/api/v4/cb/create</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -7711,7 +7956,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>extra_business_categories_ids</td>
-<td><span class="label label-required">Required</span> JSON encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
+<td><span class="label label-required">Required</span> Array. For example, [1234,5678,9012]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
 <td>address1</td>
@@ -7758,7 +8003,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
-<td>start_year</td>
+<td>formation_date</td>
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
@@ -7782,96 +8027,108 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td></td>
 </tr>
 <tr>
-<td>working_hours_apply_to_all</td>
-<td><span class="label label-required">Required</span> If this field has a value of Y you only need to specify working hours for Monday and these values are then also used for the other days of the week.</td>
+<td>opening_hours[regular][apply_to_all]</td>
+<td><span class="label label-required">Required</span> Boolean field</td>
 </tr>
 <tr>
-<td>working_hours_mon_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_mon_start and working_hours_mon_end.</td>
+<td>opening_hours[regular][mon][status]</td>
+<td><span class="label label-required">Required</span> Can be &lsquo;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
-<td>working_hours_tue_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_tue_start and working_hours_tue_end.</td>
+<td>opening_hours[regular][mon][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_wed_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_wed_start and working_hours_wed_end.</td>
+<td>opening_hours[regular][mon][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_thu_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_thu_start and working_hours_thu_end.</td>
+<td>opening_hours[regular][tue][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
-<td>working_hours_fri_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_fri_start and working_hours_fri_end.</td>
+<td>opening_hours[regular][tue][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_sat_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_sat_start and working_hours_sat_end.</td>
+<td>opening_hours[regular][tue][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_sun_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_sun_start and working_hours_sun_end.</td>
+<td>opening_hours[regular][wed][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
-<td>working_hours_mon_start</td>
+<td>opening_hours[regular][wed][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][wed][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][thu][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][thu][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][thu][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][fri][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][fri][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][fri][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sat][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sat][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sat][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sun][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sun][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sun][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[special][][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[special][][hours][start]</td>
 <td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
-<td>working_hours_mon_end</td>
+<td>opening_hours[special][][hours][end]</td>
 <td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
-<td>working_hours_tue_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_tue_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_wed_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_wed_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_thu_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_thu_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_fri_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_fri_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sat_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sat_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sun_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sun_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>special_offer</td>
-<td></td>
+<td>opening_hours[special][][date]</td>
+<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&#39;special_offer</td>
 </tr>
 <tr>
 <td>special_offer_description</td>
@@ -7887,7 +8144,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>social_profile_links</td>
-<td>JSON encoded object. See example on the right for reference. Social channels supported are facebook, twitter, linkedin, pinterest and instagram.</td>
+<td>Object. See example on the right for reference. Social channels supported are facebook, twitter, linkedin, pinterest and instagram.</td>
 </tr>
 <tr>
 <td>receive-email-alerts</td>
@@ -7913,6 +8170,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td>campaign_notes</td>
 <td>Notes for any issues &amp; concerns which you want our submission team to be aware of when they submit to directories</td>
 </tr>
+<tr>
+<td>white_label_profile_id</td>
+<td>Id of existing White Label Profile</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-campaign">Update Campaign</h2>
@@ -7923,7 +8184,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <span class="nv">$campaignId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v2/cb/'</span> <span class="o">.</span><span class="nv">$campaignId</span><span class="p">,</span> <span class="p">[</span>
+<span class="nv">$success</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/cb/'</span> <span class="o">.</span><span class="nv">$campaignId</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location_id'</span>        <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'campaign_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin Citation Builder'</span><span class="p">,</span>
     <span class="s1">'business_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
@@ -7969,7 +8230,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact_telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">;</span>
 <span class="n">parameters</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"contact_email"</span><span class="p">,</span> <span class="s">"joe.bloggs@test.com"</span><span class="p">);</span>     
 
-<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="s">"/v2/cb/"</span> <span class="p">+</span> <span class="n">campaignId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">success</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="s">"/v4/cb/"</span> <span class="p">+</span> <span class="n">campaignId</span> <span class="p">+</span> <span class="s">""</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -8005,7 +8266,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT https://tools.brightlocal.com/seo-tools/api/v2/cb/&lt;campaignId&gt;</code></p>
+<p><code class="prettyprint">PUT https://tools.brightlocal.com/seo-tools/api/v4/cb/&lt;campaignId&gt;</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -8053,7 +8314,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>extra_business_categories_ids</td>
-<td>JSON encoded array. For example, [“1234”,“5678”,“9012”]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
+<td>Array. For example, [1234,5678,9012]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
 <td>address1</td>
@@ -8100,7 +8361,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td></td>
 </tr>
 <tr>
-<td>start_year</td>
+<td>formation_date</td>
 <td></td>
 </tr>
 <tr>
@@ -8124,92 +8385,108 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td></td>
 </tr>
 <tr>
-<td>working_hours_apply_to_all</td>
-<td>If this field has a value of Y you only need to specify working hours for Monday and these values are then also used for the other days of the week.</td>
+<td>opening_hours[regular][apply_to_all]</td>
+<td><span class="label label-required">Required</span> Boolean field</td>
 </tr>
 <tr>
-<td>working_hours_mon_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_mon_start and working_hours_mon_end.</td>
+<td>opening_hours[regular][mon][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
-<td>working_hours_tue_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_tue_start and working_hours_tue_end.</td>
+<td>opening_hours[regular][mon][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_wed_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_wed_start and working_hours_wed_end.</td>
+<td>opening_hours[regular][mon][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_thu_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_thu_start and working_hours_thu_end.</td>
+<td>opening_hours[regular][tue][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
-<td>working_hours_fri_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_fri_start and working_hours_fri_end.</td>
+<td>opening_hours[regular][tue][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_sat_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_sat_start and working_hours_sat_end.</td>
+<td>opening_hours[regular][tue][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
-<td>working_hours_sun_24hrs</td>
-<td>Y or N. Defaults to N. This can be used in place of working_hours_sun_start and working_hours_sun_end.</td>
+<td>opening_hours[regular][wed][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
-<td>working_hours_mon_start</td>
+<td>opening_hours[regular][wed][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][wed][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][thu][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][thu][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][thu][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][fri][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][fri][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][fri][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sat][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sat][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sat][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sun][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sun][hours][start]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[regular][sun][hours][end]</td>
+<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+</tr>
+<tr>
+<td>opening_hours[special][][status]</td>
+<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+</tr>
+<tr>
+<td>opening_hours[special][][hours][start]</td>
 <td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
-<td>working_hours_mon_end</td>
+<td>opening_hours[special][][hours][end]</td>
 <td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
-<td>working_hours_tue_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_tue_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_wed_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_wed_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_thu_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_thu_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_fri_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_fri_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sat_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sat_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sun_start</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
-</tr>
-<tr>
-<td>working_hours_sun_end</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>opening_hours[special][][date]</td>
+<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&rsquo;</td>
 </tr>
 <tr>
 <td>special_offer</td>
@@ -8229,7 +8506,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>social_profile_links</td>
-<td>Json encoded object. Social channels supported are facebook, twitter, linkedin, pinterest and instagram.</td>
+<td>Object. Social channels supported are facebook, twitter, linkedin, pinterest and instagram.</td>
 </tr>
 <tr>
 <td>receive-email-alerts</td>
@@ -8254,6 +8531,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <tr>
 <td>campaign_notes</td>
 <td>Notes for any issues &amp; concerns which you want our submission team to be aware of when they submit to directories</td>
+</tr>
+<tr>
+<td>white_label_profile_id</td>
+<td>Id of existing White Label Profile</td>
 </tr>
 </tbody></table>
 
@@ -8513,7 +8794,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>package_id</td>
-<td><span class="label label-required">Required</span> CB package id corresponding to the number of ordered credits: &lsquo;cb10&rsquo; for 10 citations, &#39;cb15&rsquo; for 15, then 25, 30, 50, 75, 100. To use only aggregators and ignore citations or package_id, please use &#39;cb0&rsquo; package only.</td>
+<td><span class="label label-required">Required</span> CB package id corresponding to the number of ordered credits: &#39;cb10&rsquo; for 10 citations, &#39;cb15&rsquo; for 15, then 25, 30, 50, 75, 100. To use only aggregators and ignore citations or package_id, please use &#39;cb0&rsquo; package only.</td>
 </tr>
 <tr>
 <td>autoselect</td>
@@ -8726,7 +9007,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
                 </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"num_employees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"formation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11-2000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"service_names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -9028,7 +9309,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v2/cb/get</code></p>
+<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v4/cb/get</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
