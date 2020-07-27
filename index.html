@@ -3840,7 +3840,7 @@
 <td>Array. For example, [1234,5678,9012]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
-<td>opening-hours[regular][apply_to_all]</td>
+<td>opening-hours[regular][apply-to-all]</td>
 <td><span class="label label-required">Required</span> Boolean field</td>
 </tr>
 <tr>
@@ -4144,7 +4144,7 @@
 <td>Array. For example, [1234,5678,9012]. <a href="#business-categories">See here for a full list of valid business category IDs.</a></td>
 </tr>
 <tr>
-<td>opening-hours[regular][apply_to_all]</td>
+<td>opening-hours[regular][apply-to-all]</td>
 <td><span class="label label-required">Required</span> Boolean field</td>
 </tr>
 <tr>
@@ -8829,14 +8829,14 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;INSERT_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;INSERT_API_SECRET&gt;'</span><span class="p">);</span>
-<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/cb/get-all'</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/cb/get-all'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$results</span><span class="p">);</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 
 <span class="n">var</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">api</span><span class="p">.</span><span class="nf">Parameters</span><span class="p">();</span>
 
-<span class="n">var</span> <span class="n">campaigns</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v2/cb/get-all"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">campaigns</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v4/cb/get-all"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -8898,7 +8898,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v2/cb/get-all</code></p>
+<p><code class="prettyprint">GET https://tools.brightlocal.com/seo-tools/api/v4/cb/get-all</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
