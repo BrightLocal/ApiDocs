@@ -3682,6 +3682,72 @@
 </span>    <span class="s1">'city'</span>                 <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
     <span class="s1">'postcode'</span>             <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
     <span class="s1">'telephone'</span>            <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
+    <span class="s1">'opening-hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'regular'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'apply-to-all'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s1">'mon'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'tue'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'split'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'12:00'</span><span class="p">,</span>
+                    <span class="p">],</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'13:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>                  
+            <span class="p">],</span>
+            <span class="s1">'wed'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'24hrs'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[],</span>           
+            <span class="p">],</span>
+            <span class="s1">'thu'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'fri'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'sat'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'closed'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+            <span class="s1">'sun'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'closed'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[],</span>           
+            <span class="p">],</span>
+        <span class="p">],</span>
+        <span class="s1">'special'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="s1">'date'</span> <span class="o">=&gt;</span> <span class="s1">'01-01-2020'</span><span class="p">,</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'closed'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">],</span> 
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -3857,91 +3923,91 @@
 </tr>
 <tr>
 <td>opening-hours[regular][tue][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][tue][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][tue][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][wed][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][wed][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][wed][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][thu][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][thu][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][thu][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][fri][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][fri][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][fri][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sat][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sat][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sat][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sun][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sun][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sun][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[special][][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[special][][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening-hours[special][][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening-hours[special][][date]</td>
-<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&rsquo;</td>
+<td>Date string with format &#39;yyyy-mm-dd&rsquo;</td>
 </tr>
 <tr>
 <td>payment-methods</td>
@@ -3987,6 +4053,20 @@
 </span>    <span class="s1">'city'</span>                          <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
     <span class="s1">'postcode'</span>                      <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
     <span class="s1">'telephone'</span>                     <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
+    <span class="s1">'opening-hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'regular'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'apply-to-all'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s1">'mon'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'status'</span> <span class="o">=&gt;</span> <span class="s1">'open'</span><span class="p">,</span>
+                <span class="s1">'hours'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="s1">'start'</span> <span class="o">=&gt;</span> <span class="s1">'10:00'</span><span class="p">,</span>
+                        <span class="s1">'end'</span> <span class="o">=&gt;</span> <span class="s1">'18:00'</span><span class="p">,</span>
+                    <span class="p">]</span>
+                <span class="p">],</span>           
+            <span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">],</span> 
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
 </code></pre>
@@ -4161,91 +4241,91 @@
 </tr>
 <tr>
 <td>opening-hours[regular][tue][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][tue][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][tue][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][wed][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][wed][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][wed][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][thu][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][thu][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][thu][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][fri][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][fri][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][fri][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sat][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sat][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sat][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sun][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sun][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[regular][sun][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening-hours[special][][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening-hours[special][][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening-hours[special][][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening-hours[special][][date]</td>
-<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&rsquo;</td>
+<td>Date string with format &#39;yyyy-mm-dd&rsquo;</td>
 </tr>
 <tr>
 <td>payment-methods</td>
@@ -7737,7 +7817,8 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     <span class="s1">'business_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'website_address'</span>            <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'campaign_country'</span>           <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
-    <span class="s1">'campaign_city'</span>              <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
+    <span class="s1">'campaign_city'</span>              <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
+    <span class="s1">'campaign_state'</span>             <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
     <span class="s1">'business_category_id'</span>       <span class="o">=&gt;</span> <span class="mi">605</span><span class="p">,</span>
     <span class="s1">'business_categories'</span>        <span class="o">=&gt;</span> <span class="s1">'["restaurant", "cafe"]'</span><span class="p">,</span>
     <span class="s1">'address1'</span>                   <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
@@ -7983,6 +8064,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
+<td>contact_email</td>
+<td></td>
+</tr>
+<tr>
 <td>mobile_number</td>
 <td></td>
 </tr>
@@ -8044,91 +8129,91 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>opening_hours[regular][tue][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][tue][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][tue][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][wed][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][wed][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][wed][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][thu][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][thu][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][thu][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][fri][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][fri][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][fri][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sat][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sat][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sat][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sun][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sun][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sun][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[special][][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[special][][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening_hours[special][][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening_hours[special][][date]</td>
-<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&#39;special_offer</td>
+<td>Date string with format &#39;yyyy-mm-dd&#39;special_offer</td>
 </tr>
 <tr>
 <td>special_offer_description</td>
@@ -8190,13 +8275,13 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     <span class="s1">'business_name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'website_address'</span>            <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'campaign_country'</span>           <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
-    <span class="s1">'campaign_city'</span>              <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
+    <span class="s1">'campaign_city'</span>              <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
+    <span class="s1">'campaign_state'</span>             <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
     <span class="s1">'business_category_id'</span>       <span class="o">=&gt;</span> <span class="mi">605</span><span class="p">,</span>
     <span class="s1">'business_categories'</span>        <span class="o">=&gt;</span> <span class="s1">'["restaurant", "cafe"]'</span><span class="p">,</span>
     <span class="s1">'address1'</span>                   <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
     <span class="s1">'address2'</span>                   <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
     <span class="s1">'city'</span>                       <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
-    <span class="s1">'region'</span>                     <span class="o">=&gt;</span> <span class="s1">'New York, USA'</span><span class="p">,</span>
     <span class="s1">'postcode'</span>                   <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
     <span class="s1">'contact_name'</span>               <span class="o">=&gt;</span> <span class="s1">'Bloggs'</span><span class="p">,</span>
     <span class="s1">'contact_firstname'</span>          <span class="o">=&gt;</span> <span class="s1">'Joe'</span><span class="p">,</span>
@@ -8341,6 +8426,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 <td></td>
 </tr>
 <tr>
+<td>contact_email</td>
+<td></td>
+</tr>
+<tr>
 <td>mobile_number</td>
 <td></td>
 </tr>
@@ -8402,91 +8491,91 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>opening_hours[regular][tue][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][tue][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][tue][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][wed][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][wed][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][wed][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][thu][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][thu][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][thu][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][fri][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][fri][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][fri][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sat][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sat][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sat][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sun][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sun][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[regular][sun][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm</td>
 </tr>
 <tr>
 <td>opening_hours[special][][status]</td>
-<td><span class="label label-required">Required</span> Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
+<td>Can be &#39;open&rsquo;, &#39;closed&rsquo;, &#39;24hrs&rsquo;, &#39;split&rsquo;</td>
 </tr>
 <tr>
 <td>opening_hours[special][][hours][start]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening_hours[special][][hours][end]</td>
-<td><span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
+<td>Please only use allowed working hours formats such as 14:45, 2:45 pm, Closed or N/A</td>
 </tr>
 <tr>
 <td>opening_hours[special][][date]</td>
-<td><span class="label label-required">Required</span> Date string with format &#39;yyyy-mm-dd&rsquo;</td>
+<td>Date string with format &#39;yyyy-mm-dd&rsquo;</td>
 </tr>
 <tr>
 <td>special_offer</td>
