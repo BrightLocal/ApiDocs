@@ -8089,7 +8089,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>formation_date</td>
-<td><span class="label label-required">Required</span></td>
+<td><span class="label label-required">Required</span> Month and date formatted ‘mm-yyyy’</td>
 </tr>
 <tr>
 <td>service_name_1</td>
@@ -8225,7 +8225,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>payment_methods</td>
-<td><p>String with &rsquo;&#124;&rsquo; delimiter. E.g. cash&#124;visa&#124;mastercard&#124;amex&#124;cheque&#124;atm&#124;discover. Possible values - cash&#124;visa&#124;mastercard&#124;amex&#124;cheque&#124;invoice&#124;insurance&#124;atm&#124;travellers&#124;financing&#124;paypal&#124;discover</p></td>
+<td><p>Array of options. E.g. [&#39;cash&rsquo;, &#39;visa&rsquo;, &#39;mastercard&rsquo;, &#39;amex&rsquo;, &#39;cheque&rsquo;, &#39;atm&rsquo;, &#39;discover]. Possible values - cash&#124;visa&#124;mastercard&#124;amex&#124;cheque&#124;invoice&#124;insurance&#124;atm&#124;travellers&#124;financing&#124;paypal&#124;discover</p></td>
 </tr>
 <tr>
 <td>social_profile_links</td>
@@ -8257,7 +8257,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>white_label_profile_id</td>
-<td>Id of existing White Label Profile</td>
+<td><span class="label label-required">Required</span> Id of existing White Label Profile</td>
 </tr>
 </tbody></table>
 
@@ -8287,6 +8287,10 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
     <span class="s1">'contact_firstname'</span>          <span class="o">=&gt;</span> <span class="s1">'Joe'</span><span class="p">,</span>
     <span class="s1">'contact_telephone'</span>          <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
     <span class="s1">'contact_email'</span>              <span class="o">=&gt;</span> <span class="s1">'joe.bloggs@test.com'</span><span class="p">,</span>  
+    <span class="s1">'payment_methods'</span>   <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s2">"visa"</span><span class="p">,</span>
+            <span class="s2">"paypal"</span>
+        <span class="p">],</span>
     <span class="s1">'social_profile_links'</span>       <span class="o">=&gt;</span> <span class="s1">'{"facebook":"https:\/\/en-gb.facebook.com\/brightlocal\/","twitter":"https:\/\/twitter.com\/bright_local","linkedin":"https:\/\/uk.linkedin.com\/company\/bright-local-seo","instagram":"","pinterest":"https:\/\/www.pinterest.co.uk\/brightlocal\/"}'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$success</span><span class="p">);</span>
@@ -8451,7 +8455,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>formation_date</td>
-<td></td>
+<td>Month and date formatted ‘mm-yyyy’</td>
 </tr>
 <tr>
 <td>service_name_1</td>
@@ -8591,7 +8595,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>payment_methods</td>
-<td><p>String with &rsquo;&#124;&rsquo; delimiter. E.g. cash&#124;visa&#124;mastercard&#124;amex&#124;cheque&#124;atm&#124;discover. Possible values - cash, visa, mastercard, amex, cheque, invoice, insurance, atm, travellers, financing, paypal, discover</p></td>
+<td><p>Array of options. E.g. [&#39;cash&rsquo;, &#39;visa&rsquo;, &#39;mastercard&rsquo;, &#39;amex&rsquo;, &#39;cheque&rsquo;, &#39;atm&rsquo;, &#39;discover&rsquo;]. Possible values - cash, visa, mastercard, amex, cheque, invoice, insurance, atm, travellers, financing, paypal, discover</p></td>
 </tr>
 <tr>
 <td>social_profile_links</td>
@@ -8623,7 +8627,7 @@ Most recently, the Foundation named Maguy Le Coze as Outstanding.'</span><span c
 </tr>
 <tr>
 <td>white_label_profile_id</td>
-<td>Id of existing White Label Profile</td>
+<td><span class="label label-required">Required</span> Id of existing White Label Profile</td>
 </tr>
 </tbody></table>
 
