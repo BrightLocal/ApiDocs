@@ -7554,11 +7554,11 @@
 </tr>
 <tr>
 <td>country</td>
-<td><span class="label label-required">Required</span> TEXT.</td>
+<td><span class="label label-required">Required</span> One of USA, GBR, CAN, AUS.</td>
 </tr>
 <tr>
 <td>location</td>
-<td><span class="label label-required">Required</span> TEXT.</td>
+<td><span class="label label-required">Required</span> Like &ldquo;new york&rdquo;.</td>
 </tr>
 </tbody></table>
 
@@ -7585,8 +7585,8 @@ curl -X GET <span class="se">\</span>
  -d <span class="s1">'location=12555'</span> <span class="se">\ </span>  
   https://tools.brightlocal.com/seo-tools/api/v1/geo-locations/google
 </code></pre>
-<pre><code class="highlight csharp"><span class="n">api</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">);</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+<pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"v1/geo-locations/google"</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -7626,8 +7626,12 @@ curl -X GET <span class="se">\</span>
 <td><span class="label label-required">Required</span> <a href="#authentication">See above for how to generate signature and expires values.</a></td>
 </tr>
 <tr>
+<td>country</td>
+<td><span class="label label-required">Required</span> One of USA, GBR, CAN, AUS.</td>
+</tr>
+<tr>
 <td>location</td>
-<td><span class="label label-required">Required</span> TEXT.</td>
+<td><span class="label label-required">Required</span> Like &ldquo;new york&rdquo;.</td>
 </tr>
 </tbody></table>
 
