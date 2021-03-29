@@ -136,6 +136,7 @@ profile-url | <span class="label label-required">Required</span> For requests to
 country | <span class="label label-required">Required</span>
 sort | 'rating' or 'date'. By default 'date'.
 reviews-limit | Positive number or 'all'. By default 100.
+next-page | Number for Google and a string value for the rest of directories.
 date-from | Date Format: Y-m-d or Y-m-d H:i:s. By default not specified.
 start-page | See [paging](#paging) table below for details.
 
@@ -268,6 +269,7 @@ Console.WriteLine(response);
               "country": "USA",
               "date-from": null,
               "reviews-limit": 250,
+              "start-page": 51,
               "sort-type": "date",
                "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             }
@@ -298,6 +300,7 @@ Console.WriteLine(response);
               "country": "USA",
               "date-from": null,
               "reviews-limit": 250,
+              "next-page": "100001023529042%3A292061516392",
               "sort-type": "date",
               "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             }
@@ -361,6 +364,7 @@ Console.WriteLine(response);
           "country": "USA",
           "date-from": null,
           "reviews-limit": 250,
+          "next-page": 51,
           "sort-type": "date",
           "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
           "parent-id": 549612293
@@ -398,6 +402,7 @@ Console.WriteLine(response);
           "country": "USA",
           "date-from": null,
           "reviews-limit": 250,
+          "start-page": "100001023529042%3A292061516392",
           "sort-type": "date",
           "api-key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
           "parent-id": 549612304
@@ -467,18 +472,26 @@ country | <span class="label label-required">Required</span> Only USA.
 telephone | A valid telephone number. Providing this will improve the quality of results returned.
 sort | 'rating' or 'date'. By default 'date'.
 reviews-limit | Positive number or 'all'. By default 100.
+next-page | Number for Google and a string value for the rest of directories.
 date-from | Date Format: Y-m-d or Y-m-d H:i:s. By default not specified.
 start-page | See [paging](#paging) table below for details.
 
 ## Paging
 
-We support up to 500 reviews per request to a given directory. If you need to retrieve more than 500 reviews you can use the start-page parameter and submit multiple requests to pick up older reviews. For example with Google to fetch 1000 reviews you'd need to make two requests:
+We support up to 500 reviews per request to a given directory. If you need to retrieve more than 500 reviews you can use the start-page parameter and submit multiple requests to pick up older reviews. For example with Google to fetch 1000 reviews you’d need to make two requests:
 
 1. Without start-page (or with start-page=1) to fetch reviews 1 - 500.
 2. With start-page=51 (Google returns 10 reviews per page) to fetch reviews 501 - 1000.
 
+For directories such as DemandForce and Facebook, you will be returned next-start-page parameter with a string value in your payload. Pass that value in the start-page parameter of next request to pick up older reviews. For example with Facebook to fetch 1000 reviews you’d need to make two requests:
+
+1. Without start-page to fetch reviews 1 - 500. Then take the string value returned in the next-start-page parameter, and 
+2. Pass next-start-page parameter's string value (from the previous request) in start-page parameter of your next request to fetch reviews 501 - 1000.
+
 ### Supported Directories
 
-Directory | Number Reviews Per Page
---------- | -----------------------
-Google    | 10
+Directory   | Number Reviews Per Page
+----------- | -----------------------
+Google      | 10
+DemandForce | 
+Facebook    | 
