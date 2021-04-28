@@ -4059,45 +4059,105 @@
 <p>Success (200 OK)</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"location"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"location-name"</span><span class="p">:</span><span class="s2">"BrightLocal HQ"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"client-id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"location-url"</span><span class="p">:</span><span class="s2">"https://www.brightlocal.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"business-category-id"</span><span class="p">:</span><span class="mi">650</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">"GBR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"address1"</span><span class="p">:</span><span class="s2">"The Old Candlemakers"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"address2"</span><span class="p">:</span><span class="s2">"West St, Lewes"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"region"</span><span class="p">:</span><span class="s2">"East Sussex"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"town"</span><span class="p">:</span><span class="s2">"Lewes"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"postcode"</span><span class="p">:</span><span class="s2">"BN7 2NZ"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"telephone"</span><span class="p">:</span><span class="s2">"80500 050 0505"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"location-reference"</span><span class="p">:</span><span class="s2">"BL1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"contact-first-name"</span><span class="p">:</span><span class="s2">"first name"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"contact-last-name"</span><span class="p">:</span><span class="s2">"last name"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"contact-telephone"</span><span class="p">:</span><span class="s2">"+44 1273 917 374"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"contact-fax"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"contact-mobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"num-of-employees"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"formation-date"</span><span class="p">:</span><span class="s2">"11-2009"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"extra-business_categories"</span><span class="p">:[</span><span class="w">
-          </span><span class="s2">"marketing"</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"extra-business-categories-ids"</span><span class="p">:[</span><span class="w">
-            </span><span class="mi">503</span><span class="p">,</span><span class="w">
-            </span><span class="mi">2824</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"payment-methods-accepted"</span><span class="p">:[</span><span class="w">
-            </span><span class="s2">"visa"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"paypal"</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"short-desc"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"long-desc"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"services-or-products"</span><span class="p">:[</span><span class="w">
-            </span><span class="s2">"analytics"</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"external-report-url"</span><span class="p">:</span><span class="s2">"https://www.local-marketing-reports.com/location-dashboard/2c6c2d77e55862b302858746b2ef7a6d50ac6c4f/view"</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"location-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BrightLocal HQ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.brightlocal.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business-category-id"</span><span class="p">:</span><span class="w"> </span><span class="mi">650</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Old Candlemakers"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"West St, Lewes"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East Sussex"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"town"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lewes"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BN7 2NZ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80500 050 0505"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location-reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BL1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact-first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact-last-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact-telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+44 1273 917 374"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact-fax"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact-mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"num-of-employees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"formation-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11-2009"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"extra-business_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"marketing"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"extra-business-categories-ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">503</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2824</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"opening-hours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"regular"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"applyToAll"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notSupplied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"tue"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"wed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"thu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"fri"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"closed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sun"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"closed"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hours"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"special"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payment-methods-accepted"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"visa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"paypal"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"short-desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"long-desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"services-or-products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"analytics"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"external-report-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.local-marketing-reports.com/location-dashboard/2c6c2d77e55862b302858746b2ef7a6d50ac6c4f/view"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -9071,7 +9131,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
                 </span><span class="s2">"4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"5"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"working_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"opening_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"apply_to_all"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"days"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"mon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
