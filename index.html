@@ -2618,8 +2618,8 @@
 <p>We support up to 500 reviews per request to a given directory. If you need to retrieve more than 500 reviews you can use the start-page parameter and submit multiple requests to pick up older reviews. For example with Google to fetch 1000 reviews you&rsquo;d need to make two requests:</p>
 
 <ol>
-<li>Without start-page (or with start-page=1) to fetch reviews 1 - 500.</li>
-<li>With start-page=51 (Google returns 10 reviews per page) to fetch reviews 501 - 1000.</li>
+<li>Without start-page (or with start-page=1) to fetch reviews 1 - 500. In response, you will receive reviews and the &#39;next-start-page&rsquo; parameter. It can be integer page number or string token. Use it on your next request.</li>
+<li>With start-page=&#39;Token from previous request&rsquo; to fetch reviews next reviews.</li>
 </ol>
 
 <h3 id="supported-directories">Supported Directories</h3>
@@ -2627,12 +2627,60 @@
 <table><thead>
 <tr>
 <th>Directory</th>
-<th>Number Reviews Per Page</th>
+<th>Number Reviews Per Page or Token</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Google</td>
+<td>google</td>
+<td>token</td>
+</tr>
+<tr>
+<td>trustpilot</td>
+<td>20</td>
+</tr>
+<tr>
+<td>dentist1800</td>
+<td>20</td>
+</tr>
+<tr>
+<td>expedia</td>
+<td>500</td>
+</tr>
+<tr>
+<td>facebook</td>
+<td>token</td>
+</tr>
+<tr>
+<td>grubhub</td>
+<td>35</td>
+</tr>
+<tr>
+<td>healthgrades</td>
+<td></td>
+</tr>
+<tr>
+<td>insiderpages</td>
+<td>50</td>
+</tr>
+<tr>
+<td>opentable</td>
+<td>40</td>
+</tr>
+<tr>
+<td>realself</td>
 <td>10</td>
+</tr>
+<tr>
+<td>selfstorage</td>
+<td>3</td>
+</tr>
+<tr>
+<td>tripadvisor</td>
+<td>5 or 10</td>
+</tr>
+<tr>
+<td>yellowpages</td>
+<td>20</td>
 </tr>
 </tbody></table>
 
