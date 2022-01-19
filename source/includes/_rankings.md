@@ -542,7 +542,7 @@ telephone | A valid telephone number.
 include-secondary-matches | Determines whether or not to include results matched by name, telephone and/or ZIP/postal code. One of yes or no. This should be used in conjunction with the postal and telephone parameters.
 listings | Include details of all SERPs returned, not just the matches. Defaults to "no". Accepts "yes" or "no". The default is "no".
 screenshots | Determines whether or not to generate SERP screenshots and include the links to those screenshots in the response. Accepts "yes" or "no". The default is "no".
-with-keyword-volume | Include keyword volume value. Defaults to "no". Accepts "yes" or "no". The default is "no".
+with-keyword-volume | Include keyword volume data in the response. There's an additional charge for this data. Accepts "yes" or "no". The default is "no".
 
 <aside class="notice">
     By default we return 5 pages or 50 results (whichever is lower). If you need more than this please contact us. We can increase to a maximum of 10 pages or 100 results on a case by case basis.
