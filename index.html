@@ -3046,12 +3046,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'q=My+Sample+Query'</span> <span class="se">\ </span>  
-  https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/search
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/search?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;q=My+Sample+Query'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span> <span class="p">{</span>
@@ -4137,12 +4132,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'q=My+Sample+Query'</span> <span class="se">\ </span>  
-  https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search/
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;q=My+Sample+Query'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span> <span class="p">{</span>
@@ -4675,11 +4665,7 @@
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v2/lsrc/get-all'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
-  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get-all
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get-all?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span> <span class="p">{</span> <span class="p">};</span>
@@ -4772,12 +4758,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'campaign-id=50'</span> <span class="se">\</span>
-  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;campaign-id=50'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span> <span class="p">{</span>
@@ -4995,12 +4976,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'campaign-id=50'</span> <span class="se">\</span>
-  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/history/get
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/history/get?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;campaign-id=50'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span> <span class="p">{</span>
@@ -5092,12 +5068,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'campaign-id=9636'</span> <span class="se">\</span>
-  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/results/get
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/results/get?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;campaign-id=9636'</span>
 </code></pre>
 
 <h3 id="get-report-results">Get Report Results</h3>
@@ -6089,12 +6060,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'report-id=860'</span> <span class="se">\</span>
-  https://tools.brightlocal.com/seo-tools/api/v4/lscu
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/lscu?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;report-id=860'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">860</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -6409,12 +6375,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'q=Bodega+Wine+Bar'</span> <span class="se">\</span>
-  https://tools.brightlocal.com/seo-tools/api/v4/lscu/search
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/lscu/search?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;q=Bodega+Wine+Bar'</span>
 </code></pre>
 
 <h3 id="search-reports">Search Reports</h3>
@@ -6917,12 +6878,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'report-id=682'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v2/ct/get
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/ct/get?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;report-id=682'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">682</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -7179,11 +7135,7 @@
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v2/ct/get-all'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\ </span>
-  https://tools.brightlocal.com/seo-tools/api/v2/ct/get-all
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/ct/get-all?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">locationId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -7339,12 +7291,7 @@
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'report-id=2457'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v2/ct/get-results
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v2/ct/get-results?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;report-id=2457'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">2457</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -7496,13 +7443,7 @@
 <span class="p">]);</span>
 <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'country=USA'</span> <span class="se">\ </span>  
- -d <span class="s1">'location=12555'</span> <span class="se">\ </span>  
-  https://tools.brightlocal.com/seo-tools/api/v1/geo-locations/bing
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v1/geo-locations/bing?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;country=USA&amp;location=12555'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;YOUR_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;YOUR_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"v1/geo-locations/bing"</span><span class="p">);</span>
@@ -7567,13 +7508,7 @@
 <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 
 </code></pre>
-<pre><code class="highlight shell"><span class="sb">```</span>shell
-curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\ </span> 
- -d <span class="s1">'location=12555'</span> <span class="se">\ </span>  
-  https://tools.brightlocal.com/seo-tools/api/v1/geo-locations/google
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v1/geo-locations/google?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;location=12555'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"v1/geo-locations/google"</span><span class="p">);</span>
@@ -9869,11 +9804,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span> <span class="nv">$reportId</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf/1
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/1?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -10147,11 +10078,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">dynamic</span> <span class="n">report</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"v4/rf"</span><span class="p">).</span><span class="nf">GetContent</span><span class="p">();</span>
@@ -10264,12 +10191,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'q=My+Sample+Query'</span> <span class="se">\ </span>  
-  https://tools.brightlocal.com/seo-tools/api/v4/rf/search
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/search?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;&amp;q=My+Sample+Query'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span>
@@ -10361,11 +10283,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/reviews'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">141</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -10540,11 +10458,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/reviews/count'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/count
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/count?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">141</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -10615,11 +10529,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/reviews/growth'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/growth
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/growth?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -10695,11 +10605,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/directories'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf/141/directories
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/directories?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">141</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -10887,11 +10793,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/directories/stats'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf/141//directories/stats
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/directories/stats?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">141</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -10992,11 +10894,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/rf/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/stars/count'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/rf/141//stars/count
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/stars/count?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span><span class="m">141</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -11468,11 +11366,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/gpw/1
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/gpw/1?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">apiSecret</span><span class="p">);</span>
@@ -11663,11 +11557,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/gpw
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/gpw?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">apiSecret</span><span class="p">);</span>
 <span class="n">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"/v4/gpw/"</span><span class="p">);</span>
@@ -11851,11 +11741,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span> <span class="o">.</span> <span class="s1">'/results'</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v4/gpw/1/results
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v4/gpw/1/results?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="kt">int</span> <span class="n">reportId</span> <span class="p">=</span><span class="m">1</span><span class="p">;</span>
 <span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="n">apiKey</span><span class="p">,</span> <span class="n">apiSecret</span><span class="p">);</span>
@@ -12465,9 +12351,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v1/business-categories/'</span> <span class="o">.</span> <span class="nv">$country</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
-  https://tools.brightlocal.com/seo-tools/api/v1/business-categories/USA
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v1/business-categories/USA?api-key=&lt;INSERT_API_KEY&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="kt">string</span> <span class="n">country</span> <span class="p">=</span> <span class="s">"USA"</span><span class="p">;</span>
@@ -12529,11 +12413,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$responseByCountry</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'v1/directories/'</span> <span class="o">.</span> <span class="nv">$country</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$responseByCountry</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight shell">curl -X GET <span class="se">\</span>
- -d <span class="s1">'api-key=&lt;INSERT_API_KEY&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
- -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
- https://tools.brightlocal.com/seo-tools/api/v1/directories/all
+<pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v1/directories/all?api-key=&lt;INSERT_API_KEY&gt;&amp;sig=&lt;INSERT_API_SIG&gt;&amp;expires=&lt;INSERT_API_EXPIRES&gt;'</span>
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
 <span class="n">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">"v1/directories/all"</span> <span class="p">);</span>
