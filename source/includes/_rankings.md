@@ -365,7 +365,7 @@ Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
 batch-id | <span class="label label-required">Required</span>
-search-engine | <span class="label label-required">Required</span> One of google, google-mobile, google-local, bing, bing-local.
+search-engine | <span class="label label-required">Required</span> One of google, google-mobile, google-local, bing.
 country | <span class="label label-required">Required</span> Determines which country specific variant of the specified search engine to use. As defined in "Supported Countries"(#supported-countries) table below.
 google-location | Allows you to optionally localize results by specifying your physical location. Specify a ZIP, city name or region. Only applicable to US searches. Also see [Geo Locations](#geo-locations) method.
 bing-location | Allows you to optionally localize results by specifying your physical location. See [Geo Locations](#geo-locations) method.
@@ -527,7 +527,7 @@ Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
 batch-id | <span class="label label-required">Required</span>
-search-engine | <span class="label label-required">Required</span> One of google, google-mobile, google-local, bing, bing-local.
+search-engine | <span class="label label-required">Required</span> One of google, google-mobile, google-local, bing.
 country | <span class="label label-required">Required</span> Determines which country specific variant of the specified search engine to use. As defined in "Supported Countries"(#supported-countries) table below.
 google-location | Allows you to optionally localize results by specifying your physical location. Specify a ZIP, city name or region. Only applicable to US searches. Also see [Geo Locations](#geo-locations) method.
 bing-location | Allows you to optionally localize results by specifying your physical location. See [Geo Locations](#geo-locations) method.
