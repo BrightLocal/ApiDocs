@@ -772,6 +772,7 @@ citations | JSON Array. List of sites you require listings for. You can leave ci
 remove-duplicates | String. Possible values 'N' or 'Y'. Default 'N'. Find and Remove Duplicate Listings
 aggregators | JSON Array. List of aggregators you require listings for. Possible values for USA are: ‘dataaxle’ ‘neustar’, ‘foursquare’, ‘gpsnetwork’ and ‘ypnetwork’. For CAN possible values are ‘dataaxle’, ‘foursquare’, ‘gpsnetwork’.  For AUS possible values are ‘foursquare’, ‘gpsnetwork’ and ‘locafynetwork’. The only possible values for all other countries are ‘foursquare’, and ‘gpsnetwork’.
 notes | Provide instructions to our submissions team with specifics about how you'd like your campaign handled.
+short_business_name | Short business name of max 60 characters is required for submission to some directories and data aggregators.
 
 ## Get Campaigns
 
