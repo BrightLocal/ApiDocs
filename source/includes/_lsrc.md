@@ -19,7 +19,7 @@ $response = $api->post('/v2/lsrc/add', [
     'schedule'          => 'Adhoc',
     'search-terms'      => 'Restaurant\nfood+nyc\ndelivery+midtown+manhattan',
     'website-addresses' => '["le-bernardin.com", "le-bernardin2.com"]',
-    'search-engines'    => 'google,google-mobile,google-local,bing,bing-local'
+    'search-engines'    => 'google,google-mobile,google-local,bing'
 ]);
 print_r($response->getResult());
 ```
@@ -34,7 +34,7 @@ curl -X POST \
  -d 'schedule=Adhoc' \
  -d $'search-terms=Restaurant\nfood+nyc\ndelivery+midtown+manhattan' \ 
  -d 'website-addresses=["le-bernardin.com","le-bernardin2.com"]' \
- -d 'search-engines=google,google-mobile,google-local,bing,bing-local' \ 
+ -d 'search-engines=google,google-mobile,google-local,bing' \ 
  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/add
 ```
 
@@ -47,7 +47,7 @@ Parameters parameters = new Parameters
         { "schedule", "Adhoc" },
         { "search-terms", "Restaurant\nfood+nyc\ndelivery+midtown+manhattan" },
         { "website-addresses", new List<string> { "le-bernardin.com", "le-bernardin.ca" } },
-        { "search-engines", "google,google-mobile,google-local,bing,bing-local" }
+        { "search-engines", "google,google-mobile,google-local,bing" }
 
 };
 Response response = api.Post("/v2/lsrc/add", parameters);
@@ -95,7 +95,7 @@ bing-location | Specify a location to perform search from. When set search keywo
 business-names | Newline (\n) separated list of business names
 postcode |	80 characters max. 
 telephone |	
-search-engines | Comma separated list of search engines. Options are google, google-mobile, google-local, bing, bing-local. Defaults to all search engines.
+search-engines | Comma separated list of search engines. Options are google, google-mobile, google-local, bing. Defaults to all search engines.
 include-local-directory-results	| Yes or No. Defaults to Yes.
 notify | Yes or No. Defaults to No.
 email-addresses	| Newline (\n) separated list of email addresses
@@ -121,7 +121,7 @@ $response = $api->post('/v2/lsrc/update', [
     'schedule'          => 'Adhoc',
     'search-terms'      => 'Restaurant\nfood+nyc\ndelivery+midtown+manhattan',
     'website-addresses' => '["le-bernardin.com", "le-bernardin2.com"]',
-    'search-engines'    => 'google,google-mobile,google-local,bing,bing-local'
+    'search-engines'    => 'google,google-mobile,google-local,bing'
 ]);
 print_r($response->getResult());
 ```
@@ -137,7 +137,7 @@ curl -X POST \
  -d 'schedule=Adhoc' \
  -d $'search-terms=Restaurant\nfood+nyc\ndelivery+midtown+manhattan' \ 
  -d 'website-addresses=["le-bernardin.com","le-bernardin2.com"]' \
- -d 'search-engines=google,google-mobile,google-local,bing,bing-local' \ 
+ -d 'search-engines=google,google-mobile,google-local,bing' \ 
  https://tools.brightlocal.com/seo-tools/api/v2/lsrc/update
 ```
 
@@ -151,7 +151,7 @@ Parameters parameters = new Parameters
     { "schedule", "Adhoc" },
     { "search-terms", "Restaurant\nfood+nyc\ndelivery+midtown+manhattan" },
     { "website-addresses", new List<string> { "le-bernardin.com", "le-bernardin.ca" } },
-    { "search-engines", "google,google-mobile,google-local,bing,bing-local" }
+    { "search-engines", "google,google-mobile,google-local,bing" }
 
 };
 Response response = api.Post("/v2/lsrc/update", parameters);
@@ -439,7 +439,6 @@ Console.WriteLine(response.GetContent());
                 "google",
                 "google-local",
                 "bing",
-                "bing-local"
             ],
             "include_local_directory_results": "Yes",
             "notify": "Yes",
@@ -690,7 +689,6 @@ Console.WriteLine(response.GetContent());
           "google",
           "google-local",
           "bing",
-          "bing-local"
         ],
         "include_local_directory_results": "No",
         "notify": "No",
@@ -732,7 +730,6 @@ Console.WriteLine(response.GetContent());
           "google",
           "google-places",
           "bing",
-          "bing-local"
         ],
         "rankings": {
           "Alaska Bar Association": {
@@ -802,25 +799,6 @@ Console.WriteLine(response.GetContent());
                 "last": "1"
               }
             ],
-            "bing-local": [
-              {
-                "id": "11771",
-                "url": "",
-                "orig_url": "",
-                "rank": "0",
-                "unblended_rank": "0",
-                "page": "0",
-                "type": "",
-                "match": "",
-                "directory": null,
-                "date": "2016-02-01 19:00:24",
-                "hash": null,
-                "search_url": "http://www.bing.com/local/default.aspx?q=Alaska+Bar+Association&mkt=en-us&FORM=LLSV",
-                "search_engine": "bing-local",
-                "sub_type": null,
-                "sub_rank": "0"
-              }
-            ]
           }
         },
         "hashes": {
@@ -838,9 +816,6 @@ Console.WriteLine(response.GetContent());
             "Alaska Bar Association": [
               "bbd31c444764b5dd44685b5eae35578bbef68166"
             ]
-          },
-          "bing-local": {
-            "Alaska Bar Association": []
           }
         },
         "byPosition": {
@@ -892,21 +867,7 @@ Console.WriteLine(response.GetContent());
           "Positions 6-10": [],
           "Positions 11-20": [],
           "Positions 21-50": [],
-          "Positions 51+": {
-            "Alaska Bar Association||bing-local||": {
-              "id": "11771",
-              "url": "",
-              "orig_url": "",
-              "rank": "0",
-              "page": "0",
-              "type": "",
-              "match": "",
-              "directory": null,
-              "date": "2016-02-01 19:00:24",
-              "hash": null,
-              "search_url": "http://www.bing.com/local/default.aspx?q=Alaska+Bar+Association&mkt=en-us&FORM=LLSV",
-              "search_engine": "bing-local"
-            }
+          "Positions 51+": {            
           }
         },
         "summary": {
@@ -935,13 +896,6 @@ Console.WriteLine(response.GetContent());
             "up": 0,
             "down": 0,
             "no_change": 1,
-            "gained_hashes": [],
-            "lost_hashes": []
-          },
-          "bing-local": {
-            "up": 0,
-            "down": 0,
-            "no_change": 0,
             "gained_hashes": [],
             "lost_hashes": []
           }
