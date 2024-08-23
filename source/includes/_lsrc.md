@@ -211,6 +211,7 @@ is-public | Publish reports on a white label URL. Yes or No.
 run-time | One of '00:00:00', '03:00:00', '06:00:00', '09:00:00', '12:00:00', '15:00:00', '18:00:00', '21:00:00'
 time-zone | One of '(UTC-10:00) Hawaii','(UTC-08:00) Pacific Time (US & Canada)','(UTC-07:00) Mountain Time (US & Canada)','(UTC-06:00) Central Time (US & Canada)','(UTC-05:00) Eastern Time (US & Canada)','(UTC-04:00) Atlantic Time (Canada)','(UTC-03:30) Newfoundland','(UTC) Dublin, Edinburgh, London','(UTC+08:00) Perth','(UTC+09:30) Adelaide, Darwin','(UTC+10:00) Brisbane, Melbourne, Sydney','(UTC+12:00) Auckland, Wellington'
 
+*if run_time and time_zone will be not provided, those will be estimated based on location
 ## Delete Report
 
 <span class="label label-info">Account Method</span>
