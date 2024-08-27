@@ -4384,6 +4384,14 @@
 <td>is-public</td>
 <td>Publish reports on a white label URL. Yes or No. Defaults to No.</td>
 </tr>
+<tr>
+<td>run-time</td>
+<td>One of &lsquo;00:00:00&rsquo;, &#39;03:00:00&rsquo;, &#39;06:00:00&rsquo;, &#39;09:00:00&rsquo;, &#39;12:00:00&rsquo;, &#39;15:00:00&rsquo;, &#39;18:00:00&rsquo;, &#39;21:00:00&rsquo;</td>
+</tr>
+<tr>
+<td>time-zone</td>
+<td>One of &#39;Pacific/Honolulu&rsquo;, &#39;America/Los_Angeles&rsquo;, &#39;America/Anchorage&rsquo;, &#39;US/Pacific&rsquo;, &#39;America/Phoenix&rsquo;, &#39;America/Denver&rsquo;, &#39;America/Boise&rsquo;, &#39;US/Central&rsquo;, &#39;Canada/Saskatchewan&rsquo;, &#39;America/North_Dakota&rsquo;, &#39;America/Chicago&rsquo;, &#39;America/New_York&rsquo;, &#39;America/Kentucky&rsquo;, &#39;America/Indiana&rsquo;, &#39;America/Detroit&rsquo;, &#39;US/Eastern&rsquo;, &#39;Canada/Atlantic&rsquo;, &#39;Canada/Newfoundland&rsquo;, &#39;Europe/London&rsquo;, &#39;Europe/Dublin&rsquo;, &#39;Australia/Perth&rsquo;, &#39;Australia/Darwin&rsquo;, &#39;Australia/Brisbane&rsquo;, &#39;Australia/Sydney&rsquo;, &#39;Pacific/Auckland&rsquo;, &#39;US/Mountain&rsquo;, &#39;America/North_Dakota/Center&rsquo;, &#39;America/Kentucky/Louisville&rsquo;, &#39;America/Indiana/Indianapolis&rsquo;</td>
+</tr>
 </tbody></table>
 
 <h2 id="update-report">Update Report</h2>
@@ -4572,7 +4580,17 @@
 <td>is-public</td>
 <td>Publish reports on a white label URL. Yes or No.</td>
 </tr>
+<tr>
+<td>run-time</td>
+<td>One of &#39;00:00:00&rsquo;, &#39;03:00:00&rsquo;, &#39;06:00:00&rsquo;, &#39;09:00:00&rsquo;, &#39;12:00:00&rsquo;, &#39;15:00:00&rsquo;, &#39;18:00:00&rsquo;, &#39;21:00:00&rsquo;</td>
+</tr>
+<tr>
+<td>time-zone</td>
+<td>One of &rsquo;(UTC-10:00) Hawaii&rsquo;,&rsquo;(UTC-08:00) Pacific Time (US &amp; Canada)&rsquo;,&rsquo;(UTC-07:00) Mountain Time (US &amp; Canada)&rsquo;,&rsquo;(UTC-06:00) Central Time (US &amp; Canada)&rsquo;,&rsquo;(UTC-05:00) Eastern Time (US &amp; Canada)&rsquo;,&rsquo;(UTC-04:00) Atlantic Time (Canada)&rsquo;,&rsquo;(UTC-03:30) Newfoundland&rsquo;,&rsquo;(UTC) Dublin, Edinburgh, London&rsquo;,&rsquo;(UTC+08:00) Perth&rsquo;,&rsquo;(UTC+09:30) Adelaide, Darwin&rsquo;,&rsquo;(UTC+10:00) Brisbane, Melbourne, Sydney&rsquo;,&rsquo;(UTC+12:00) Auckland, Wellington&rsquo;</td>
+</tr>
 </tbody></table>
+
+<p>*if run_time and time_zone will be not provided, those will be estimated based on location</p>
 
 <h2 id="delete-report">Delete Report</h2>
 
