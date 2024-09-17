@@ -653,22 +653,22 @@ Console.WriteLine(response.GetContent());
             "previous_submission_updates_allowed":"Y"
         }        
     },
-    "aggregators": [
+  "aggregators": [
+    {
+      "name": "Foursquare",
+      "type": "foursquare",
+      "expiration": "2025-08-08",
+      "secondary_campaign_id": "",
+      "directories": [
         {
-            "citation" : "foursquare",
-            "domain_authority": "N/A",
-            "type": "Aggregators",
-            "phone_verification": "N/A",
-            "client_verification": "N/A",
-            "notes": "Foursquare will only contact the business if key data doesn’t align",
-            "no_update": "N/A",
-            "no_photos": "N/A",
-            "part_of_yext_network": "N/A",
-            "quick_listing": "N/A",
-            "secondary_campaign_id": "b",
-            "status": "To Do"
+          "citation": "Foursquare",
+          "notes": "",
+          "status": "Live",
+          "profile_url": "https://foursquare.com/listing"
         }
-    ]
+      ]
+    }
+  ]
 }
 ```
 
