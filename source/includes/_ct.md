@@ -99,11 +99,7 @@ business-name | <span class="label label-required">Required</span>
 address-1 | <span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.
 address-2 | 80 characters max.
 business-location | <span class="label label-required">Required</span> Town or city name in which business is located.
-old-business-name-1	|
-old-business-name-2	|
 postcode |	<span class="label label-required">Required</span> 80 characters max. 
-old-postcode-1 |	
-old-postcode-2 |	
 country | One of USA, GBR, CAN, AUS. Defaults to USA.
 phone | <span class="label label-required">Required</span>	
 website | <span class="label label-required">Required</span> Link to the website of your business. 256 characters max. 
@@ -216,11 +212,7 @@ business-name |
 address-1 | <span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.
 address-2 | 80 characters max.
 business-location | Town or city name in which business is located.
-old-business-name-1	|
-old-business-name-2	|
 postcode |	80 characters max. 
-old-postcode-1 |	
-old-postcode-2 |	
 country	| One of USA, GBR, CAN, AUS. Defaults to USA.
 phone |	
 website	| Link to the website of your business. 256 characters max. 
@@ -289,10 +281,6 @@ Console.WriteLine(report.GetContent());
         "business_type": "Restaurant",
         "primary_location": "Brighton",
         "last_run_id": "1185703",
-        "old_business_name_1": "View Hove",
-        "old_postcode_1": "01273 207 037",
-        "old_business_name_2": "Babylon Lounge",
-        "old_postcode_2": "BN3 4FA",
         "last_run": "2015-10-28 05:31:59",
         "company_name": "Ullu Bata Inc.",
         "white_label_profile_id": "7819",
@@ -507,10 +495,6 @@ Console.WriteLine(reports.GetContent());
                 "telephone": "0123456789",
                 "business_type": "Pub",
                 "primary_location": "Fulham",
-                "old_business_name_1": "",
-                "old_postcode_1": "",
-                "old_business_name_2": "",
-                "old_postcode_2": "",
                 "currently_running": "No",
                 "generation_error": "No",
                 "terminal_fail": "No",
@@ -551,10 +535,6 @@ Console.WriteLine(reports.GetContent());
                 "telephone": "0123456789",
                 "business_type": "car hire",
                 "primary_location": "chicago",
-                "old_business_name_1": "",
-                "old_postcode_1": "",
-                "old_business_name_2": "",
-                "old_postcode_2": "",
                 "currently_running": "No",
                 "generation_error": "No",
                 "terminal_fail": "No",
