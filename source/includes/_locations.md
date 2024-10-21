@@ -1,6 +1,8 @@
 # Locations
 
-## Add Location
+<p class="notice">This API has been deprecated. Please refer to the documentation for our new [Locations API](https://developer.brightlocal.com/docs/management-apis/a8chirfprjb2p-locations).</p>
+
+## Add Location (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -279,7 +281,7 @@ short-description | 200 characters max
 long-description | 500 characters max
 services-of-products| Array
 
-## Update Location
+## Update Location (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -446,7 +448,7 @@ short-description | 200 characters max
 long-description | 500 characters max
 services-of-products| Array
 
-## Delete Location
+## Delete Location (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -504,7 +506,7 @@ sig | <span class="label label-required">Required</span> [See above for how to g
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | <span class="label label-required">Required</span>
 
-## Get Location
+## Get Location (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -649,7 +651,7 @@ api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 
-## Search Locations
+## Search Locations (deprecated)
 
 <span class="label label-info">Account Method</span>
 
