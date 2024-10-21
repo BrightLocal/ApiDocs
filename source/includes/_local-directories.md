@@ -1,6 +1,6 @@
 # Local Directories
 
-<p class="notice">This API is deprecated. Please refer to the documentation for our new [Listings API](https://developer.brightlocal.com/docs/data-apis/8owbgtne72ygc-listings-api).</p>
+<p class="notice">This API has been deprecated. Please refer to the documentation for our new [Listings API](https://developer.brightlocal.com/docs/data-apis/8owbgtne72ygc-listings-api).</p>
 
 ## Fetch Profile URL (deprecated)
 
