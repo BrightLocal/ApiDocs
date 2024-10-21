@@ -1,6 +1,8 @@
 # Local Directories
 
-## Fetch Profile URL
+<p class="notice">This API is deprecated. Please refer to the documentation for our new [Listings API](https://developer.brightlocal.com/docs/data-apis/8owbgtne72ygc-listings-api).</p>
+
+## Fetch Profile URL (deprecated)
 
 <span class="label label-info">Batch Method</span>
 
@@ -194,7 +196,7 @@ local-directory | | <span class="label label-required">Required</span> See possi
 telephone | | <span class="label label-required">Required</span>
 search-type | search-by-phone | <span class="label label-required">Required</span>
 
-## Fetch Profile Details (by profile URL)
+## Fetch Profile Details (by profile URL) (deprecated)
 
 <span class="label label-info">Batch Method</span>
 
@@ -316,7 +318,7 @@ batch-id | <span class="label label-required">Required</span>
 profile-url | <span class="label label-required">Required</span> For requests to fetch Google profile data please use our [Google Link &amp; ID Generator tool](https://www.brightlocal.com/free-local-seo-tools/google-id-and-review-link-generator/) to generate your Google My Business Knowledge Panel URL.
 country | <span class="label label-required">Required</span>
 
-## Fetch Profile Details (by business data)
+## Fetch Profile Details (by business data) (deprecated)
 
 <span class="label label-info">Batch Method</span>
 
