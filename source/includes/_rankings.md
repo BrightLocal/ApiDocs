@@ -1,6 +1,8 @@
 # Rankings
 
-## Search
+<p class="notice">This API has been deprecated. Please refer to the documentation for our new [Rankings API](https://developer.brightlocal.com/docs/data-apis/a65f86e53ce22-rankings-api).</p>
+
+## Search (deprecated)
 
 <span class="label label-info">Batch Method</span>
 
@@ -382,7 +384,7 @@ screenshots | Determines whether or not to generate SERP screenshots and include
     By default we return 5 pages or 50 results (whichever is lower). If you need more than this please contact us. We can increase to a maximum of 10 pages or 100 results on a case by case basis.
 </aside>
 
-## Bulk Search
+## Bulk Search (deprecated)
 
 <span class="label label-info">Batch Method</span>
 

@@ -1,6 +1,8 @@
 # Citation Builder
 
-## Create Campaign
+<p class="notice"> This API has been deprecated. Please refer to the documentation for our new [Citation Builder API](https://developer.brightlocal.com/docs/management-apis/agjq3z0pfs6nk-citation-builder).</p>
+
+## Create Campaign (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -351,7 +353,7 @@ is_public | Publish reports on a white label URL. Y or N.
 campaign_notes | Notes for any issues & concerns which you want our submission team to be aware of when they submit to directories
 white_label_profile_id | <span class="label label-required">Required</span> Id of existing White Label Profile
 
-## Update Campaign
+## Update Campaign (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -543,7 +545,7 @@ is_public | Publish reports on a white label URL. Y or N.
 campaign_notes | Notes for any issues & concerns which you want our submission team to be aware of when they submit to directories
 white_label_profile_id | <span class="label label-required">Required</span> Id of existing White Label Profile
 
-## Upload Image
+## Upload Image (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -601,7 +603,7 @@ expires	| <span class="label label-required">Required</span> [See above for how 
 
 http://tools.brightlocal.com/seo-tools/api/v2/cb/upload/5533/logo
 
-## Get Citations
+## Get Citations (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -687,7 +689,7 @@ sig	| <span class="label label-required">Required</span> [See above for how to g
 expires	| <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 campaign-id	| <span class="label label-required">Required</span>
 
-## Confirm &amp; Pay
+## Confirm &amp; Pay (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -774,7 +776,7 @@ aggregators | JSON Array. List of aggregators you require listings for. Possible
 notes | Provide instructions to our submissions team with specifics about how you'd like your campaign handled.
 short_business_name | Short business name of maximum 60 characters is required for submission to GPS Network.
 
-## Get Campaigns
+## Get Campaigns (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -867,7 +869,7 @@ sig	| <span class="label label-required">Required</span> [See above for how to g
 expires	| <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id |
 
-## Get Campaign
+## Get Campaign (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -1264,7 +1266,7 @@ sig	| <span class="label label-required">Required</span> [See above for how to g
 expires	| <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 campaign-id	| <span class="label label-required">Required</span>	
 
-## Get Credits Balance
+## Get Credits Balance (deprecated)
 
 <span class="label label-info">Account Method</span>
 

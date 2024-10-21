@@ -1,6 +1,8 @@
 # Clients
 
-## Add Client
+<p class="notice">This API has been deprecated. Please refer to the API documentation for our new [Clients API](https://developer.brightlocal.com/docs/management-apis/j13dhiwfwfldc-clients).</p>
+
+## Add Client (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -67,7 +69,7 @@ name | <span class="label label-required">Required</span> 50 characters max.
 company-url | <span class="label label-required">Required</span> 150 characters max
 reference-number | An arbitrary unique reference you can use to identify a client. This may correspond to a unique value used within your system and can be useful when importing or exporting data. 50 characters max.
 
-## Update Client
+## Update Client (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -100,7 +102,7 @@ curl -X PUT \
    https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/<client_id>
 ```
 
-### Update a client
+### Update a client (deprecated)
 
 ```csharp
 Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
@@ -137,7 +139,7 @@ name | 50 characters max
 company-url | 150 characters max
 reference-number | An arbitrary unique reference you can use to identify a client. This may correspond to a unique value used within your system and can be useful when importing or exporting data. 50 characters max.
 
-## Delete Client
+## Delete Client (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -196,7 +198,7 @@ sig | <span class="label label-required">Required</span> [See above for how to g
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 client-id | <span class="label label-required">Required</span>
 
-## Get Client
+## Get Client (deprecated)
 
 <span class="label label-info">Account Method</span>
 
@@ -250,7 +252,7 @@ sig | <span class="label label-required">Required</span> [See above for how to g
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 client-id | <span class="label label-required">Required</span>
 
-## Search Clients
+## Search Clients (deprecated)
 
 <span class="label label-info">Account Method</span>
 
