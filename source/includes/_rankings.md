@@ -1,6 +1,6 @@
 # Rankings
 
-<p class="notice">This API is deprecated. Please refer to the documentation for our new [Rankings API](https://developer.brightlocal.com/docs/data-apis/a65f86e53ce22-rankings-api).</p>
+<p class="notice">This API has been deprecated. Please refer to the documentation for our new [Rankings API](https://developer.brightlocal.com/docs/data-apis/a65f86e53ce22-rankings-api).</p>
 
 ## Search (deprecated)
 
