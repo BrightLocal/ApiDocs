@@ -1,6 +1,6 @@
 # Clients
 
-<p class="notice">This API has been deprecated. Please refer to the API documentation for our new [Clients API](https://developer.brightlocal.com/docs/management-apis/j13dhiwfwfldc-clients).
+<p class="notice">This API has been deprecated. Please refer to the API documentation for our new [Clients API](https://developer.brightlocal.com/docs/management-apis/j13dhiwfwfldc-clients).</p>
 
 ## Add Client (deprecated)
 
