@@ -1,0 +1,7 @@
+services:
+  apidoc:
+    build:
+       context: .
+    hostname: 'bl-apidoc'
+    container_name: 'bl-apidoc'
+    restart: always
