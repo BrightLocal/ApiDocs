@@ -1,6 +1,6 @@
 # Business Categories
 
-<p class="notice">This API has been deprecated. Please refer to the documentation for our new [Business Categories API](https://developer.brightlocal.com/docs/management-apis/k7xwhhme1hzep-business-categories).</p>
+<aside class="notice">This API has been deprecated. Please refer to the documentation for our new [Business Categories API](https://developer.brightlocal.com/docs/management-apis/k7xwhhme1hzep-business-categories).</aside>
 
 ## Fetch Business Categories (deprecated)
 
