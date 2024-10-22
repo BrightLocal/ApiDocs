@@ -2,7 +2,9 @@
 
 ## Supported Local Directories
 
-<aside class="notice">This API has been deprecated. Please refer to the documentation for our new [Listings API](https://developer.brightlocal.com/docs/data-apis/8owbgtne72ygc-listings-api).</aside>
+<aside class="notice">This API has been deprecated. Please refer to the documentation for our new
+	
+	[Listings API](https://developer.brightlocal.com/docs/data-apis/8owbgtne72ygc-listings-api).</aside>
 
 We now have an API method (shown below) that enables you to retrieve a list of directories for all supported countries.
 
