@@ -26,7 +26,6 @@ includes:
     - clients
     - locations
     - lsrc
-    - lscu
     - ct
     - geo-locations
     - cb
