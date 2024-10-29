@@ -602,6 +602,11 @@ h2 .label {
 .label-required {
   background: #f50;
 }
+
+.label-deprecated {
+  background: #888;
+  font-style: italic;
+}
 .label-info {
   background: #ccc;
 }
