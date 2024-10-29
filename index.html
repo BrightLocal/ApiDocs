@@ -4241,7 +4241,6 @@
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;YOUR_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;YOUR_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/lsrc/add'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location-id'</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">'name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
     <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s1">'Restaurant\nfood+nyc\ndelivery+midtown+manhattan'</span><span class="p">,</span>
     <span class="s1">'website-addresses'</span> <span class="o">=&gt;</span> <span class="s1">'["le-bernardin.com", "le-bernardin2.com"]'</span><span class="p">,</span>
@@ -4254,7 +4253,6 @@
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'location-id=1'</span> <span class="se">\</span>
- -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
  -d <span class="nv">$'</span>search-terms<span class="o">=</span>Restaurant<span class="se">\n</span>food+nyc<span class="se">\n</span>delivery+midtown+manhattan<span class="s1">' \ 
  -d '</span>website-addresses<span class="o">=[</span><span class="s2">"le-bernardin.com"</span>,<span class="s2">"le-bernardin2.com"</span><span class="o">]</span><span class="s1">' \
@@ -4265,7 +4263,6 @@
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span>
     <span class="p">{</span>
         <span class="p">{</span> <span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span><span class="p">},</span>
-        <span class="p">{</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
         <span class="p">{</span> <span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span> <span class="p">},</span>
         <span class="p">{</span> <span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span> <span class="p">},</span>
         <span class="p">{</span> <span class="s">"website-addresses"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"le-bernardin.com"</span><span class="p">,</span> <span class="s">"le-bernardin.ca"</span> <span class="p">}</span> <span class="p">},</span>
@@ -4314,7 +4311,7 @@
 </tr>
 <tr>
 <td>name</td>
-<td><span class="label label-required">Required</span></td>
+<td><span class="label label-deprecated">Deprecated</span></td>
 </tr>
 <tr>
 <td>schedule</td>
@@ -4334,7 +4331,7 @@
 </tr>
 <tr>
 <td>white-label-profile-id</td>
-<td>(branding-profile-id is also supported but deprecated)</td>
+<td><span class="label label-deprecated">Deprecated</span> (branding-profile-id is also no longer supported)</td>
 </tr>
 <tr>
 <td>tags</td>
@@ -4402,7 +4399,7 @@
 </tr>
 <tr>
 <td>is-public</td>
-<td>Publish reports on a white label URL. Yes or No. Defaults to No.</td>
+<td><span class="label label-deprecated">Deprecated</span> (uses location setting) Publish reports on a white label URL. Yes or No. Defaults to No.</td>
 </tr>
 <tr>
 <td>run-time</td>
@@ -4430,7 +4427,6 @@
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/lsrc/update'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location-id'</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'campaign-id'</span>       <span class="o">=&gt;</span> <span class="mi">9907</span><span class="p">,</span>
-    <span class="s1">'name'</span>              <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>          <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
     <span class="s1">'search-terms'</span>      <span class="o">=&gt;</span> <span class="s1">'Restaurant\nfood+nyc\ndelivery+midtown+manhattan'</span><span class="p">,</span>
     <span class="s1">'website-addresses'</span> <span class="o">=&gt;</span> <span class="s1">'["le-bernardin.com", "le-bernardin2.com"]'</span><span class="p">,</span>
@@ -4444,7 +4440,6 @@
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'location-id=1'</span> <span class="se">\</span>
  -d <span class="s1">'campaign-id=9907'</span> <span class="se">\</span>
- -d <span class="s1">'name=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
  -d <span class="nv">$'</span>search-terms<span class="o">=</span>Restaurant<span class="se">\n</span>food+nyc<span class="se">\n</span>delivery+midtown+manhattan<span class="s1">' \ 
  -d '</span>website-addresses<span class="o">=[</span><span class="s2">"le-bernardin.com"</span>,<span class="s2">"le-bernardin2.com"</span><span class="o">]</span><span class="s1">' \
@@ -4456,7 +4451,6 @@
 <span class="p">{</span>
     <span class="p">{</span> <span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"campaign-id"</span><span class="p">,</span> <span class="m">9907</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"search-terms"</span><span class="p">,</span> <span class="s">"Restaurant\nfood+nyc\ndelivery+midtown+manhattan"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"website-addresses"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"le-bernardin.com"</span><span class="p">,</span> <span class="s">"le-bernardin.ca"</span> <span class="p">}</span> <span class="p">},</span>
@@ -4510,7 +4504,7 @@
 </tr>
 <tr>
 <td>name</td>
-<td></td>
+<td><span class="label label-deprecated">Deprecated</span></td>
 </tr>
 <tr>
 <td>schedule</td>
@@ -4530,7 +4524,7 @@
 </tr>
 <tr>
 <td>white-label-profile-id</td>
-<td>(branding-profile-id is also supported but deprecated)</td>
+<td><span class="label label-deprecated">Deprecated</span> (branding-profile-id is also no longer supported)</td>
 </tr>
 <tr>
 <td>tags</td>
@@ -4598,7 +4592,7 @@
 </tr>
 <tr>
 <td>is-public</td>
-<td>Publish reports on a white label URL. Yes or No.</td>
+<td><span class="label label-deprecated">Deprecated</span> (uses location setting) Publish reports on a white label URL. Yes or No.</td>
 </tr>
 <tr>
 <td>run-time</td>
