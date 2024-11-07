@@ -125,22 +125,22 @@ Parameter | Notes
 api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-report_name | <span class="label label-required">Required</span>
+report_name | Deprecated, please use Location for update this field.
 location_id | <span class="label label-required">Required</span> Associate this report with a location in your account. This ID needs to correspond to a valid location in your account.
-white_label_profile_id | Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.
-business_names | <span class="label label-required">Required</span> Supply one business name. For example, Greens Restaurant.
+white_label_profile_id | Deprecated, please use Location for update this field.
+business_names | Deprecated, please use Location for update this field.
 schedule | <span class="label label-required">Required</span> One of Adhoc or Monthly
 day_of_month | <span class="label label-required">Required</span> One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, -1 (last day of month).
 report_type | <span class="label label-required">Required</span> One of with or without. 'with' - the business has a Google Local profile. 'without' - Ignore this business, just display competitor information. Defaults to with.
-address1 | <span class="label label-required">Required</span> 80 characters max.  Optional for report_type=without
-address2 | 80 characters max. 
-city | <span class="label label-required">Required</span> Optional for report_type=without
-state_code | <span class="label label-required">Required</span> (USA, CAN:EN and AUS)
-google_location | <span class="label label-required">Required</span> A valid google search location. Please refer to our location check method.
+address1 | Deprecated, please use Location for update this field.
+address2 | Deprecated, please use Location for update this field. 
+city | Deprecated, please use Location for update this field.
+state_code | Deprecated, please use Location for update this field.
+google_location | Deprecated, please use Location for update this field.
 is_public | Determines whether or not to make the report available on a public URL you can give to your customers. One of Yes or No. Defaults to No.
-postcode | <span class="label label-required">Required</span> A valid postcode or ZIP. 80 characters max. Optional for report_type=without
-phone_number | <span class="label label-required">Required</span> Optional for report_type=without
-country | <span class="label label-required">Required</span> One of USA, CAN:EN, GBR or AUS.
+postcode | Deprecated, please use Location for update this field.
+phone_number | Deprecated, please use Location for update this field.
+country | Deprecated, please use Location for update this field.
 search_terms | <span class="label label-required">Required</span> Supply one or more search terms (max 5) as a JSON string. For example, ["restaurant san francisco","cafe san francisco"].
 notify | One of Yes or No. If set to yes we will send report alerts to all email addresses specified (see field below). If you include customer email addresses when setting up your report we'll also email them the alerts so please be sure this is what you want before adding their addresses. Default is No.
 email_addresses | Supply one or more (max 5) email addresses for us to send report alerts to. This only takes effect if notify is set to Yes. JSON string. For example, ["email1@test.com","email2@test.com"].
@@ -228,24 +228,24 @@ api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 report-ID | <span class="label label-required">Required</span>
-report_name |
+report_name | Deprecated, please use Location for update this field.
 location_id | <span class="label label-required">Required</span> Associate this report with a location in your account. This ID needs to correspond to a valid location in your account.
-white_label_profile_id | Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.
-business_names |  Supply one business name. For example, Greens Restaurant.
+white_label_profile_id | Deprecated, please use Location for update this field.
+business_names |  Deprecated, please use Location for update this field.
 schedule |  One of Adhoc or Monthly
 day_of_month |  One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, -1 (last day of month).
 report_type | One of with or without. 'with' - the business has a Google Local profile. 'without' - Ignore this business, just display competitor information. Defaults to with.
-address1 | 80 characters max. 
-address2 | 80 characters max. 
-city |
-state_code | (USA, CAN:EN and AUS)
-postcode | A valid postcode or ZIP. 80 characters max. 
-phone_number |
-country | One of USA, CAN:EN, GBR or AUS.
+address1 | Deprecated, please use Location for update this field. 
+address2 | Deprecated, please use Location for update this field. 
+city | Deprecated, please use Location for update this field.
+state_code | Deprecated, please use Location for update this field.
+postcode | Deprecated, please use Location for update this field. 
+phone_number | Deprecated, please use Location for update this field.
+country | Deprecated, please use Location for update this field.
 search_terms | Supply one or more search terms (max 5) as a JSON string. For example, ["restaurant san francisco","cafe san francisco"].
 notify | One of Yes or No. If set to yes we will send report alerts to all email addresses specified (see field below). If you include customer email addresses when setting up your report we'll also email them the alerts so please be sure this is what you want before adding their addresses. Default is No.
 email_addresses | Supply one or more (max 5) email addresses for us to send report alerts to. This only takes effect if notify is set to Yes. JSON string. For example, ["email1@test.com","email2@test.com"].
-google_location | A valid google search location. Please refer to our location check method.
+google_location | Deprecated, please use Location for update this field.
 is_public | Determines whether or not to make the report available on a public URL you can give to your customers. One of Yes or No. Defaults to No.
 run | One of Yes or No. Runs the report after adding. Defaults to Yes.
 
