@@ -245,7 +245,7 @@ country | Deprecated, please use Location for update this field.
 search_terms | Supply one or more search terms (max 5) as a JSON string. For example, ["restaurant san francisco","cafe san francisco"].
 notify | One of Yes or No. If set to yes we will send report alerts to all email addresses specified (see field below). If you include customer email addresses when setting up your report we'll also email them the alerts so please be sure this is what you want before adding their addresses. Default is No.
 email_addresses | Supply one or more (max 5) email addresses for us to send report alerts to. This only takes effect if notify is set to Yes. JSON string. For example, ["email1@test.com","email2@test.com"].
-google_location | <span class="label label-required">Required</span> A valid google search location. Please refer to our location check method.
+google_location | A valid google search location. Please refer to our location check method.
 is_public | Determines whether or not to make the report available on a public URL you can give to your customers. One of Yes or No. Defaults to No.
 run | One of Yes or No. Runs the report after adding. Defaults to Yes.
 
