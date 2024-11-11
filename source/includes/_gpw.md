@@ -15,19 +15,10 @@ use BrightLocal\Api;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->post('/v4/gpw/add', [
     'location_id'     => 1,
-    'report_name'     => 'Le Bernardin',
-    'business_names'  => 'Le Bernardin',
     'schedule'        => 'Adhoc',
     'day_of_month'    => '2',
     'report_type'     => 'with',
-    'address1'        => '155 West 51st Street',
-    'address2'        => '',
-    'city'            => 'New York',
-    'state_code'      => 'NY',
     'google_location' => 'New York, NY',
-    'postcode'        => '10019',
-    'phone_number'    => '+1 212-554-1515',
-    'country'         => 'USA',
     'search_terms'    => '["restaurant manhattan","cafe new york"]'
 ]);
 print_r($response->getResult());
@@ -39,18 +30,9 @@ curl -X POST \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \ 
  -d 'location_id=1' \
- -d 'report_name=Le Bernardin' \
- -d 'business_names=Le Bernardin' \
  -d 'schedule=Adhoc' \
  -d 'day_of_month=2' \
  -d 'report_type=with' \ 
- -d 'address1=155 West 51st Street' \ 
- -d 'address2=' \
- -d 'city=New York' \
- -d 'state_code=NY' \
- -d 'postcode=10019' \
- -d 'phone_number=+1 212-554-151' \
- -d 'country=USA' \
  -d 'search_terms=["restaurant manhattan","cafe new york"]'
  https://tools.brightlocal.com/seo-tools/api/v4/gpw/add
 ```
@@ -60,19 +42,10 @@ Api api = new Api(apiKey, apiSecret);
 Parameters parameters = new Parameters
 {
     { "location_id", 1 },
-    { "report_name", "Le Bernardin" },
-    { "business_names", "Le Bernardin" },
     { "schedule", "Adhoc" },
     { "day_of_month", "2" },
     { "report_type", "with" },
-    { "address1", "155 West 51st Street" },
-    { "address2", "" },
-    { "city", "New York" },
-    { "state_code", "NY" },
     { "google_location", "New York, NY" },
-    { "postcode", "10019" },
-    { "phone_number", "+1 212-554-1515" },
-    { "country", "USA" },
     { "search_terms", new List<string> { "restaurant manhattan", "cafe new york" } },
 };
 Response response = api.Post("/v4/gpw/add", parameters);
@@ -96,18 +69,10 @@ Console.WriteLine(response.GetContent());
   "success": false,
   "errors":  {
     "run": "You don\'t have any credits left",
-    "business_names": "Please enter one business name",
     "report_type": "Report type is not available",
-    "phone_number": "Please enter a telephone number",
-    "postcode": "Please enter a postcode",
-    "address1": "Please enter an address",
-    "city": "Please enter a city",
     "search_terms": "Please enter at least one search term",
-    "country": "Please choose country from the list",
-    "report_name": "Please enter a report name",
     "google_location": "The location was not recognized. Please enter a correct location",
-    "schedule": "Please select schedule",
-    "white_label_profile_id": "Such White Label Profile doesn't exists"
+    "schedule": "Please select schedule"
   }
 }
 ```
@@ -162,8 +127,7 @@ $reportId = 1;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->put('/v4/gpw/' . $reportId, [
     'location-id'       => 1,
-    'business-name'     => 'Le Bernardin',
-    'contact-telephone' => '+1 212-554-1515'
+    'schedule'     => 'Adhoc'
 ]);
 print_r($response->getResult());
 ```
@@ -174,8 +138,6 @@ curl -X PUT \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location_id=1' \
- -d 'report_name=Le Bernardin' \
- -d 'business_names=Le Bernardin' \
  -d 'schedule=Adhoc' \
  -d 'day_of_month=2' \
  https://tools.brightlocal.com/seo-tools/api/v4/gpw/1
@@ -188,8 +150,7 @@ Parameters parameters = new Parameters
 {
 
     { "location-id", 1 },
-    { "business-names", "Le Bernardin" },
-    { "contact-telephone", "+1 212-554-1515" },
+    { "schedule", "Adhoc" },
 
 };
 Response response = api.Put("/v4/gpw/"+ reportId, parameters);
