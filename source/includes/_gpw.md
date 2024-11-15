@@ -15,19 +15,10 @@ use BrightLocal\Api;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->post('/v4/gpw/add', [
     'location_id'     => 1,
-    'report_name'     => 'Le Bernardin',
-    'business_names'  => 'Le Bernardin',
     'schedule'        => 'Adhoc',
     'day_of_month'    => '2',
     'report_type'     => 'with',
-    'address1'        => '155 West 51st Street',
-    'address2'        => '',
-    'city'            => 'New York',
-    'state_code'      => 'NY',
     'google_location' => 'New York, NY',
-    'postcode'        => '10019',
-    'phone_number'    => '+1 212-554-1515',
-    'country'         => 'USA',
     'search_terms'    => '["restaurant manhattan","cafe new york"]'
 ]);
 print_r($response->getResult());
@@ -39,18 +30,9 @@ curl -X POST \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \ 
  -d 'location_id=1' \
- -d 'report_name=Le Bernardin' \
- -d 'business_names=Le Bernardin' \
  -d 'schedule=Adhoc' \
  -d 'day_of_month=2' \
  -d 'report_type=with' \ 
- -d 'address1=155 West 51st Street' \ 
- -d 'address2=' \
- -d 'city=New York' \
- -d 'state_code=NY' \
- -d 'postcode=10019' \
- -d 'phone_number=+1 212-554-151' \
- -d 'country=USA' \
  -d 'search_terms=["restaurant manhattan","cafe new york"]'
  https://tools.brightlocal.com/seo-tools/api/v4/gpw/add
 ```
@@ -60,19 +42,10 @@ Api api = new Api(apiKey, apiSecret);
 Parameters parameters = new Parameters
 {
     { "location_id", 1 },
-    { "report_name", "Le Bernardin" },
-    { "business_names", "Le Bernardin" },
     { "schedule", "Adhoc" },
     { "day_of_month", "2" },
     { "report_type", "with" },
-    { "address1", "155 West 51st Street" },
-    { "address2", "" },
-    { "city", "New York" },
-    { "state_code", "NY" },
     { "google_location", "New York, NY" },
-    { "postcode", "10019" },
-    { "phone_number", "+1 212-554-1515" },
-    { "country", "USA" },
     { "search_terms", new List<string> { "restaurant manhattan", "cafe new york" } },
 };
 Response response = api.Post("/v4/gpw/add", parameters);
@@ -96,18 +69,10 @@ Console.WriteLine(response.GetContent());
   "success": false,
   "errors":  {
     "run": "You don\'t have any credits left",
-    "business_names": "Please enter one business name",
     "report_type": "Report type is not available",
-    "phone_number": "Please enter a telephone number",
-    "postcode": "Please enter a postcode",
-    "address1": "Please enter an address",
-    "city": "Please enter a city",
     "search_terms": "Please enter at least one search term",
-    "country": "Please choose country from the list",
-    "report_name": "Please enter a report name",
     "google_location": "The location was not recognized. Please enter a correct location",
-    "schedule": "Please select schedule",
-    "white_label_profile_id": "Such White Label Profile doesn't exists"
+    "schedule": "Please select schedule"
   }
 }
 ```
@@ -125,22 +90,22 @@ Parameter | Notes
 api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-report_name | <span class="label label-required">Required</span>
+report_name | Deprecated, please use Location for update this field.
 location_id | <span class="label label-required">Required</span> Associate this report with a location in your account. This ID needs to correspond to a valid location in your account.
-white_label_profile_id | Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.
-business_names | <span class="label label-required">Required</span> Supply one business name. For example, Greens Restaurant.
+white_label_profile_id | Deprecated, please use Location for update this field.
+business_names | Deprecated, please use Location for update this field.
 schedule | <span class="label label-required">Required</span> One of Adhoc or Monthly
 day_of_month | <span class="label label-required">Required</span> One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, -1 (last day of month).
 report_type | <span class="label label-required">Required</span> One of with or without. 'with' - the business has a Google Local profile. 'without' - Ignore this business, just display competitor information. Defaults to with.
-address1 | <span class="label label-required">Required</span> 80 characters max.  Optional for report_type=without
-address2 | 80 characters max. 
-city | <span class="label label-required">Required</span> Optional for report_type=without
-state_code | <span class="label label-required">Required</span> (USA, CAN:EN and AUS)
+address1 | Deprecated, please use Location for update this field.
+address2 | Deprecated, please use Location for update this field. 
+city | Deprecated, please use Location for update this field.
+state_code | Deprecated, please use Location for update this field.
 google_location | <span class="label label-required">Required</span> A valid google search location. Please refer to our location check method.
 is_public | Determines whether or not to make the report available on a public URL you can give to your customers. One of Yes or No. Defaults to No.
-postcode | <span class="label label-required">Required</span> A valid postcode or ZIP. 80 characters max. Optional for report_type=without
-phone_number | <span class="label label-required">Required</span> Optional for report_type=without
-country | <span class="label label-required">Required</span> One of USA, CAN:EN, GBR or AUS.
+postcode | Deprecated, please use Location for update this field.
+phone_number | Deprecated, please use Location for update this field.
+country | Deprecated, please use Location for update this field.
 search_terms | <span class="label label-required">Required</span> Supply one or more search terms (max 5) as a JSON string. For example, ["restaurant san francisco","cafe san francisco"].
 notify | One of Yes or No. If set to yes we will send report alerts to all email addresses specified (see field below). If you include customer email addresses when setting up your report we'll also email them the alerts so please be sure this is what you want before adding their addresses. Default is No.
 email_addresses | Supply one or more (max 5) email addresses for us to send report alerts to. This only takes effect if notify is set to Yes. JSON string. For example, ["email1@test.com","email2@test.com"].
@@ -162,8 +127,7 @@ $reportId = 1;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->put('/v4/gpw/' . $reportId, [
     'location-id'       => 1,
-    'business-name'     => 'Le Bernardin',
-    'contact-telephone' => '+1 212-554-1515'
+    'schedule'     => 'Adhoc'
 ]);
 print_r($response->getResult());
 ```
@@ -174,8 +138,6 @@ curl -X PUT \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location_id=1' \
- -d 'report_name=Le Bernardin' \
- -d 'business_names=Le Bernardin' \
  -d 'schedule=Adhoc' \
  -d 'day_of_month=2' \
  https://tools.brightlocal.com/seo-tools/api/v4/gpw/1
@@ -188,8 +150,7 @@ Parameters parameters = new Parameters
 {
 
     { "location-id", 1 },
-    { "business-names", "Le Bernardin" },
-    { "contact-telephone", "+1 212-554-1515" },
+    { "schedule", "Adhoc" },
 
 };
 Response response = api.Put("/v4/gpw/"+ reportId, parameters);
@@ -228,20 +189,20 @@ api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 report-ID | <span class="label label-required">Required</span>
-report_name |
+report_name | Deprecated, please use Location for update this field.
 location_id | <span class="label label-required">Required</span> Associate this report with a location in your account. This ID needs to correspond to a valid location in your account.
-white_label_profile_id | Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.
-business_names |  Supply one business name. For example, Greens Restaurant.
+white_label_profile_id | Deprecated, please use Location for update this field.
+business_names |  Deprecated, please use Location for update this field.
 schedule |  One of Adhoc or Monthly
 day_of_month |  One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, -1 (last day of month).
 report_type | One of with or without. 'with' - the business has a Google Local profile. 'without' - Ignore this business, just display competitor information. Defaults to with.
-address1 | 80 characters max. 
-address2 | 80 characters max. 
-city |
-state_code | (USA, CAN:EN and AUS)
-postcode | A valid postcode or ZIP. 80 characters max. 
-phone_number |
-country | One of USA, CAN:EN, GBR or AUS.
+address1 | Deprecated, please use Location for update this field. 
+address2 | Deprecated, please use Location for update this field. 
+city | Deprecated, please use Location for update this field.
+state_code | Deprecated, please use Location for update this field.
+postcode | Deprecated, please use Location for update this field. 
+phone_number | Deprecated, please use Location for update this field.
+country | Deprecated, please use Location for update this field.
 search_terms | Supply one or more search terms (max 5) as a JSON string. For example, ["restaurant san francisco","cafe san francisco"].
 notify | One of Yes or No. If set to yes we will send report alerts to all email addresses specified (see field below). If you include customer email addresses when setting up your report we'll also email them the alerts so please be sure this is what you want before adding their addresses. Default is No.
 email_addresses | Supply one or more (max 5) email addresses for us to send report alerts to. This only takes effect if notify is set to Yes. JSON string. For example, ["email1@test.com","email2@test.com"].
