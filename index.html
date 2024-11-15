@@ -9976,19 +9976,10 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;YOUR_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;YOUR_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/gpw/add'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location_id'</span>     <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">'report_name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'business_names'</span>  <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
     <span class="s1">'schedule'</span>        <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span><span class="p">,</span>
     <span class="s1">'day_of_month'</span>    <span class="o">=&gt;</span> <span class="s1">'2'</span><span class="p">,</span>
     <span class="s1">'report_type'</span>     <span class="o">=&gt;</span> <span class="s1">'with'</span><span class="p">,</span>
-    <span class="s1">'address1'</span>        <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
-    <span class="s1">'address2'</span>        <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
-    <span class="s1">'city'</span>            <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
-    <span class="s1">'state_code'</span>      <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
     <span class="s1">'google_location'</span> <span class="o">=&gt;</span> <span class="s1">'New York, NY'</span><span class="p">,</span>
-    <span class="s1">'postcode'</span>        <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
-    <span class="s1">'phone_number'</span>    <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
-    <span class="s1">'country'</span>         <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
     <span class="s1">'search_terms'</span>    <span class="o">=&gt;</span> <span class="s1">'["restaurant manhattan","cafe new york"]'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
@@ -9998,18 +9989,9 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\ </span>
  -d <span class="s1">'location_id=1'</span> <span class="se">\</span>
- -d <span class="s1">'report_name=Le Bernardin'</span> <span class="se">\</span>
- -d <span class="s1">'business_names=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
  -d <span class="s1">'day_of_month=2'</span> <span class="se">\</span>
  -d <span class="s1">'report_type=with'</span> <span class="se">\ </span>
- -d <span class="s1">'address1=155 West 51st Street'</span> <span class="se">\ </span>
- -d <span class="s1">'address2='</span> <span class="se">\</span>
- -d <span class="s1">'city=New York'</span> <span class="se">\</span>
- -d <span class="s1">'state_code=NY'</span> <span class="se">\</span>
- -d <span class="s1">'postcode=10019'</span> <span class="se">\</span>
- -d <span class="s1">'phone_number=+1 212-554-151'</span> <span class="se">\</span>
- -d <span class="s1">'country=USA'</span> <span class="se">\</span>
  -d <span class="s1">'search_terms=["restaurant manhattan","cafe new york"]'</span>
  https://tools.brightlocal.com/seo-tools/api/v4/gpw/add
 </code></pre>
@@ -10017,19 +9999,10 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span>
 <span class="p">{</span>
     <span class="p">{</span> <span class="s">"location_id"</span><span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"report_name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business_names"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"day_of_month"</span><span class="p">,</span> <span class="s">"2"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"report_type"</span><span class="p">,</span> <span class="s">"with"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address1"</span><span class="p">,</span> <span class="s">"155 West 51st Street"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address2"</span><span class="p">,</span> <span class="s">""</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"city"</span><span class="p">,</span> <span class="s">"New York"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"state_code"</span><span class="p">,</span> <span class="s">"NY"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"google_location"</span><span class="p">,</span> <span class="s">"New York, NY"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"phone_number"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"country"</span><span class="p">,</span> <span class="s">"USA"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"search_terms"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"restaurant manhattan"</span><span class="p">,</span> <span class="s">"cafe new york"</span> <span class="p">}</span> <span class="p">},</span>
 <span class="p">};</span>
 <span class="n">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">"/v4/gpw/add"</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
@@ -10052,18 +10025,10 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You don\'t have any credits left"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"business_names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter one business name"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"report_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Report type is not available"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter a telephone number"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter a postcode"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter an address"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter a city"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"search_terms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter at least one search term"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please choose country from the list"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"report_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter a report name"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"google_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The location was not recognized. Please enter a correct location"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please select schedule"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"white_label_profile_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Such White Label Profile doesn't exists"</span><span class="w">
+    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please select schedule"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -10096,7 +10061,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>report_name</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>location_id</td>
@@ -10104,11 +10069,11 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>white_label_profile_id</td>
-<td>Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>business_names</td>
-<td><span class="label label-required">Required</span> Supply one business name. For example, Greens Restaurant.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>schedule</td>
@@ -10124,19 +10089,19 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>address1</td>
-<td><span class="label label-required">Required</span> 80 characters max.  Optional for report_type=without</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>address2</td>
-<td>80 characters max.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>city</td>
-<td><span class="label label-required">Required</span> Optional for report_type=without</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>state_code</td>
-<td><span class="label label-required">Required</span> (USA, CAN:EN and AUS)</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>google_location</td>
@@ -10148,15 +10113,15 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>postcode</td>
-<td><span class="label label-required">Required</span> A valid postcode or ZIP. 80 characters max. Optional for report_type=without</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>phone_number</td>
-<td><span class="label label-required">Required</span> Optional for report_type=without</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>country</td>
-<td><span class="label label-required">Required</span> One of USA, CAN:EN, GBR or AUS.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>search_terms</td>
@@ -10192,8 +10157,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;YOUR_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;YOUR_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/gpw/'</span> <span class="o">.</span> <span class="nv">$reportId</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location-id'</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'contact-telephone'</span> <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span>
+    <span class="s1">'schedule'</span>     <span class="o">=&gt;</span> <span class="s1">'Adhoc'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
@@ -10202,8 +10166,6 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'location_id=1'</span> <span class="se">\</span>
- -d <span class="s1">'report_name=Le Bernardin'</span> <span class="se">\</span>
- -d <span class="s1">'business_names=Le Bernardin'</span> <span class="se">\</span>
  -d <span class="s1">'schedule=Adhoc'</span> <span class="se">\</span>
  -d <span class="s1">'day_of_month=2'</span> <span class="se">\</span>
  https://tools.brightlocal.com/seo-tools/api/v4/gpw/1
@@ -10214,8 +10176,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="p">{</span>
 
     <span class="p">{</span> <span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business-names"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"contact-telephone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"schedule"</span><span class="p">,</span> <span class="s">"Adhoc"</span> <span class="p">},</span>
 
 <span class="p">};</span>
 <span class="n">Response</span> <span class="n">response</span> <span class="p">=</span> <span class="n">api</span><span class="p">.</span><span class="nf">Put</span><span class="p">(</span><span class="s">"/v4/gpw/"</span><span class="p">+</span> <span class="n">reportId</span><span class="p">,</span> <span class="n">parameters</span><span class="p">);</span>
@@ -10271,7 +10232,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>report_name</td>
-<td></td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>location_id</td>
@@ -10279,11 +10240,11 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>white_label_profile_id</td>
-<td>Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>business_names</td>
-<td>Supply one business name. For example, Greens Restaurant.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>schedule</td>
@@ -10299,31 +10260,31 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>address1</td>
-<td>80 characters max.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>address2</td>
-<td>80 characters max.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>city</td>
-<td></td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>state_code</td>
-<td>(USA, CAN:EN and AUS)</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>postcode</td>
-<td>A valid postcode or ZIP. 80 characters max.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>phone_number</td>
-<td></td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>country</td>
-<td>One of USA, CAN:EN, GBR or AUS.</td>
+<td>Deprecated, please use Location for update this field.</td>
 </tr>
 <tr>
 <td>search_terms</td>
