@@ -15,14 +15,6 @@ use BrightLocal\Api;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->post('/v4/rf/add', [
     'location-id'       => 1,
-    'report-name'       => 'Le Bernardin',
-    'business-name'     => 'Le Bernardin',
-    'contact-telephone' => '+1 212-554-1515',
-    'address1'          => '155 West 51st Street',
-    'address2'          => '',
-    'city'              => 'New York',
-    'postcode'          => '10019',
-    'country'           => 'USA', // USA only
     'directories'       => [
         'yellowbot'   => [
             'url'     => 'https://www.yellowbot.com/le-bernardin-new-york-ny.html',
@@ -47,14 +39,6 @@ curl -X POST \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \ 
  -d 'location-id=1' \
- -d 'report-name=Le Bernardin' \
- -d 'business-name=Le Bernardin' \
- -d 'contact-telephone=+1 212-554-1515' \
- -d 'address1=155 West 51st Street' \ 
- -d 'address2=' \
- -d 'city=New York' \
- -d 'postcode=10019' \
- -d 'country=USA' \
  https://tools.brightlocal.com/seo-tools/api/v4/rf/add
 ```
 
@@ -72,13 +56,6 @@ Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
 Parameters parameters = new Parameters
 {
     { "location-id", 1 },
-    { "report-name", "Le Bernardin" },
-    { "business-name", "Le Bernardin" },
-    { "contact-telephone", "+1 212-554-1515" },
-    { "address1", "155 West 51st Street" },
-    { "city", "New York" },
-    { "postcode", "10019" },
-    { "country", "USA" },
     { "directories", directories }
 };
 
@@ -143,13 +120,7 @@ directories.Add(new
 {
   "success": false,
   "errors":  {
-    "INVALID_REPORT_NAME": "Please enter report name",
-    "INVALID_BUSINESS_NAME": "Please enter business name",
-    "INVALID_CONTACT_TELEPHONE": "Please enter phone number",
-    "INVALID_ADDRESS1": "Please enter street address",
-    "INVALID_CITY": "Please enter city",
-    "INVALID_POSTCODE": "Please enter post code",
-    "INVALID_COUNTRY": "Please select country"
+    "INVALID_LOCATION": "Location ID is required"
   }
 }
 ```
@@ -165,16 +136,16 @@ Parameter | Notes
 api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-report-name | <span class="label label-required">Required</span>
+report-name | Deprecated, please use Location for update this field.
 location-id | <span class="label label-required">Required</span> Associate this report with a location in your account. This ID needs to correspond to a valid location in your account.
-white-label-profile-id | Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.
-business-name | <span class="label label-required">Required</span>
-contact-telephone | <span class="label label-required">Required</span>
-address1 | <span class="label label-required">Required</span>
-address2 |
-city | <span class="label label-required">Required</span>
-postcode | <span class="label label-required">Required</span> A valid postcode or ZIP.
-country | <span class="label label-required">Required</span> USA only.
+white-label-profile-id | Deprecated, please use Location for update this field.
+business-name | Deprecated, please use Location for update this field.
+contact-telephone | Deprecated, please use Location for update this field.
+address1 | Deprecated, please use Location for update this field.
+address2 | Deprecated, please use Location for update this field.
+city | Deprecated, please use Location for update this field.
+postcode | Deprecated, please use Location for update this field.
+country | Deprecated, please use Location for update this field.
 schedule | D (Daily), W (Weekly) or M (Monthly). You to purchase an add on before you can use daily reporting. Defaults to M (Monthly).
 run-on | Numeric day of week or day of month to run the report on (applicable to weekly and monthly schedules). Defaults to current day of month. If you create your report today it'll be run on the 17th of each month unless you specify otherwise.
 receive-email-alerts | One of 0, 1 or 2. If set to 1 we will send report alerts every time a report finishes (regardless of whether or not new reviews were found) to all email addresses specified (see field below). If you include customer email addresses when setting up your report we’ll also email them the alerts so please be sure this is what you want before adding their addresses. If set to 2 we will only send email alerts if new reviews were found upon report completion. Defaults to 0 which means no alerts will be sent.
@@ -202,8 +173,6 @@ $reportId = 1;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->put('/v4/rf/' . $reportId, [
     'location-id'       => 1,
-    'report-name'       => 'Le Bernardin',
-    'contact-telephone' => '+1 212-554-1855',
 ]);
 print_r($response->getResult());
 ```
@@ -214,8 +183,6 @@ curl -X PUT \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location-id=1' \
- -d 'report_name=Le Bernardin' \
- -d 'business_names=Le Bernardin' \
  -d 'schedule=Adhoc' \
  -d 'day_of_month=2' \
  https://tools.brightlocal.com/seo-tools/api/v4/rf/1
@@ -241,7 +208,6 @@ dynamic directories = new
 Parameters parameters = new Parameters
 {
     { "location-id", 1 },
-    { "report-name", "Le Bernardin updated" },
     { "directories", directories }
 };
 
@@ -311,8 +277,8 @@ api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | <span class="label label-required">Required</span>
-report-name |
-white-label-profile-id | Assign a white label profile to this report. The ID needs to correspond to a valid white label profile in your account.
+report-name | Deprecated, please use Location for update this field.
+white-label-profile-id | Deprecated, please use Location for update this field.
 schedule | D (Daily), W (Weekly) or M (Monthly). You to purchase an add on before you can use daily reporting. Defaults to M (Monthly).
 run-on | Numeric day of week or day of month to run the report on (applicable to weekly and monthly schedules). Defaults to current day of month. If you create your report today it'll be run on the 17th of each month unless you specify otherwise.
 receive-email-alerts | One of 0, 1 or 2. If set to 1 we will send report alerts every time a report finishes (regardless of whether or not new reviews were found) to all email addresses specified (see field below). If you include customer email addresses when setting up your report we’ll also email them the alerts so please be sure this is what you want before adding their addresses. If set to 2 we will only send email alerts if new reviews were found upon report completion. Defaults to 0 which means no alerts will be sent.
