@@ -6572,8 +6572,6 @@
 
 <span class="k">use</span> <span class="nx">BrightLocal\Api</span><span class="p">;</span>
 
-<span class="nv">$briefDescription</span> <span class="o">=</span> <span class="s1">'Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: 
-Fresh, simple and prepared with respect.'</span><span class="p">;</span>
 <span class="nv">$fullDescription</span> <span class="o">=</span> <span class="s1">'The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and 
 currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated 
 in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York 
@@ -6583,24 +6581,10 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;YOUR_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;YOUR_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v4/cb/create'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location_id'</span>            <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">'campaign_name'</span>          <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'business_name'</span>          <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'website_address'</span>        <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
-    <span class="s1">'campaign_country'</span>       <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
-    <span class="s1">'campaign_city'</span>          <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
-    <span class="s1">'campaign_state'</span>         <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
-    <span class="s1">'business_category_id'</span>   <span class="o">=&gt;</span> <span class="mi">605</span><span class="p">,</span>
     <span class="s1">'business_categories'</span>    <span class="o">=&gt;</span> <span class="s1">'["restaurant", "cafe"]'</span><span class="p">,</span>
-    <span class="s1">'address1'</span>               <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
-    <span class="s1">'address2'</span>               <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
-    <span class="s1">'city'</span>                   <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
-    <span class="s1">'region'</span>                 <span class="o">=&gt;</span> <span class="s1">'New York, USA'</span><span class="p">,</span>
-    <span class="s1">'postcode'</span>               <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
     <span class="s1">'contact_name'</span>           <span class="o">=&gt;</span> <span class="s1">'Bloggs'</span><span class="p">,</span>
     <span class="s1">'contact_firstname'</span>      <span class="o">=&gt;</span> <span class="s1">'Joe'</span><span class="p">,</span>
-    <span class="s1">'contact_telephone'</span>      <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
     <span class="s1">'contact_email'</span>          <span class="o">=&gt;</span> <span class="s1">'joe.bloggs@test.com'</span><span class="p">,</span>
-    <span class="s1">'brief_description'</span>      <span class="o">=&gt;</span> <span class="nv">$briefDescription</span><span class="p">,</span>
     <span class="s1">'full_description'</span>       <span class="o">=&gt;</span> <span class="nv">$fullDescription</span><span class="p">,</span>
     <span class="s1">'employees_number'</span>       <span class="o">=&gt;</span> <span class="mi">35</span><span class="p">,</span>
     <span class="s1">'formation_date'</span>         <span class="o">=&gt;</span> <span class="s1">'01-2021'</span><span class="p">,</span>
@@ -6676,14 +6660,11 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
         <span class="s1">'linkedin'</span>  <span class="o">=&gt;</span> <span class="s1">'https://uk.linkedin.com/company/bright-local-seo'</span><span class="p">,</span>
         <span class="s1">'instagram'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
         <span class="s1">'pinterest'</span> <span class="o">=&gt;</span> <span class="s1">'https://www.pinterest.co.uk/brightlocal/'</span><span class="p">,</span>
-    <span class="p">],</span>
-    <span class="s1">'white_label_profile_id'</span> <span class="o">=&gt;</span> <span class="mi">12</span>
+    <span class="p">]</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
-<pre><code class="highlight csharp"><span class="kt">string</span> <span class="n">briefDescription</span> <span class="p">=</span> <span class="s">"Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: "</span> <span class="p">+</span>
-    <span class="s">"Fresh, simple and prepared with respect."</span><span class="p">;</span>
-<span class="kt">string</span> <span class="n">fullDescription</span> <span class="p">=</span> <span class="s">"The restaurant has held three stars from the Michelin Guide since its 2005 New York launch"</span> <span class="p">+</span>
+<pre><code class="highlight csharp"><span class="kt">string</span> <span class="n">fullDescription</span> <span class="p">=</span> <span class="s">"The restaurant has held three stars from the Michelin Guide since its 2005 New York launch"</span> <span class="p">+</span>
     <span class="s">" and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin"</span> <span class="p">+</span>
     <span class="s">" as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as "</span> <span class="p">+</span>
     <span class="s">"New York City’s top restaurant for food and service.  Le Bernardin has earned seven James Beard Awards since 1998 "</span> <span class="p">+</span>
@@ -6763,28 +6744,14 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span>
 <span class="p">{</span>
     <span class="p">{</span> <span class="s">"location_id"</span>                <span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_name"</span>              <span class="p">,</span> <span class="s">"Le Bernardin Citation Builder"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business_name"</span>              <span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"website_address"</span>            <span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_country"</span>           <span class="p">,</span> <span class="s">"USA"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_city"</span>              <span class="p">,</span> <span class="s">"New York"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_state"</span>             <span class="p">,</span> <span class="s">"NY"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business_category_id"</span>       <span class="p">,</span> <span class="m">605</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"extra_business_categories_ids"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="m">1234</span><span class="p">,</span><span class="m">5678</span><span class="p">,</span><span class="m">9012</span> <span class="p">}</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address1"</span>                   <span class="p">,</span> <span class="s">"155 West 51st Street"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address2"</span>                   <span class="p">,</span> <span class="s">""</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"city"</span>                       <span class="p">,</span> <span class="s">"New York"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"region"</span>                     <span class="p">,</span> <span class="s">"New York, USA"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"postcode"</span>                   <span class="p">,</span> <span class="s">"10019"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"contact_name"</span>               <span class="p">,</span> <span class="s">"Bloggs"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"contact_firstname"</span>          <span class="p">,</span> <span class="s">"Joe"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"contact_telephone"</span>          <span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"contact_email"</span>              <span class="p">,</span> <span class="s">"joe.bloggs@test.com"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"brief_description"</span>          <span class="p">,</span> <span class="n">briefDescription</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"full_description"</span>           <span class="p">,</span> <span class="n">fullDescription</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"employees_number"</span>           <span class="p">,</span> <span class="m">35</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"formation_date"</span>             <span class="p">,</span> <span class="s">"11-2008"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"white_label_profile_id"</span>     <span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"opening_hours"</span>              <span class="p">,</span> <span class="n">opening_hours</span> <span class="p">}</span>
 <span class="p">};</span>
 
@@ -6863,55 +6830,55 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>business_name</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>campaign_name</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>website_address</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>campaign_country</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>campaign_state</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>campaign_city</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>business_category_id</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>address1</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>address2</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>postcode</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>contact_name</td>
-<td><span class="label label-required">Required</span></td>
+<td></td>
 </tr>
 <tr>
 <td>contact_firstname</td>
-<td><span class="label label-required">Required</span></td>
+<td></td>
 </tr>
 <tr>
 <td>contact_telephone</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>contact_email</td>
@@ -6926,16 +6893,12 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <td></td>
 </tr>
 <tr>
-<td>brief_description</td>
-<td><span class="label label-required">Required</span></td>
-</tr>
-<tr>
 <td>full_description</td>
 <td><span class="label label-required">Required</span></td>
 </tr>
 <tr>
 <td>employees_number</td>
-<td><span class="label label-required">Required</span></td>
+<td></td>
 </tr>
 <tr>
 <td>formation_date</td>
@@ -7111,7 +7074,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>white_label_profile_id</td>
-<td><span class="label label-required">Required</span> Id of existing White Label Profile</td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 </tbody></table>
 
@@ -7127,21 +7090,9 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;YOUR_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;YOUR_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">'/v4/cb/'</span> <span class="o">.</span> <span class="nv">$campaignId</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location_id'</span>          <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">'campaign_name'</span>        <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'business_name'</span>        <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'website_address'</span>      <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
-    <span class="s1">'campaign_country'</span>     <span class="o">=&gt;</span> <span class="s1">'USA'</span><span class="p">,</span>
-    <span class="s1">'campaign_city'</span>        <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
-    <span class="s1">'campaign_state'</span>       <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
-    <span class="s1">'business_category_id'</span> <span class="o">=&gt;</span> <span class="mi">605</span><span class="p">,</span>
     <span class="s1">'business_categories'</span>  <span class="o">=&gt;</span> <span class="s1">'["restaurant", "cafe"]'</span><span class="p">,</span>
-    <span class="s1">'address1'</span>             <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
-    <span class="s1">'address2'</span>             <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
-    <span class="s1">'city'</span>                 <span class="o">=&gt;</span> <span class="s1">'New York'</span><span class="p">,</span>
-    <span class="s1">'postcode'</span>             <span class="o">=&gt;</span> <span class="s1">'10019'</span><span class="p">,</span>
     <span class="s1">'contact_name'</span>         <span class="o">=&gt;</span> <span class="s1">'Bloggs'</span><span class="p">,</span>
     <span class="s1">'contact_firstname'</span>    <span class="o">=&gt;</span> <span class="s1">'Joe'</span><span class="p">,</span>
-    <span class="s1">'contact_telephone'</span>    <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
     <span class="s1">'contact_email'</span>        <span class="o">=&gt;</span> <span class="s1">'joe.bloggs@test.com'</span><span class="p">,</span>
     <span class="s1">'payment_methods'</span>      <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="s1">'visa'</span><span class="p">,</span>
@@ -7159,21 +7110,9 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span>
 <span class="p">{</span>
     <span class="p">{</span> <span class="s">"location_id"</span>                <span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_name"</span>              <span class="p">,</span> <span class="s">"Le Bernardin Citation Builder"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business_name"</span>              <span class="p">,</span> <span class="s">"Le Bernardin"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"website_address"</span>            <span class="p">,</span> <span class="s">"le-bernardin.com"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_country"</span>           <span class="p">,</span> <span class="s">"USA"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_city"</span>              <span class="p">,</span> <span class="s">"New York"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"campaign_state"</span>             <span class="p">,</span> <span class="s">"NY"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business_category_id"</span>       <span class="p">,</span> <span class="m">605</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"business_categories"</span>        <span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="s">"restaurant"</span><span class="p">,</span> <span class="s">"cafe"</span> <span class="p">}</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address1"</span>                   <span class="p">,</span> <span class="s">"155 West 51st Street"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address2"</span>                   <span class="p">,</span> <span class="s">""</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"city"</span>                       <span class="p">,</span> <span class="s">"New York"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"postcode"</span>                   <span class="p">,</span> <span class="s">"10019"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"contact_name"</span>               <span class="p">,</span> <span class="s">"Bloggs"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"contact_firstname"</span>          <span class="p">,</span> <span class="s">"Joe"</span><span class="p">},</span>
-    <span class="p">{</span> <span class="s">"contact_telephone"</span>          <span class="p">,</span> <span class="s">"+1 212-554-1515"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"contact_email"</span>              <span class="p">,</span> <span class="s">"joe.bloggs@test.com"</span><span class="p">},</span>
     <span class="p">{</span> <span class="s">"payment_methods"</span>        <span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="s">"visa"</span><span class="p">,</span> <span class="s">"paypal"</span> <span class="p">}</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"social_profile_links"</span><span class="p">,</span>  <span class="k">new</span>
@@ -7202,14 +7141,6 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter business name"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter campaign name"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contact_firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter contact first name"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter contact last name"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"business_categories"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter at least one business category or tag"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"campaign_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please select state"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"campaign_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please select location"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter street address"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"working_hours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your must provide Working Hours for at least one day in the week"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"social_profile_links"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please use valid social channels. Channels supported are facebook, twitter, linkedin, pinterest and instagram."</span><span class="w">  
   </span><span class="p">}</span><span class="w">
@@ -7256,23 +7187,23 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>business_name</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>campaign_name</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>website_address</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>campaign_state</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>campaign_city</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>extra_business_categories_ids</td>
@@ -7280,15 +7211,15 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>address1</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>address2</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>postcode</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>contact_name</td>
@@ -7300,7 +7231,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>contact_telephone</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>contact_email</td>
@@ -7315,12 +7246,8 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 <td></td>
 </tr>
 <tr>
-<td>brief_description</td>
-<td></td>
-</tr>
-<tr>
 <td>full_description</td>
-<td></td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 <tr>
 <td>employees_number</td>
@@ -7500,7 +7427,7 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 </tr>
 <tr>
 <td>white_label_profile_id</td>
-<td><span class="label label-required">Required</span> Id of existing White Label Profile</td>
+<td>Deprecated, please use Location for update this field</td>
 </tr>
 </tbody></table>
 
