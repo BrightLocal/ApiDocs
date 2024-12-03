@@ -16,8 +16,6 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$briefDescription = 'Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: 
-Fresh, simple and prepared with respect.';
 $fullDescription = 'The restaurant has held three stars from the Michelin Guide since its 2005 New York launch and 
 currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin as top rated 
 in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as New York 
@@ -27,24 +25,10 @@ City’s top restaurant for food and service. Le Bernardin has earned seven Jame
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->post('/v4/cb/create', [
     'location_id'            => 1,
-    'campaign_name'          => 'Le Bernardin',
-    'business_name'          => 'Le Bernardin',
-    'website_address'        => 'le-bernardin.com',
-    'campaign_country'       => 'USA',
-    'campaign_city'          => 'New York',
-    'campaign_state'         => 'NY',
-    'business_category_id'   => 605,
     'business_categories'    => '["restaurant", "cafe"]',
-    'address1'               => '155 West 51st Street',
-    'address2'               => '',
-    'city'                   => 'New York',
-    'region'                 => 'New York, USA',
-    'postcode'               => '10019',
     'contact_name'           => 'Bloggs',
     'contact_firstname'      => 'Joe',
-    'contact_telephone'      => '+1 212-554-1515',
     'contact_email'          => 'joe.bloggs@test.com',
-    'brief_description'      => $briefDescription,
     'full_description'       => $fullDescription,
     'employees_number'       => 35,
     'formation_date'         => '01-2021',
@@ -120,15 +104,12 @@ $response = $api->post('/v4/cb/create', [
         'linkedin'  => 'https://uk.linkedin.com/company/bright-local-seo',
         'instagram' => '',
         'pinterest' => 'https://www.pinterest.co.uk/brightlocal/',
-    ],
-    'white_label_profile_id' => 12
+    ]
 ]);
 print_r($response->getResult());
 ```
 
 ```csharp
-string briefDescription = "Born in Paris in 1972 by sibling duo Maguy and Gilbert Le Coze, Le Bernardin only served fish: " +
-    "Fresh, simple and prepared with respect.";
 string fullDescription = "The restaurant has held three stars from the Michelin Guide since its 2005 New York launch" +
     " and currently ranks 24 on the World’s 50 Best Restaurants list. The New York Zagat Guide has recognized Le Bernardin" +
     " as top rated in the category of “Best Food” for the last nine consecutive years, and in 2015 was rated by the guide as " +
@@ -209,28 +190,14 @@ Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
 Parameters parameters = new Parameters
 {
     { "location_id"                , 1 },
-    { "campaign_name"              , "Le Bernardin Citation Builder"},
-    { "business_name"              , "Le Bernardin"},
-    { "website_address"            , "le-bernardin.com"},
-    { "campaign_country"           , "USA"},
-    { "campaign_city"              , "New York"},
-    { "campaign_state"             , "NY"},
-    { "business_category_id"       , 605},
     { "extra_business_categories_ids", new List<int>() { 1234,5678,9012 } },
-    { "address1"                   , "155 West 51st Street"},
-    { "address2"                   , ""},
-    { "city"                       , "New York"},
-    { "region"                     , "New York, USA"},
-    { "postcode"                   , "10019"},
     { "contact_name"               , "Bloggs"},
     { "contact_firstname"          , "Joe"},
-    { "contact_telephone"          , "+1 212-554-1515"},
     { "contact_email"              , "joe.bloggs@test.com"},
     { "brief_description"          , briefDescription},
     { "full_description"           , fullDescription},
     { "employees_number"           , 35},
     { "formation_date"             , "11-2008" },
-    { "white_label_profile_id"     , 1 },
     { "opening_hours"              , opening_hours }
 };
 
@@ -291,25 +258,24 @@ api-key	| <span class="label label-required">Required</span>
 sig	| <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires	| <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location_id |	<span class="label label-required">Required</span>	
-business_name | <span class="label label-required">Required</span>	
-campaign_name | <span class="label label-required">Required</span>	
-website_address	| <span class="label label-required">Required</span>	
-campaign_country | <span class="label label-required">Required</span>	
-campaign_state | <span class="label label-required">Required</span>
-campaign_city | <span class="label label-required">Required</span>	
-business_category_id | <span class="label label-required">Required</span> 	
-address1 | <span class="label label-required">Required</span>	
-address2 |			
-postcode | <span class="label label-required">Required</span>	
-contact_name | <span class="label label-required">Required</span>	
-contact_firstname | <span class="label label-required">Required</span>	
-contact_telephone | <span class="label label-required">Required</span>	
+business_name | Deprecated, please use Location for update this field	
+campaign_name | Deprecated, please use Location for update this field	
+website_address	| Deprecated, please use Location for update this field	
+campaign_country | Deprecated, please use Location for update this field	
+campaign_state | Deprecated, please use Location for update this field
+campaign_city | Deprecated, please use Location for update this field	
+business_category_id | Deprecated, please use Location for update this field 	
+address1 | Deprecated, please use Location for update this field	
+address2 | Deprecated, please use Location for update this field		
+postcode | Deprecated, please use Location for update this field	
+contact_name | 	
+contact_firstname |	
+contact_telephone | Deprecated, please use Location for update this field	
 contact_email |
 mobile_number |		
-fax_number |		
-brief_description | <span class="label label-required">Required</span>	
+fax_number |			
 full_description | <span class="label label-required">Required</span>	
-employees_number | <span class="label label-required">Required</span>	
+employees_number |	
 formation_date | Month and date formatted ‘mm-yyyy’
 extra_business_categories_ids | Array. For example, [1234,5678,9012]. [See here for a full list of valid business category IDs.](#business-categories)
 service_name_1 |		
@@ -353,7 +319,7 @@ old_business_name |
 old_lookup_data	| For e.g, old postcode
 is_public | Publish reports on a white label URL. Y or N.
 campaign_notes | Notes for any issues & concerns which you want our submission team to be aware of when they submit to directories
-white_label_profile_id | <span class="label label-required">Required</span> Id of existing White Label Profile
+white_label_profile_id | Deprecated, please use Location for update this field
 
 ## Update Campaign (deprecated)
 
@@ -370,21 +336,9 @@ $campaignId = 1;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->put('/v4/cb/' . $campaignId, [
     'location_id'          => 1,
-    'campaign_name'        => 'Le Bernardin',
-    'business_name'        => 'Le Bernardin',
-    'website_address'      => 'le-bernardin.com',
-    'campaign_country'     => 'USA',
-    'campaign_city'        => 'New York',
-    'campaign_state'       => 'NY',
-    'business_category_id' => 605,
     'business_categories'  => '["restaurant", "cafe"]',
-    'address1'             => '155 West 51st Street',
-    'address2'             => '',
-    'city'                 => 'New York',
-    'postcode'             => '10019',
     'contact_name'         => 'Bloggs',
     'contact_firstname'    => 'Joe',
-    'contact_telephone'    => '+1 212-554-1515',
     'contact_email'        => 'joe.bloggs@test.com',
     'payment_methods'      => [
         'visa',
@@ -405,21 +359,9 @@ Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
 Parameters parameters = new Parameters
 {
     { "location_id"                , 1 },
-    { "campaign_name"              , "Le Bernardin Citation Builder"},
-    { "business_name"              , "Le Bernardin"},
-    { "website_address"            , "le-bernardin.com"},
-    { "campaign_country"           , "USA"},
-    { "campaign_city"              , "New York"},
-    { "campaign_state"             , "NY"},
-    { "business_category_id"       , 605},
     { "business_categories"        , new List<string>() { "restaurant", "cafe" } },
-    { "address1"                   , "155 West 51st Street"},
-    { "address2"                   , ""},
-    { "city"                       , "New York"},
-    { "postcode"                   , "10019"},
     { "contact_name"               , "Bloggs"},
     { "contact_firstname"          , "Joe"},
-    { "contact_telephone"          , "+1 212-554-1515"},
     { "contact_email"              , "joe.bloggs@test.com"},
     { "payment_methods"        , new List<string>() { "visa", "paypal" } },
     { "social_profile_links",  new
@@ -448,14 +390,6 @@ Console.WriteLine(response);
   "success": false,
   "error": true,
   "errors": {
-    "business_name": "Please enter business name",
-    "campaign_name": "Please enter campaign name",
-    "contact_firstname": "Please enter contact first name",
-    "contact_name": "Please enter contact last name",
-    "business_categories": "Please enter at least one business category or tag",
-    "campaign_state": "Please select state",
-    "campaign_city": "Please select location",
-    "address1": "Please enter street address",
     "working_hours": "Your must provide Working Hours for at least one day in the week",
     "social_profile_links": "Please use valid social channels. Channels supported are facebook, twitter, linkedin, pinterest and instagram."  
   }
@@ -484,23 +418,22 @@ api-key	| <span class="label label-required">Required</span>
 sig	| <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires	| <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location_id |	<span class="label label-required">Required</span>
-business_name | 	
-campaign_name | 	
-website_address	| 		
-campaign_state |
-campaign_city | 		
+business_name | Deprecated, please use Location for update this field
+campaign_name | Deprecated, please use Location for update this field
+website_address	| Deprecated, please use Location for update this field
+campaign_state | Deprecated, please use Location for update this field
+campaign_city | Deprecated, please use Location for update this field
 extra_business_categories_ids	| Array. For example, [1234,5678,9012]. [See here for a full list of valid business category IDs.](#business-categories)	
-address1 | 	
-address2 |		 	
-postcode | 	
+address1 | Deprecated, please use Location for update this field
+address2 | Deprecated, please use Location for update this field
+postcode | Deprecated, please use Location for update this field
 contact_name | 	
 contact_firstname | 	
-contact_telephone | 	
+contact_telephone | Deprecated, please use Location for update this field
 contact_email | 	
 mobile_number |		
-fax_number |		
-brief_description | 	
-full_description | 	
+fax_number |
+full_description | 	Deprecated, please use Location for update this field
 employees_number | 	
 formation_date | Month and date formatted ‘mm-yyyy’	
 service_name_1 |		
@@ -545,7 +478,7 @@ old_business_name |
 old_lookup_data	| For e.g, old postcode
 is_public | Publish reports on a white label URL. Y or N.
 campaign_notes | Notes for any issues & concerns which you want our submission team to be aware of when they submit to directories
-white_label_profile_id | <span class="label label-required">Required</span> Id of existing White Label Profile
+white_label_profile_id | Deprecated, please use Location for update this field
 
 ## Upload Image (deprecated)
 
