@@ -96,7 +96,7 @@ search-engines | Comma separated list of search engines. Options are google, goo
 include-local-directory-results	| Yes or No. Defaults to Yes.
 notify | Yes or No. Defaults to No.
 email-addresses	| Newline (\n) separated list of email addresses
-is-public | <span class="label label-deprecated">Deprecated</span> (uses location setting) Publish reports on a white label URL. Yes or No. Defaults to No.
+is-public | Deprecated, please use Location for update this field.
 run-time | One of '00:00:00', '03:00:00', '06:00:00', '09:00:00', '12:00:00', '15:00:00', '18:00:00', '21:00:00'
 time-zone | One of 'Pacific/Honolulu', 'America/Los_Angeles', 'America/Anchorage', 'US/Pacific', 'America/Phoenix', 'America/Denver', 'America/Boise', 'US/Central', 'Canada/Saskatchewan', 'America/North_Dakota', 'America/Chicago', 'America/New_York', 'America/Kentucky', 'America/Indiana', 'America/Detroit', 'US/Eastern', 'Canada/Atlantic', 'Canada/Newfoundland', 'Europe/London', 'Europe/Dublin', 'Australia/Perth', 'Australia/Darwin', 'Australia/Brisbane', 'Australia/Sydney', 'Pacific/Auckland', 'US/Mountain', 'America/North_Dakota/Center', 'America/Kentucky/Louisville', 'America/Indiana/Indianapolis'
 
@@ -201,7 +201,7 @@ search-engines | Comma separated list of search engines. Options are google, goo
 include-local-directory-results	| Yes or No
 notify | Yes or No
 email-addresses | Newline (\n) separated list of email addresses
-is-public | <span class="label label-deprecated">Deprecated</span> (uses location setting) Publish reports on a white label URL. Yes or No.
+is-public | Deprecated, please use Location for update this field.
 run-time | One of '00:00:00', '03:00:00', '06:00:00', '09:00:00', '12:00:00', '15:00:00', '18:00:00', '21:00:00'
 time-zone | One of '(UTC-10:00) Hawaii','(UTC-08:00) Pacific Time (US & Canada)','(UTC-07:00) Mountain Time (US & Canada)','(UTC-06:00) Central Time (US & Canada)','(UTC-05:00) Eastern Time (US & Canada)','(UTC-04:00) Atlantic Time (Canada)','(UTC-03:30) Newfoundland','(UTC) Dublin, Edinburgh, London','(UTC+08:00) Perth','(UTC+09:30) Adelaide, Darwin','(UTC+10:00) Brisbane, Melbourne, Sydney','(UTC+12:00) Auckland, Wellington'
 
