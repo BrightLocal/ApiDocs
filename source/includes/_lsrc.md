@@ -348,7 +348,8 @@ sig | <span class="label label-required">Required</span> [See above for how to g
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id |
 page | Current page number. Default is 1.
-num-per-page | Number of results per page. Default is 50. Maximum is 50.
+num-per-page | Number of results per page. Default is 200. Maximum is 200.
+no-pagination | Disable pagination. Default is 0.
 
 ## Get Report
 
