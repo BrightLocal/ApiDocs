@@ -5523,16 +5523,7 @@
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;YOUR_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;YOUR_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/ct/add'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location-id'</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">'report-name'</span>       <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'address-1'</span>         <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
-    <span class="s1">'address-2'</span>         <span class="o">=&gt;</span> <span class="s1">'The Equitable Bldg'</span><span class="p">,</span>
-    <span class="s1">'business-location'</span> <span class="o">=&gt;</span> <span class="s1">'New York, NY'</span><span class="p">,</span>
-    <span class="s1">'postcode'</span>          <span class="o">=&gt;</span> <span class="s1">'10020'</span><span class="p">,</span>
-    <span class="s1">'phone'</span>             <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
-    <span class="s1">'website'</span>           <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'business-type'</span>     <span class="o">=&gt;</span> <span class="s1">'Restaurant'</span><span class="p">,</span>
-    <span class="s1">'state-code'</span>        <span class="o">=&gt;</span> <span class="s1">'NY'</span><span class="p">,</span>
     <span class="s1">'primary-location'</span>  <span class="o">=&gt;</span> <span class="s1">'10020'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
@@ -5542,16 +5533,7 @@
  -d <span class="s1">'sig=&lt;INSERT_API_SIG&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'location-id=1'</span> <span class="se">\</span>
- -d <span class="s1">'report-name=Le Bernardin'</span> <span class="se">\</span>
- -d <span class="s1">'business-name=Le Bernardin'</span> <span class="se">\</span>
- -d <span class="s1">'address-1=155 West 51st Street'</span> <span class="se">\</span>
- -d <span class="s1">'address-2=The Equitable Bldg'</span> <span class="se">\</span>
- -d <span class="s1">'business-location=New York, NY'</span> <span class="se">\ </span>
- -d <span class="s1">'phone=+1 212-554-1515'</span> <span class="se">\</span>
- -d <span class="s1">'postcode=10020'</span> <span class="se">\</span>
- -d <span class="s1">'website=le-bernardin.com'</span> <span class="se">\ </span>
  -d <span class="s1">'business-type=Restaurant'</span> <span class="se">\</span>
- -d <span class="s1">'state-code=NY'</span> <span class="se">\</span>
  -d <span class="s1">'primary-location=10020'</span> <span class="se">\</span>
  https://tools.brightlocal.com/seo-tools/api/v2/ct/add
 </code></pre>
@@ -5559,15 +5541,7 @@
 <span class="n">Parameters</span> <span class="n">parameters</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Parameters</span>
 <span class="p">{</span>
     <span class="p">{</span> <span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"phone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address-1"</span><span class="p">,</span> <span class="s">"155 West 51st Street"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business-location"</span><span class="p">,</span> <span class="s">"New York, NY"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"website"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"business-type"</span><span class="p">,</span> <span class="s">"Restaurant"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"state-code"</span><span class="p">,</span> <span class="s">"NY"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"primary-location"</span><span class="p">,</span> <span class="s">"10019"</span> <span class="p">},</span>
 <span class="p">};</span>
 
@@ -5616,39 +5590,39 @@
 </tr>
 <tr>
 <td>report-name</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>business-name</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>address-1</td>
-<td><span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>address-2</td>
-<td>80 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>business-location</td>
-<td><span class="label label-required">Required</span> Town or city name in which business is located.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>postcode</td>
-<td><span class="label label-required">Required</span> 80 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>country</td>
-<td>One of USA, GBR, CAN, AUS. Defaults to USA.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>phone</td>
-<td><span class="label label-required">Required</span></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>website</td>
-<td><span class="label label-required">Required</span> Link to the website of your business. 256 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>business-type</td>
@@ -5656,7 +5630,7 @@
 </tr>
 <tr>
 <td>state-code</td>
-<td><span class="label label-required">Required</span> (USA only). 2-letter state code (USA only).</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>monthly-run</td>
@@ -5668,11 +5642,11 @@
 </tr>
 <tr>
 <td>white-label-profile-id</td>
-<td></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>active-only</td>
-<td>Flag to fetch only active citations. One of Yes, No. Defaults to No. This cannot be changed once the report has been added.</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>notify</td>
@@ -5708,15 +5682,7 @@
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">'/v2/ct/update'</span><span class="p">,</span> <span class="p">[</span>
     <span class="s1">'location-id'</span>       <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'report-id'</span>         <span class="o">=&gt;</span> <span class="mi">682</span><span class="p">,</span>
-    <span class="s1">'report-name'</span>       <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'business-name'</span>     <span class="o">=&gt;</span> <span class="s1">'Le Bernardin'</span><span class="p">,</span>
-    <span class="s1">'address1'</span>          <span class="o">=&gt;</span> <span class="s1">'155 West 51st Street'</span><span class="p">,</span>
-    <span class="s1">'address2'</span>          <span class="o">=&gt;</span> <span class="s1">'The Equitable Bldg'</span><span class="p">,</span>
-    <span class="s1">'business-location'</span> <span class="o">=&gt;</span> <span class="s1">'New York, NY'</span><span class="p">,</span>
-    <span class="s1">'phone'</span>             <span class="o">=&gt;</span> <span class="s1">'+1 212-554-1515'</span><span class="p">,</span>
-    <span class="s1">'website'</span>           <span class="o">=&gt;</span> <span class="s1">'le-bernardin.com'</span><span class="p">,</span>
     <span class="s1">'business-type'</span>     <span class="o">=&gt;</span> <span class="s1">'Restaurant'</span><span class="p">,</span>
-    <span class="s1">'state-code'</span>        <span class="o">=&gt;</span> <span class="s1">'NY'</span>
 <span class="p">]);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
 </code></pre>
@@ -5726,15 +5692,7 @@
  -d <span class="s1">'expires=&lt;INSERT_API_EXPIRES&gt;'</span> <span class="se">\</span>
  -d <span class="s1">'location-id'</span><span class="o">=</span>1,
  -d <span class="s1">'report-id'</span><span class="o">=</span>682,
- -d <span class="s1">'report-name=Le Bernardin'</span> <span class="se">\</span>
- -d <span class="s1">'business-name=Le Bernardin'</span> <span class="se">\</span>
- -d <span class="s1">'address-1=155 West 51st Street'</span> <span class="se">\</span>
- -d <span class="s1">'address-2=The Equitable Bldg'</span> <span class="se">\</span>
- -d <span class="s1">'business-location=New York, NY'</span> <span class="se">\ </span>
- -d <span class="s1">'phone=+1 212-554-1515'</span> <span class="se">\</span>
- -d <span class="s1">'website=le-bernardin.com'</span> <span class="se">\ </span>
  -d <span class="s1">'business-type=Restaurant'</span> <span class="se">\</span>
- -d <span class="s1">'state-code=NY'</span> <span class="se">\</span>
  https://tools.brightlocal.com/seo-tools/api/v2/ct/update
 </code></pre>
 <pre><code class="highlight csharp"><span class="n">Api</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="s">"&lt;INSERT_API_KEY&gt;"</span><span class="p">,</span> <span class="s">"&lt;INSERT_API_SECRET&gt;"</span><span class="p">);</span>
@@ -5742,15 +5700,7 @@
 <span class="p">{</span>
     <span class="p">{</span> <span class="s">"location-id"</span><span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"report-id"</span><span class="p">,</span> <span class="m">682</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"report-name"</span><span class="p">,</span> <span class="s">"Le Bernardin updated"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business-name"</span><span class="p">,</span> <span class="s">"Le Bernardin"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"phone"</span><span class="p">,</span> <span class="s">"+1 212-554-1515"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"address-1"</span><span class="p">,</span> <span class="s">"155 West 51st Street"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"business-location"</span><span class="p">,</span> <span class="s">"New York, NY"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"postcode"</span><span class="p">,</span> <span class="s">"10019"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"website"</span><span class="p">,</span> <span class="s">"le-bernardin.com"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"business-type"</span><span class="p">,</span> <span class="s">"Restaurant"</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="s">"state-code"</span><span class="p">,</span> <span class="s">"NY"</span> <span class="p">},</span>
     <span class="p">{</span> <span class="s">"primary-location"</span><span class="p">,</span> <span class="s">"10019"</span> <span class="p">},</span>
 <span class="p">};</span>
 
@@ -5802,39 +5752,39 @@
 </tr>
 <tr>
 <td>report-name</td>
-<td></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>business-name</td>
-<td></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>address-1</td>
-<td><span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>address-2</td>
-<td>80 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>business-location</td>
-<td>Town or city name in which business is located.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>postcode</td>
-<td>80 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>country</td>
-<td>One of USA, GBR, CAN, AUS. Defaults to USA.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>phone</td>
-<td></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>website</td>
-<td>Link to the website of your business. 256 characters max.</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>business-type</td>
@@ -5846,7 +5796,7 @@
 </tr>
 <tr>
 <td>state-code</td>
-<td>2-letter state code (USA only).</td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>monthly-run</td>
@@ -5858,11 +5808,11 @@
 </tr>
 <tr>
 <td>white-label-profile-id</td>
-<td></td>
+<td>Deprecated, please use Location for updating this field.</td>
 </tr>
 <tr>
 <td>active-only</td>
-<td>Flag to fetch only active citations. One of Yes, No. Defaults to No.</td>
+<td>Deprecated</td>
 </tr>
 <tr>
 <td>notify</td>
