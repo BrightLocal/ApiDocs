@@ -15,16 +15,7 @@ use BrightLocal\Api;
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->post('/v2/ct/add', [
     'location-id'       => 1,
-    'report-name'       => 'Le Bernardin',
-    'business-name'     => 'Le Bernardin',
-    'address-1'         => '155 West 51st Street',
-    'address-2'         => 'The Equitable Bldg',
-    'business-location' => 'New York, NY',
-    'postcode'          => '10020',
-    'phone'             => '+1 212-554-1515',
-    'website'           => 'le-bernardin.com',
     'business-type'     => 'Restaurant',
-    'state-code'        => 'NY',
     'primary-location'  => '10020'
 ]);
 print_r($response->getResult());
@@ -36,16 +27,7 @@ curl -X POST \
  -d 'sig=<INSERT_API_SIG>' \
  -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location-id=1' \
- -d 'report-name=Le Bernardin' \
- -d 'business-name=Le Bernardin' \
- -d 'address-1=155 West 51st Street' \
- -d 'address-2=The Equitable Bldg' \
- -d 'business-location=New York, NY' \ 
- -d 'phone=+1 212-554-1515' \
- -d 'postcode=10020' \
- -d 'website=le-bernardin.com' \ 
  -d 'business-type=Restaurant' \
- -d 'state-code=NY' \
  -d 'primary-location=10020' \
  https://tools.brightlocal.com/seo-tools/api/v2/ct/add
 ```
@@ -55,15 +37,7 @@ Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
 Parameters parameters = new Parameters
 {
     { "location-id", 1 },
-    { "report-name", "Le Bernardin" },
-    { "business-name", "Le Bernardin" },
-    { "phone", "+1 212-554-1515" },
-    { "address-1", "155 West 51st Street" },
-    { "business-location", "New York, NY" },
-    { "postcode", "10019" },
-    { "website", "le-bernardin.com" },
     { "business-type", "Restaurant" },
-    { "state-code", "NY" },
     { "primary-location", "10019" },
 };
 
@@ -94,21 +68,21 @@ api-key | <span class="label label-required">Required</span>
 sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | <span class="label label-required">Required</span> You can specify location ID or unique reference to create report for a location
-report-name | <span class="label label-required">Required</span>	
-business-name | <span class="label label-required">Required</span>	
-address-1 | <span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.
-address-2 | 80 characters max.
-business-location | <span class="label label-required">Required</span> Town or city name in which business is located.
-postcode |	<span class="label label-required">Required</span> 80 characters max. 
-country | One of USA, GBR, CAN, AUS. Defaults to USA.
-phone | <span class="label label-required">Required</span>	
-website | <span class="label label-required">Required</span> Link to the website of your business. 256 characters max. 
+report-name | Deprecated, please use Location for updating this field.	
+business-name | Deprecated, please use Location for updating this field.	
+address-1 | Deprecated, please use Location for updating this field.
+address-2 | Deprecated, please use Location for updating this field.
+business-location | Deprecated, please use Location for updating this field.
+postcode |	Deprecated, please use Location for updating this field. 
+country | Deprecated, please use Location for updating this field.
+phone | Deprecated, please use Location for updating this field.	
+website | Deprecated, please use Location for updating this field. 
 business-type | <span class="label label-required">Required</span> Business type (e.g. Hotel) NOT a business category (e.g. Hotels & Guest houses).
-state-code | <span class="label label-required">Required</span> (USA only). 2-letter state code (USA only).
+state-code | Deprecated, please use Location for updating this field.
 monthly-run | One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31. Defaults to 0 (none).
 weekly-run | One of 1, 2, 3, 4, 5, 6, 7. Defaults to 0 (none).
-white-label-profile-id |	
-active-only | Flag to fetch only active citations. One of Yes, No. Defaults to No. This cannot be changed once the report has been added.
+white-label-profile-id | Deprecated, please use Location for updating this field.
+active-only | Deprecated
 notify | One of yes or no. If set to yes we will send report alerts to all email addresses specified (see field below). If you include customer email addresses when setting up your report we'll also email them the alerts so please be sure this is what you want before adding their addresses. Default is no.
 email-addresses | Supply one or more (max 5) email addresses for us to send report alerts to. Emails should be passed as a JSON encoded array. This only takes effect if notify is set to yes.
 is-public | Deprecated, please use Location for update this field.
@@ -130,15 +104,7 @@ $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->post('/v2/ct/update', [
     'location-id'       => 1,
     'report-id'         => 682,
-    'report-name'       => 'Le Bernardin',
-    'business-name'     => 'Le Bernardin',
-    'address1'          => '155 West 51st Street',
-    'address2'          => 'The Equitable Bldg',
-    'business-location' => 'New York, NY',
-    'phone'             => '+1 212-554-1515',
-    'website'           => 'le-bernardin.com',
     'business-type'     => 'Restaurant',
-    'state-code'        => 'NY'
 ]);
 print_r($response->getResult());
 ```
@@ -150,15 +116,7 @@ curl -X POST \
  -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location-id'=1,
  -d 'report-id'=682,
- -d 'report-name=Le Bernardin' \
- -d 'business-name=Le Bernardin' \
- -d 'address-1=155 West 51st Street' \
- -d 'address-2=The Equitable Bldg' \
- -d 'business-location=New York, NY' \ 
- -d 'phone=+1 212-554-1515' \
- -d 'website=le-bernardin.com' \ 
  -d 'business-type=Restaurant' \
- -d 'state-code=NY' \
  https://tools.brightlocal.com/seo-tools/api/v2/ct/update
 ```
 
@@ -168,15 +126,7 @@ Parameters parameters = new Parameters
 {
     { "location-id", 1 },
     { "report-id", 682 },
-    { "report-name", "Le Bernardin updated" },
-    { "business-name", "Le Bernardin" },
-    { "phone", "+1 212-554-1515" },
-    { "address-1", "155 West 51st Street" },
-    { "business-location", "New York, NY" },
-    { "postcode", "10019" },
-    { "website", "le-bernardin.com" },
     { "business-type", "Restaurant" },
-    { "state-code", "NY" },
     { "primary-location", "10019" },
 };
 
@@ -207,22 +157,22 @@ sig | <span class="label label-required">Required</span> [See above for how to g
 expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | <span class="label label-required">Required</span> You can specify location ID or unique reference to create report for a location.
 report-id | <span class="label label-required">Required</span>	
-report-name |	
-business-name |	
-address-1 | <span class="label label-required">Required</span> Street address of where the business is located. 80 characters max.
-address-2 | 80 characters max.
-business-location | Town or city name in which business is located.
-postcode |	80 characters max. 
-country	| One of USA, GBR, CAN, AUS. Defaults to USA.
-phone |	
-website	| Link to the website of your business. 256 characters max. 
+report-name |Deprecated, please use Location for updating this field.	
+business-name |	Deprecated, please use Location for updating this field.
+address-1 | Deprecated, please use Location for updating this field.
+address-2 | Deprecated, please use Location for updating this field.
+business-location | Deprecated, please use Location for updating this field.
+postcode |	Deprecated, please use Location for updating this field. 
+country	| Deprecated, please use Location for updating this field.
+phone |	Deprecated, please use Location for updating this field.
+website	| Deprecated, please use Location for updating this field. 
 business-type |	Business type (e.g. Hotel) NOT a business category (e.g. Hotels & Guest houses).
 location |	
-state-code | 2-letter state code (USA only).
+state-code | Deprecated, please use Location for updating this field.
 monthly-run | One of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31. Defaults to 0 (none).
 weekly-run | One of 1, 2, 3, 4, 5, 6, 7. Defaults to 0 (none).
-white-label-profile-id |	
-active-only | Flag to fetch only active citations. One of Yes, No. Defaults to No.
+white-label-profile-id |Deprecated, please use Location for updating this field.
+active-only | Deprecated
 notify | One of yes or no. If set to yes we will send report alerts to all email addresses specified (see field below). If you include customer email addresses when setting up your report we'll also email them the alerts so please be sure this is what you want before adding their addresses. Default is no.
 email-addresses | Supply one or more (max 5) email addresses for us to send report alerts to. Emails should be passed as a JSON encoded array. This only takes effect if notify is set to yes.
 is-public | Deprecated, please use Location for update this field.
