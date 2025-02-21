@@ -8,6 +8,12 @@
 
 <span class="label label-info">Account Method</span>
 
+### Query Parameters
+
+| Parameter | Notes                                              |
+|-----------|----------------------------------------------------|
+| api-key   | <span class="label label-required">Required</span> |
+
 ```php
 <?php
 require '../../vendor/autoload.php';
@@ -18,6 +24,7 @@ $country = 'USA';
 $api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
 $response = $api->get('/v1/business-categories/' . $country);
 print_r($response->getResult());
+
 ```
 
 ```shell
