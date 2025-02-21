@@ -9420,6 +9420,20 @@
 <h2 id="fetch-business-categories-(deprecated)">Fetch Business Categories (deprecated)</h2>
 
 <p><span class="label label-info">Account Method</span></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api-key</td>
+<td><span class="label label-required">Required</span></td>
+</tr>
+</tbody></table>
 <pre><code class="highlight php"><span class="cp">&lt;?php</span>
 <span class="k">require</span> <span class="s1">'../../vendor/autoload.php'</span><span class="p">;</span>
 
@@ -9429,6 +9443,7 @@
 <span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Api</span><span class="p">(</span><span class="s1">'&lt;YOUR_API_KEY&gt;'</span><span class="p">,</span> <span class="s1">'&lt;YOUR_API_SECRET&gt;'</span><span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$api</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'/v1/business-categories/'</span> <span class="o">.</span> <span class="nv">$country</span><span class="p">);</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">());</span>
+
 </code></pre>
 <pre><code class="highlight shell">curl -X GET <span class="s1">'https://tools.brightlocal.com/seo-tools/api/v1/business-categories/USA?api-key=&lt;INSERT_API_KEY&gt;'</span>
 </code></pre>
