@@ -70,93 +70,93 @@ Console.WriteLine(response.GetContent());
 
 ### Query Parameters
 
-Parameter | Notes
---------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+| Parameter | Notes                                                                                                                             |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------|
+| api-key   | <span class="label label-required">Required</span>	                                                                               |
+| sig       | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication) |
+| expires   | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication) |
 
 ## Local directories supported by Local Search Audit tool
 
 ### USA
 
-| Directory | Identifier |
+| Directory             | Identifier      |
 |-----------------------|-----------------|
-| Brownbook | brownbook |
-| Citysearch | citysearch |
-| DexKnows | dexknows |
-| Facebook | facebook |
-| Factual | factual |
-| FourSquare | foursquare |
-| Google Local | google |
-| HotFrog | hotfrog |
-| InfoUSA/ExpressUpdate | expressupdate |
-| Insider Pages | insiderpages |
-| Kudzu | kudzu |
-| Local.com | localcom |
-| MapQuest | mapquest |
-| Neustarlocaleze | neustarlocaleze |
-| Super Pages | superpages |
-| Yahoo! Local | yahoo |
-| Yellow Bot | yellowbot |
-| Yellow Pages | yellowpages |
-| Yelp | yelp |
+| Brownbook             | brownbook       |
+| Citysearch            | citysearch      |
+| DexKnows              | dexknows        |
+| Facebook              | facebook        |
+| Factual               | factual         |
+| FourSquare            | foursquare      |
+| Google Local          | google          |
+| HotFrog               | hotfrog         |
+| InfoUSA/ExpressUpdate | expressupdate   |
+| Insider Pages         | insiderpages    |
+| Kudzu                 | kudzu           |
+| Local.com             | localcom        |
+| MapQuest              | mapquest        |
+| Neustarlocaleze       | neustarlocaleze |
+| Super Pages           | superpages      |
+| Yahoo! Local          | yahoo           |
+| Yellow Bot            | yellowbot       |
+| Yellow Pages          | yellowpages     |
+| Yelp                  | yelp            |
 
 
 ### Canada
 
-| Directory | Identifier |
+| Directory    | Identifier    |
 |--------------|---------------|
-| 411 Canada | can411 |
-| Brownbook | brownbook |
-| Canpages | canpages |
-| Facebook | facebook |
-| Factual | factual |
-| FourSquare | foursquare |
-| Google Local | google |
-| HotFrog | hotfrog |
-| iBegin | ibegincan |
-| PagesJunes | pagesjaunes |
+| 411 Canada   | can411        |
+| Brownbook    | brownbook     |
+| Canpages     | canpages      |
+| Facebook     | facebook      |
+| Factual      | factual       |
+| FourSquare   | foursquare    |
+| Google Local | google        |
+| HotFrog      | hotfrog       |
+| iBegin       | ibegincan     |
+| PagesJunes   | pagesjaunes   |
 | Yellow Pages | yellowpagesca |
-| Yelp | yelp |
+| Yelp         | yelp          |
 
 
 ### United Kingdom
 
-| Directory | Identifier |
+| Directory     | Identifier   |
 |---------------|--------------|
-| Brownbook | brownbook |
-| Facebook | facebook |
-| Factual | factual |
-| FourSquare | foursquare |
-| Google Local | google |
-| HotFrog | hotfrog |
-| Scoot | scoot |
+| Brownbook     | brownbook    |
+| Facebook      | facebook     |
+| Factual       | factual      |
+| FourSquare    | foursquare   |
+| Google Local  | google       |
+| HotFrog       | hotfrog      |
+| Scoot         | scoot        |
 | Thomson Local | thomsonlocal |
-| Touch Local | touchlocal |
-| Yahoo! Local | yahoo |
-| Yell | yell |
-| Yelp | yelp |
+| Touch Local   | touchlocal   |
+| Yahoo! Local  | yahoo        |
+| Yell          | yell         |
+| Yelp          | yelp         |
 
 
 ### Australia
 
-| Directory | Identifier |
+| Directory             | Identifier    |
 |-----------------------|---------------|
-| AussieWeb | aussieweb |
-| Brownbook | brownbook |
-| dLook | dlook |
-| Facebook | facebook |
-| Factual | factual |
-| FourSquare | foursquare |
-| Google Local | google |
-| HotFrog | hotfrog |
-| Local.com.au | localcomau |
-| StartLocal | startlocal |
+| AussieWeb             | aussieweb     |
+| Brownbook             | brownbook     |
+| dLook                 | dlook         |
+| Facebook              | facebook      |
+| Factual               | factual       |
+| FourSquare            | foursquare    |
+| Google Local          | google        |
+| HotFrog               | hotfrog       |
+| Local.com.au          | localcomau    |
+| StartLocal            | startlocal    |
 | Super Pages Australia | superpagesaus |
-| TrueLocal | truelocal |
-| White Pages | whitepagesaus |
-| Yelp | yelp |
+| TrueLocal             | truelocal     |
+| White Pages           | whitepagesaus |
+| Yelp                  | yelp          |
 
 
 ## Business Category IDs
@@ -167,19 +167,19 @@ We no longer list the supported business categories here. We now have an [endpoi
 
 The following countries and codes are supported by our system:
 
-Country|Code
----|---
-Australia|AUS
-Canada|CAN
-Germany|DEU
-Hong Kong|HKG
-Ireland|IRL
-Macau|MAC
-Netherlands|NLD
-New Zealand|NZL
-Philippines|PHL
-Taiwan|TWN
-United Kingdom|GBR
-United States|USA
-Singapore|SGP
-South Africa|ZAF
+| Country        | Code |
+|----------------|------|
+| Australia      | AUS  |
+| Canada         | CAN  |
+| Germany        | DEU  |
+| Hong Kong      | HKG  |
+| Ireland        | IRL  |
+| Macau          | MAC  |
+| Netherlands    | NLD  |
+| New Zealand    | NZL  |
+| Philippines    | PHL  |
+| Taiwan         | TWN  |
+| United Kingdom | GBR  |
+| United States  | USA  |
+| Singapore      | SGP  |
+| South Africa   | ZAF  |
