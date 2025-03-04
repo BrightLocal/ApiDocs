@@ -440,7 +440,7 @@ Console.WriteLine(response.GetContent());
             "search_engines":  [
                 "google",
                 "google-local",
-                "bing",
+                "bing"
             ],
             "include_local_directory_results": "Yes",
             "notify": "Yes",
@@ -457,7 +457,12 @@ Console.WriteLine(response.GetContent());
                 "fulham",
                 "london",
                 "pub"
-            ]
+            ],
+            "urls": {
+              "public_interactive_url": "https://www.local-marketing-reports.com/location-dashboard/<HIDDEN>/ranking-reports",
+              "public_pdf_url": "https://www.local-marketing-reports.com/ranking-reports/<HIDDEN>/report.pdf",
+              "public_csv_url": "https://www.local-marketing-reports.com/ranking-reports/<HIDDEN>/report.csv"
+            }
         }
     }
 }
