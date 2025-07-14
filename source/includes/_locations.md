@@ -16,7 +16,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v2/clients-and-locations/locations/', [
     'name'                 => 'Le Bernardin',
     'location-reference'   => 'LE-BERNARDIN-10019',
@@ -102,8 +102,6 @@ print_r($response->getResult());
 ```shell
 curl -X POST \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'name=Le Bernardin' \
  -d 'location-reference=LE-BERNARDIN-10019' \
  -d 'url=le-bernardin.com' \
@@ -190,7 +188,7 @@ special = new List<object>()
 }
 };
 
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "name", "Le Bernardin" },
@@ -229,8 +227,6 @@ Adds a new location and associates it with your account.
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 name | <span class="label label-required">Required</span> 250 characters max.
 client-id | 
 url | 256 characters max
@@ -298,7 +294,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $locationId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->put('/v2/clients-and-locations/locations/' . $locationId, [
     'name'                 => 'Le Bernardin',
     'url'                  => 'le-bernardin.com',
@@ -332,8 +328,6 @@ print_r($response->getResult());
 ```shell
 curl -X PUT \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'name=Le Bernardin' \
  -d 'location-reference=LE-BERNADIN-10019' \
  -d 'url=le-bernardin.com' \
@@ -350,7 +344,7 @@ curl -X PUT \
 
 ```csharp
 int locationId =1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "name", "Le Bernardin" },
@@ -396,8 +390,6 @@ Console.WriteLine(response.GetContent());
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 name | 250 characters max.
 client-id |
 url | 256 characters max
@@ -463,7 +455,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $locationId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->delete('/v2/clients-and-locations/locations/' . $locationId);
 var_dump($response->getResult());
 if ($response->isSuccess()) {
@@ -473,7 +465,7 @@ if ($response->isSuccess()) {
 
 ```csharp
 int locationId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Response response = api.Delete("/v2/clients-and-locations/locations/" + locationId);
 if (response.IsSuccess())
 {
@@ -504,8 +496,6 @@ Delete an existing location. If there are reports associated with this location 
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | <span class="label label-required">Required</span>
 
 ## Get Location (deprecated)
@@ -521,14 +511,14 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $locationId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v2/clients-and-locations/locations/' . $locationId);
 print_r($response->getResult());
 ```
 
 ```csharp
 int locationId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Response response = api.Get("/v2/clients-and-locations/locations/" + locatonId);
 Console.WriteLine(response.GetContent());
 ```
@@ -649,9 +639,7 @@ Get extended details for a specific location.
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 
 ## Search Locations (deprecated)
 
@@ -665,7 +653,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v2/clients-and-locations/locations/search', [
     'q' => 'BrightLocal'
 ]);
@@ -673,11 +661,11 @@ print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>&q=My+Sample+Query'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search?api-key=<INSERT_API_KEY>&q=My+Sample+Query'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
        { "q", "BrightLocal" }
 };
@@ -718,7 +706,5 @@ Search for locations matching a specified search string. The search uses a numbe
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 q | <span class="label label-required">Required</span>
 client-id | Client Id

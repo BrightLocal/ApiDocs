@@ -20,7 +20,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $responseForAll = $api->get('v1/directories/all');
 print_r($responseForAll->getResult());
 
@@ -30,11 +30,11 @@ print_r($responseByCountry->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v1/directories/all?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v1/directories/all?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Response response = api.Get("v1/directories/all" );
 Console.WriteLine(response.GetContent());
 ```
@@ -73,8 +73,6 @@ Console.WriteLine(response.GetContent());
 | Parameter | Notes                                                                                                                             |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------|
 | api-key   | <span class="label label-required">Required</span>	                                                                               |
-| sig       | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication) |
-| expires   | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication) |
 
 ## Local directories supported by Local Search Audit tool
 

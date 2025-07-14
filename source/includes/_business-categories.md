@@ -21,7 +21,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $country = 'USA';
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v1/business-categories/' . $country);
 print_r($response->getResult());
 
@@ -32,7 +32,7 @@ curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v1/business-categories/
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 string country = "USA";
 Response response = api.Get("/v1/business-categories/" + country);
 Console.WriteLine(response.GetContent());

@@ -16,7 +16,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v1/clients-and-locations/clients', [
     'name'        => 'Le Bernardin',
     'company-url' => 'le-bernardin.com'
@@ -27,15 +27,13 @@ print_r($response->getResult());
 ```shell
 curl -X POST \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'name=Le Bernardin' \
  -d 'company-url=le-bernardin.com' \
  https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
     {
         { "name", "Le Bernardin" },
@@ -64,9 +62,7 @@ Adds a new client and associates it with your account.
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 name | <span class="label label-required">Required</span> 50 characters max.
 company-url | <span class="label label-required">Required</span> 150 characters max
 reference-number | An arbitrary unique reference you can use to identify a client. This may correspond to a unique value used within your system and can be useful when importing or exporting data. 50 characters max.
@@ -86,7 +82,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $clientId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->put('/v1/clients-and-locations/clients/' . $clientId, [
     'name'        => 'Le Bernardin',
     'company-url' => 'le-bernardin.com'
@@ -97,8 +93,6 @@ print_r($response->getResult());
 ```shell
 curl -X PUT \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'name=Le Bernardin' \
  -d 'company-url=le-bernardin.com' \
    https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/<client_id>
@@ -107,7 +101,7 @@ curl -X PUT \
 ### Update a client (deprecated)
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
     {
         { "name", "Le Bernardin" },
@@ -135,8 +129,6 @@ Console.WriteLine(response.GetContent());
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 name | 50 characters max
 company-url | 150 characters max
 reference-number | An arbitrary unique reference you can use to identify a client. This may correspond to a unique value used within your system and can be useful when importing or exporting data. 50 characters max.
@@ -154,7 +146,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $clientId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->delete('/v1/clients-and-locations/clients/' . $clientId);
 var_dump($response->getResult());
 if ($response->isSuccess()) {
@@ -164,7 +156,7 @@ if ($response->isSuccess()) {
 
 ```csharp
 int clientId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters { };
 Response response = api.Delete("/v1/clients-and-locations/clients/" + clientId, parameters);
 if (response.IsSuccess())
@@ -196,8 +188,6 @@ Delete an existing client. If there are reports associated with this client then
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 client-id | <span class="label label-required">Required</span>
 
 ## Get Client (deprecated)
@@ -213,14 +203,14 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $clientId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v1/clients-and-locations/clients/' . $clientId);
 print_r($response->getResult());
 ```
 
 ```csharp
 int clientId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Response response = api.Get("/v1/clients-and-locations/clients/" + clientId);
 Console.WriteLine(response.GetContent());
 ```
@@ -249,9 +239,7 @@ Get extended details for a specific client.
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 client-id | <span class="label label-required">Required</span>
 
 ## Search Clients (deprecated)
@@ -266,7 +254,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v1/clients-and-locations/clients/search', [
     'q' => 'BrightLocal'
 ]);
@@ -274,11 +262,11 @@ print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/search?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>&q=My+Sample+Query'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v1/clients-and-locations/clients/search?api-key=<INSERT_API_KEY>&q=My+Sample+Query'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
        { "q", "BrightLocal" }
 };
@@ -318,7 +306,5 @@ Search for clients matching a specified search string.
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 q | <span class="label label-required">Required</span>

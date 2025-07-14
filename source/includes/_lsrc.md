@@ -12,7 +12,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v2/lsrc/add', [
     'location-id'       => 1,
     'schedule'          => 'Adhoc',
@@ -26,8 +26,6 @@ print_r($response->getResult());
 ```shell
 curl -X POST \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location-id=1' \
  -d 'schedule=Adhoc' \
  -d $'search-terms=Restaurant\nfood+nyc\ndelivery+midtown+manhattan' \ 
@@ -37,7 +35,7 @@ curl -X POST \
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
     {
         { "location-id", 1},
@@ -71,9 +69,7 @@ Console.WriteLine(response.GetContent());
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 name | <span class="label label-deprecated">Deprecated</span>	
 schedule | Adhoc, Weekly or Monthly - defaults to Adhoc
 day-of-week | Relevant to Weekly schedule only. Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday. Defaults to Tuesday.
@@ -112,7 +108,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v2/lsrc/update', [
     'location-id'       => 1,
     'campaign-id'       => 9907,
@@ -127,8 +123,6 @@ print_r($response->getResult());
 ```shell
 curl -X POST \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location-id=1' \
  -d 'campaign-id=9907' \
  -d 'schedule=Adhoc' \
@@ -139,7 +133,7 @@ curl -X POST \
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "location-id", 1 },
@@ -175,9 +169,7 @@ Change report settings such as name, search terms, country, website URL, schedul
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 campaign-id | <span class="label label-required">Required</span>	
 name | <span class="label label-deprecated">Deprecated</span>	
 schedule | Adhoc, Weekly or Monthly
@@ -218,7 +210,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v2/lsrc/delete', [
     'campaign-id' => 9907
 ]);
@@ -230,7 +222,7 @@ if ($response->isSuccess()) {
 
 ```csharp
 int campaignId = 9907;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
    { "campaign-id", campaignId }
 };
@@ -265,9 +257,7 @@ Deletes a report and all history and ranking data associated with that report. W
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 campaign-id | <span class="label label-required">Required</span>
 
 ## Get All Reports
@@ -282,17 +272,17 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('v2/lsrc/get-all');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get-all?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get-all?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters { };
 Response response = api.Get("v2/lsrc/get-all", parameters);
 Console.WriteLine(response.GetContent());
@@ -344,8 +334,6 @@ Returns basic details about all reports associated with your account.
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id |
 page | Current page number. Default is 1.
 num-per-page | Number of results per page. Default is 200. Maximum is 200.
@@ -363,7 +351,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v2/lsrc/get', [
     'campaign-id' => 50
 ]);
@@ -371,11 +359,11 @@ print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>&campaign-id=50'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/get?api-key=<INSERT_API_KEY>&campaign-id=50'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
    { "campaign-id", 50 }
 };
@@ -478,9 +466,7 @@ Returns information about the specified report such as its name, search terms, c
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 campaign-id | <span class="label label-required">Required</span>	
 
 ## Run Report
@@ -495,7 +481,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v2/lsrc/run', [
     'campaign-id' => 50
 ]);
@@ -505,14 +491,12 @@ print_r($response->getResult());
 ```shell
 curl -X POST \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'campaign-id=50' \
   https://tools.brightlocal.com/seo-tools/api/v2/lsrc/run
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
    { "campaign-id", 50 }
 };
@@ -542,9 +526,7 @@ Runs the specified report if your account has sufficient monthly adhoc run credi
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 campaign-id | <span class="label label-required">Required</span>
 
 ## Get Report History
@@ -559,7 +541,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v2/lsrc/history/get', [
     'campaign-id' => 50
 ]);
@@ -567,11 +549,11 @@ print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/history/get?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>&campaign-id=50'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/history/get?api-key=<INSERT_API_KEY>&campaign-id=50'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
    { "campaign-id", 50 }
 };
@@ -621,9 +603,7 @@ Returns the campaign history IDs associated with all report runs for the specifi
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 campaign-id | <span class="label label-required">Required</span>
 
 ## Get Report Results
@@ -638,7 +618,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v2/lsrc/results/get', [
     'campaign-id' => 9636
 ]);
@@ -646,13 +626,13 @@ print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/results/get?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>&campaign-id=9636'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/lsrc/results/get?api-key=<INSERT_API_KEY>&campaign-id=9636'
 ```
 
 ### Get Report Results
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
    { "campaign-id", 9636 }
 };
@@ -1009,9 +989,7 @@ If no campaign history ID or previous campaign history ID are passed then the la
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 campaign-id | <span class="label label-required">Required</span>	
 campaign-history-id | If both campaign-history-id and previous-campaign-history-id are not specified then the latest report is returned.
 previous-campaign-history-id | If both campaign-history-id and previous-campaign-history-id are not specified then the latest report is returned.

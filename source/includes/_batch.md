@@ -19,7 +19,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 // Step: Create a new batch
 $batch = $api->createBatch();
 printf('Created batch ID %d%s', $batch->getId(), PHP_EOL);
@@ -32,7 +32,7 @@ curl -X POST \
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Batch batch = api.CreateBatch();
 Console.WriteLine("Created batch ID '{0}'", batch.GetId());
 ```
@@ -101,7 +101,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $batchId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $batch = $api->getBatch($batchId);
 $batch->commit();
 printf('Committed batch successfully.%s', PHP_EOL);
@@ -116,7 +116,7 @@ curl -X PUT \
 
 ```csharp
 int batchId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Batch batch = api.GetBatch(batchId);
 batch.Commit();
 Console.WriteLine("Batch committed successfully");
@@ -174,7 +174,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $batchId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $batch = $api->getBatch($batchId);
 print_r($batch->getResults());
 ```
@@ -185,7 +185,7 @@ curl 'https://tools.brightlocal.com/seo-tools/api/v4/batch?api-key=<INSERT_API_K
 
 ```csharp
 int batchId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Batch batch = api.GetBatch(batchId);
 Console.WriteLine(batch.GetResults());    
 ```
@@ -269,7 +269,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $batchId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $batch = $api->getBatch($batchId);
 $batch->delete();
 printf('Successfully deleted batch %d%s', $batchId, PHP_EOL);
@@ -281,7 +281,7 @@ curl -X DELETE 'https://tools.brightlocal.com/seo-tools/api/v4/batch?api-key=<IN
 
 ```csharp
 int batchId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Batch batch = api.GetBatch(batchId);
 batch.Delete();
 Console.WriteLine("Batch deleted successfully");
@@ -330,7 +330,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $batchId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $batch = $api->getBatch($batchId);
 $batch->stop();
 echo 'Successfully stopped batch' . PHP_EOL;
@@ -345,7 +345,7 @@ curl -X PUT
 
 ```csharp
 int batchId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Batch batch = api.GetBatch(batchId);
 batch.Stop();
 Console.WriteLine("Batch stoped successfully");
