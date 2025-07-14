@@ -230,7 +230,7 @@ api-key | <span class="label label-required">Required</span>
 name | <span class="label label-required">Required</span> 250 characters max.
 client-id | 
 url | 256 characters max
-business-category-id | <span class="label label-required">Required</span> [See here for a full list of valid business codes.](#business-categories)
+business-category-id | <span class="label label-required">Required</span> <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 country | <span class="label label-required">Required</span> ISO 3 country code.
 address1 | <span class="label label-required">Required</span> 80 characters max
 address2 | 80 characters max
@@ -247,7 +247,7 @@ contact-email | 100 characters max
 contact-fax | 20 characters max
 number-of-employees | 10 characters max
 formation-date | Month and date formatted 'mm-yyyy'
-extra-business-categories-ids | Array. For example, [1234,5678,9012]. [See here for a full list of valid business category IDs.](#business-categories)
+extra-business-categories-ids | Array. For example, [1234,5678,9012]. <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 opening-hours[regular][apply-to-all] | <span class="label label-required">Required</span> Boolean field
 opening-hours[regular][mon][status] | <span class="label label-required">Required</span> Can be 'open', 'closed', '24hrs', 'split'
 opening-hours[regular][mon][hours][start] | <span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm
@@ -393,7 +393,7 @@ api-key | <span class="label label-required">Required</span>
 name | 250 characters max.
 client-id |
 url | 256 characters max
-business-category-id | [See here for a full list of valid business codes.](#business-categories)
+business-category-id | <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 country | ISO 3 country code.
 address1 | 80 characters max
 address2 | 80 characters max
@@ -410,7 +410,7 @@ contact-email | 100 characters max
 contact-fax | 20 characters max
 number-of-employees | 10 characters max
 formation-date | Month and date formatted 'mm-yyyy'
-extra-business-categories-ids | Array. For example, [1234,5678,9012]. [See here for a full list of valid business category IDs.](#business-categories)
+extra-business-categories-ids | Array. For example, [1234,5678,9012]. <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 opening-hours[regular][apply-to-all] | Boolean field
 opening-hours[regular][mon][status] | Can be 'open', 'closed', '24hrs', 'split'
 opening-hours[regular][mon][hours][start] | Please only use allowed working hours formats such as 14:45, 2:45 pm

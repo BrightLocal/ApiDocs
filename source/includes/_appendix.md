@@ -159,7 +159,7 @@ Console.WriteLine(response.GetContent());
 
 ## Business Category IDs
 
-We no longer list the supported business categories here. We now have an [endpoint](#business-categories) which enables you to retrieve a list of categories by country.
+We no longer list the supported business categories here. We now have an <a href="https://developer.brightlocal.com/docs/management-apis/k7xwhhme1hzep-business-categories">endpoint</a> which enables you to retrieve a list of categories by country.
 
 ## Supported Countries
 
