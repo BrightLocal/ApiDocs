@@ -4,7 +4,7 @@ All methods require a valid trial or production API key.
 
 ## Authentication Errors
 
-If there's a problem with your API key or expires one of the following errors will be returned:
+If there's a problem with your API key one of the following errors will be returned:
 
 ### Invalid API Key
 
