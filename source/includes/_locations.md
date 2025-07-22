@@ -16,7 +16,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v2/clients-and-locations/locations/', [
     'name'                 => 'Le Bernardin',
     'location-reference'   => 'LE-BERNARDIN-10019',
@@ -102,8 +102,6 @@ print_r($response->getResult());
 ```shell
 curl -X POST \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'name=Le Bernardin' \
  -d 'location-reference=LE-BERNARDIN-10019' \
  -d 'url=le-bernardin.com' \
@@ -190,7 +188,7 @@ special = new List<object>()
 }
 };
 
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "name", "Le Bernardin" },
@@ -229,12 +227,10 @@ Adds a new location and associates it with your account.
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 name | <span class="label label-required">Required</span> 250 characters max.
 client-id | 
 url | 256 characters max
-business-category-id | <span class="label label-required">Required</span> [See here for a full list of valid business codes.](#business-categories)
+business-category-id | <span class="label label-required">Required</span> <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 country | <span class="label label-required">Required</span> ISO 3 country code.
 address1 | <span class="label label-required">Required</span> 80 characters max
 address2 | 80 characters max
@@ -251,7 +247,7 @@ contact-email | 100 characters max
 contact-fax | 20 characters max
 number-of-employees | 10 characters max
 formation-date | Month and date formatted 'mm-yyyy'
-extra-business-categories-ids | Array. For example, [1234,5678,9012]. [See here for a full list of valid business category IDs.](#business-categories)
+extra-business-categories-ids | Array. For example, [1234,5678,9012]. <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 opening-hours[regular][apply-to-all] | <span class="label label-required">Required</span> Boolean field
 opening-hours[regular][mon][status] | <span class="label label-required">Required</span> Can be 'open', 'closed', '24hrs', 'split'
 opening-hours[regular][mon][hours][start] | <span class="label label-required">Required</span> Please only use allowed working hours formats such as 14:45, 2:45 pm
@@ -298,7 +294,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $locationId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->put('/v2/clients-and-locations/locations/' . $locationId, [
     'name'                 => 'Le Bernardin',
     'url'                  => 'le-bernardin.com',
@@ -332,8 +328,6 @@ print_r($response->getResult());
 ```shell
 curl -X PUT \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'name=Le Bernardin' \
  -d 'location-reference=LE-BERNADIN-10019' \
  -d 'url=le-bernardin.com' \
@@ -350,7 +344,7 @@ curl -X PUT \
 
 ```csharp
 int locationId =1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "name", "Le Bernardin" },
@@ -396,12 +390,10 @@ Console.WriteLine(response.GetContent());
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 name | 250 characters max.
 client-id |
 url | 256 characters max
-business-category-id | [See here for a full list of valid business codes.](#business-categories)
+business-category-id | <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 country | ISO 3 country code.
 address1 | 80 characters max
 address2 | 80 characters max
@@ -418,7 +410,7 @@ contact-email | 100 characters max
 contact-fax | 20 characters max
 number-of-employees | 10 characters max
 formation-date | Month and date formatted 'mm-yyyy'
-extra-business-categories-ids | Array. For example, [1234,5678,9012]. [See here for a full list of valid business category IDs.](#business-categories)
+extra-business-categories-ids | Array. For example, [1234,5678,9012]. <a href="https://brightlocal.stoplight.io/docs/management-apis/ood8k7u7npqkj-get-business-categories">See here for a full list of valid business codes.</a>
 opening-hours[regular][apply-to-all] | Boolean field
 opening-hours[regular][mon][status] | Can be 'open', 'closed', '24hrs', 'split'
 opening-hours[regular][mon][hours][start] | Please only use allowed working hours formats such as 14:45, 2:45 pm
@@ -463,7 +455,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $locationId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->delete('/v2/clients-and-locations/locations/' . $locationId);
 var_dump($response->getResult());
 if ($response->isSuccess()) {
@@ -473,7 +465,7 @@ if ($response->isSuccess()) {
 
 ```csharp
 int locationId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Response response = api.Delete("/v2/clients-and-locations/locations/" + locationId);
 if (response.IsSuccess())
 {
@@ -504,8 +496,6 @@ Delete an existing location. If there are reports associated with this location 
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | <span class="label label-required">Required</span>
 
 ## Get Location (deprecated)
@@ -521,14 +511,14 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $locationId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v2/clients-and-locations/locations/' . $locationId);
 print_r($response->getResult());
 ```
 
 ```csharp
 int locationId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Response response = api.Get("/v2/clients-and-locations/locations/" + locatonId);
 Console.WriteLine(response.GetContent());
 ```
@@ -649,9 +639,7 @@ Get extended details for a specific location.
 
 Parameter | Notes
 --------- | -----
-api-key | <span class="label label-required">Required</span>	
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
+api-key | <span class="label label-required">Required</span>
 
 ## Search Locations (deprecated)
 
@@ -665,7 +653,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v2/clients-and-locations/locations/search', [
     'q' => 'BrightLocal'
 ]);
@@ -673,11 +661,11 @@ print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>&q=My+Sample+Query'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v2/clients-and-locations/locations/search?api-key=<INSERT_API_KEY>&q=My+Sample+Query'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters {
        { "q", "BrightLocal" }
 };
@@ -718,7 +706,5 @@ Search for locations matching a specified search string. The search uses a numbe
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 q | <span class="label label-required">Required</span>
 client-id | Client Id

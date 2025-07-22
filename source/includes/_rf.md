@@ -12,7 +12,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->post('/v4/rf/add', [
     'location-id'       => 1,
     'directories'       => [
@@ -35,9 +35,7 @@ print_r($response->getResult());
 
 ```shell
 curl -X POST \
- -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \ 
+ -d 'api-key=<INSERT_API_KEY>' \ 
  -d 'location-id=1' \
  https://tools.brightlocal.com/seo-tools/api/v4/rf/add
 ```
@@ -52,7 +50,7 @@ Dictionary<string, object> directories = new Dictionary<string, object>()
         }
     }
 }; 
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "location-id", 1 },
@@ -134,8 +132,6 @@ directories.Add(new
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 report-name | Deprecated, please use Location for update this field.
 location-id | <span class="label label-required">Required</span> Associate this report with a location in your account. This ID needs to correspond to a valid location in your account.
 white-label-profile-id | Deprecated, please use Location for update this field.
@@ -170,7 +166,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->put('/v4/rf/' . $reportId, [
     'location-id'       => 1,
 ]);
@@ -180,8 +176,6 @@ print_r($response->getResult());
 ```shell
 curl -X PUT \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  -d 'location-id=1' \
  -d 'schedule=Adhoc' \
  -d 'day_of_month=2' \
@@ -190,7 +184,7 @@ curl -X PUT \
 
 ```csharp
 int reportId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic directories = new
 {
     yellowbot = new
@@ -274,8 +268,6 @@ directories.Add(new
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | <span class="label label-required">Required</span>
 report-name | Deprecated, please use Location for update this field.
 white-label-profile-id | Deprecated, please use Location for update this field.
@@ -299,18 +291,18 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/' . $reportId);
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/1?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/1?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
 int reportId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic report = api.Get("v4/rf/" + reportId).GetContent();
 Console.WriteLine(report);
 ```
@@ -460,8 +452,6 @@ Console.WriteLine(report);
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 
 ## Delete Report
 
@@ -476,7 +466,7 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 1;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->delete('/v4/rf/' . $reportId);
 var_dump($response->getResult());
 if ($response->isSuccess()) {
@@ -487,14 +477,12 @@ if ($response->isSuccess()) {
 ```shell
 curl -X DELETE \
  -d 'api-key=<INSERT_API_KEY>' \
- -d 'sig=<INSERT_API_SIG>' \
- -d 'expires=<INSERT_API_EXPIRES>' \
  https://tools.brightlocal.com/seo-tools/api/v4/rf/1
 ```
 
 ```csharp
 int reportId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic status = api.Delete("v4/rf/" + reportId).GetContent();
 Console.WriteLine(status);
 ```
@@ -538,8 +526,6 @@ Console.WriteLine(status);
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 
 ## Get Reports
 
@@ -553,17 +539,17 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic report = api.Get("v4/rf").GetContent();
 Console.WriteLine(report);
 ```
@@ -633,8 +619,6 @@ Console.WriteLine(report);
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 location-id | Filter the list of reports returned by location ID. This ID must correspond to a valid location in your account.
 
 ## Report Search
@@ -649,7 +633,7 @@ require '../../vendor/autoload.php';
 
 use BrightLocal\Api;
 
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/search', [
     'q' => 'Le Bernardin'
 ]);
@@ -657,11 +641,11 @@ print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/search?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>&q=My+Sample+Query'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/search?api-key=<INSERT_API_KEY>&q=My+Sample+Query'
 ```
 
 ```csharp
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "q", "Le Bernardin" }
@@ -714,8 +698,6 @@ Search for reports in your account.
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 q | <span class="label label-required">Required</span> Supply an arbitrary search string.
 
 ## Get Reviews
@@ -731,18 +713,18 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 141;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/' . $reportId . '/reviews');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
 int reportId = 141;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Parameters parameters = new Parameters
 {
     { "limit", 100 }
@@ -828,8 +810,6 @@ Fetch all reviews associated with a report.
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 directory | Fetch reviews for a specific directory. See directory identifiers in appendix below.
 stars | Fetch reviews for a specific star rating (0-5).
 sort | By date "asc" or "desc". Default is "asc"
@@ -861,18 +841,18 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 141;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/' . $reportId . '/reviews/count');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/count?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/count?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
 int reportId = 141;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic response = api.Get("v4/rf/" + reportId + "/reviews/count").GetContent();
 Console.WriteLine(response);
 ```
@@ -906,8 +886,6 @@ Console.WriteLine(response);
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 
 ## Get Growth
 
@@ -922,18 +900,18 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 141;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/' . $reportId . '/reviews/growth');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/growth?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/reviews/growth?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
 int reportId = 1;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic grows = api.Get("v4/rf/{reportId}/reviews/growth").GetContent();
 Console.WriteLine(grows);
 ```
@@ -972,8 +950,6 @@ Get count and percentage of new reviews since last report run.
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 
 ## Get Directories
 
@@ -988,18 +964,18 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 141;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/' . $reportId . '/directories');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/directories?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/directories?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
 int reportId = 141;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic directories = api.Get("v4/rf/" + reportId + "/directories").GetContent();
 Console.WriteLine(directories);
 ```
@@ -1148,8 +1124,6 @@ Get a list of directories associated with a report. Results contain directory de
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 
 ## Get Directory Stats
 
@@ -1166,18 +1140,18 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 141;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/' . $reportId . '/directories/stats');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/directories/stats?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/directories/stats?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
 int reportId = 141;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic response = api.Get("v4/rf/{reportId}/directories/stats").GetContent();
 Console.WriteLine(response);
 ```
@@ -1241,8 +1215,6 @@ Fetch stats showing average rating and review count for every directory in a giv
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
 
 ## Get Star Counts
 
@@ -1257,18 +1229,18 @@ require '../../vendor/autoload.php';
 use BrightLocal\Api;
 
 $reportId = 141;
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 $response = $api->get('/v4/rf/' . $reportId . '/stars/count');
 print_r($response->getResult());
 ```
 
 ```shell
-curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/stars/count?api-key=<INSERT_API_KEY>&sig=<INSERT_API_SIG>&expires=<INSERT_API_EXPIRES>'
+curl -X GET 'https://tools.brightlocal.com/seo-tools/api/v4/rf/141/stars/count?api-key=<INSERT_API_KEY>'
 ```
 
 ```csharp
 int reportId =141;
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 dynamic response = api.Get("v4/rf/" + reportId + "/stars/count").GetContent();
 Console.WriteLine(response);
 ```
@@ -1311,5 +1283,3 @@ Get count of reviews for each star rating for a given report.
 Parameter | Notes
 --------- | -----
 api-key | <span class="label label-required">Required</span>
-sig | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)
-expires | <span class="label label-required">Required</span> [See above for how to generate signature and expires values.](#authentication)

@@ -18,7 +18,7 @@ $directories = [
     'https://bodegawinebar.com/'
 ];
 // setup API wrapper
-$api = new Api('<YOUR_API_KEY>', '<YOUR_API_SECRET>');
+$api = new Api('<YOUR_API_KEY>');
 // Step 1: Create a new batch
 $batch = $api->createBatch();
 printf('Created batch ID %d%s', $batch->getId(), PHP_EOL);
@@ -50,7 +50,7 @@ List<string> directories = new List<string>
     "https://bodegawinebar.com/"
 };
 
-Api api = new Api("<INSERT_API_KEY>", "<INSERT_API_SECRET>");
+Api api = new Api("<INSERT_API_KEY>");
 Batch batch = api.CreateBatch();
 Console.WriteLine("Created batch ID {0}", batch.GetId());
 foreach (string directory in directories)

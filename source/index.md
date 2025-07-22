@@ -27,11 +27,9 @@ includes:
     - locations
     - lsrc
     - ct
-    - geo-locations
     - cb
     - rf
     - gpw
-    - business-categories
     - appendix
 
 search: true
