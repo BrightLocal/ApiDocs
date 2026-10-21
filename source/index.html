@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>BrightLocal API docs have moved</title>
+    <link rel="canonical" href="https://developer.brightlocal.com/">
+    <script>
+      // The old site was one long page, so old links point at #anchors. Anchors never reach
+      // the server, so send each one to its new home here, before the meta refresh below.
+      (function () {
+        var portal = 'https://developer.brightlocal.com/';
+        var legacy = portal + 'docs/legacy/';
+        var mgmt = portal + 'docs/management/';
+        var batch = legacy + 'legacy~2Dbatch';
+        var ct = legacy + 'legacy~2Dct';
+        var reviews = legacy + 'legacy~2Dreviews';
+        var map = {
+          // Batches
+          'batches': batch + '-batch',
+          'create': batch + '~2Dcreate-create-batch',
+          'commit-batch': batch + '~2Dcommit-commit-batch',
+          'get-results': batch + '~2Dget-get-batch-results',
+          'delete': batch + '~2Ddelete-delete-batch',
+          'stop-batch': batch + '~2Dstop-stop-batch',
+          // Reviews
+          'reviews': reviews + '-reviews',
+          'fetch-reviews-(by-profile-url)': reviews + '~2Dby~2Durl-fetch-reviews-by-profile-url',
+          'fetch-reviews-(by-business-data)': reviews + '~2Dby~2Dbusiness-fetch-reviews-by-business-data',
+          'paging': reviews + '-reviews',
+          // Citation Tracker. The GMB section reuses these anchors, but browsers always
+          // jumped to the first match (Citation Tracker), and GMB has no public page.
+          'citation-tracker': legacy + 'legacy~2Dcitation~2Dtracker-citation-tracker',
+          'add-report': ct + '~2Dadd-add-report',
+          'update-report': ct + '~2Dupdate-update-report',
+          'get-report': ct + '~2Dget-get-report',
+          'run-report': ct + '~2Drun-run-report',
+          'delete-report': ct + '~2Ddelete-delete-report',
+          'get-all-reports': ct + '~2Dget~2Dall-get-all-reports',
+          'get-report-results': ct + '~2Dget~2Dresults-get-report-results',
+          // Sections that were already "deprecated, use the new API" notices
+          'rankings': mgmt + 'zmd64hm2pgta3-local-rank-tracker',
+          'rank-checker': mgmt + 'zmd64hm2pgta3-local-rank-tracker',
+          'reputation-manager': mgmt + 'p7axgeo0csqf5-reputation-manager',
+          'citation-builder': mgmt + 'agjq3z0pfs6nk-citation-builder',
+          'clients': mgmt + 'f888e658707c4-clients',
+          'locations': mgmt + 'a8chirfprjb2p-locations',
+          'business-category-ids': mgmt + 'k7xwhhme1hzep-business-categories'
+        };
+        // Intro, appendix and internal-only sections (GMB, Offsite SEO) go to the Legacy home.
+        ['introduction', 'api-types', 'api-url', 'authentication', 'authentication-errors',
+         'api-wrapper', 'local-directories', 'offsite-seo', 'google-my-business', 'appendix',
+         'supported-local-directories', 'supported-countries'].forEach(function (a) { map[a] = legacy; });
+
+        var anchor = '';
+        try { anchor = decodeURIComponent(location.hash.slice(1)).toLowerCase(); } catch (e) {}
+        var target = map[anchor] || portal;
+
+        // Count the visit (with the anchor, so we can see which old sections still get traffic).
+        // sendBeacon is still delivered after the page has gone, so we can redirect straight away.
+        var count = 'https://brightlocal.goatcounter.com/count?p=' +
+          encodeURIComponent('/' + (anchor ? '#' + anchor : '')) +
+          '&r=' + encodeURIComponent(document.referrer) + '&rnd=' + Math.random();
+        try {
+          if (!navigator.sendBeacon || !navigator.sendBeacon(count)) { new Image().src = count; }
+        } catch (e) {}
+
+        location.replace(target);
+      })();
+    </script>
+    <meta http-equiv="refresh" content="0;url=https://developer.brightlocal.com/">
+  </head>
+  <body>
+    <p>The BrightLocal API docs have moved to <a href="https://developer.brightlocal.com/">developer.brightlocal.com</a>. If you're not redirected, please click the link.</p>
+  </body>
+</html>
